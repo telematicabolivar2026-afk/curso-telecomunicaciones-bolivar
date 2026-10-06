@@ -3,54 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Curso Nivel 1 - Telecomunicaciones</title>
+    <title>Curso Nivel 1 - Telecomunicaciones | Cruz Roja Colombiana</title>
     <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            background: #f4f6f8; 
-            text-align: center; 
-            padding: 50px; 
-            margin: 0;
+        :root {
+            --rojo-cr: #b30000;
+            --rojo-oscuro: #8a0000;
+            --gris-claro: #f4f6f8;
+            --texto: #333;
+            --blanco: #ffffff;
         }
-        h1 { 
-            color: #b30000; 
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+            background: var(--gris-claro);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        /* --- Encabezado --- */
+        header {
+            background: var(--blanco);
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .header-logos {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-logos img {
+            height: 60px;
+            width: auto;
+        }
+
+        .header-titulo {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .header-titulo h1 {
+            color: var(--rojo-cr);
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .header-titulo p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* --- Contenedor Principal --- */
+        .contenedor {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* --- Bienvenida --- */
+        .bienvenida {
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            margin-bottom: 50px;
+            border-top: 5px solid var(--rojo-cr);
+        }
+
+        .bienvenida h2 {
+            color: var(--rojo-cr);
+            margin-bottom: 15px;
+        }
+
+        .bienvenida p {
+            max-width: 800px;
+            margin: 0 auto 20px auto;
+            font-size: 1.1rem;
+        }
+
+        /* --- Módulos --- */
+        .titulo-seccion {
+            text-align: center;
+            color: var(--rojo-cr);
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+        }
+
+        .grid-modulos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .tarjeta-modulo {
+            background: var(--blanco);
+            padding: 30px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--texto);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 6px solid var(--rojo-cr);
+        }
+
+        .tarjeta-modulo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(179,0,0,0.15);
+        }
+
+        .tarjeta-modulo .numero {
+            display: inline-block;
+            background: var(--rojo-cr);
+            color: var(--blanco);
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .tarjeta-modulo h3 {
+            font-size: 1.2rem;
             margin-bottom: 10px;
+            color: #222;
         }
-        h2 {
-            color: #333;
-            margin-top: 0;
+
+        .tarjeta-modulo p {
+            font-size: 0.95rem;
+            color: #555;
         }
-        .tarjeta { 
-            background: white; 
-            padding: 40px; 
-            border-radius: 10px; 
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
-            max-width: 600px; 
-            margin: auto; 
+
+        /* --- Progreso --- */
+        .progreso {
+            background: var(--blanco);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            text-align: center;
         }
-        .boton { 
-            background: #b30000; 
-            color: white; 
-            padding: 12px 25px; 
-            text-decoration: none; 
-            border-radius: 5px; 
-            display: inline-block; 
-            margin-top: 20px; 
-            font-weight: bold; 
-            transition: background 0.3s;
+
+        .progreso h2 {
+            color: var(--rojo-cr);
+            margin-bottom: 20px;
         }
-        .boton:hover { 
-            background: #8a0000; 
+
+        .barra-progreso {
+            background: #e0e0e0;
+            height: 30px;
+            border-radius: 15px;
+            overflow: hidden;
+            max-width: 600px;
+            margin: 0 auto;
         }
+
+        .barra-relleno {
+            background: var(--rojo-cr);
+            height: 100%;
+            width: 0%;
+            color: var(--blanco);
+            font-weight: bold;
+            line-height: 30px;
+            text-align: center;
+            transition: width 0.5s ease;
+        }
+
+        /* --- Pie de página --- */
+        footer {
+            background: #222;
+            color: #ccc;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        footer strong { color: var(--blanco); }
     </style>
 </head>
 <body>
-    <div class="tarjeta">
-        <h1>🚑 Cruz Roja Colombiana</h1>
-        <h2>Curso Nivel 1 de Telecomunicaciones</h2>
-        <p>Seccional Bolívar</p>
-        <p>¡Felicidades! Tu página web en GitHub Pages está funcionando correctamente. 🎉</p>
-        <a href="#" class="boton">Comenzar Curso</a>
-    </div>
+
+    <header>
+        <div class="header-logos">
+            <img src="img/logo-cruz-roja.png" alt="Cruz Roja Colombiana">
+            <!-- Aquí irá el logo de Telemática cuando lo tengas -->
+            <!-- <img src="img/logo-telematica.png" alt="Telemática Seccional Bolívar"> -->
+        </div>
+        <div class="header-titulo">
+            <h1>Curso Nivel 1 de Telecomunicaciones</h1>
+            <p>Radio Operador de Despacho | Cruz Roja Colombiana Seccional Bolívar</p>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        
+        <section class="bienvenida">
+            <h2>¡Bienvenido al curso!</h2>
+            <p>Este curso te proporcionará los conocimientos básicos para desempeñarte como Radio Operador de Despacho, siguiendo los lineamientos del manual oficial de la Cruz Roja Colombiana.</p>
+            <p>A continuación, encontrarás los módulos del Nivel I. Te invitamos a completarlos en orden.</p>
+        </section>
+
+        <h2 class="titulo-seccion">Módulos del Curso</h2>
+        
+        <section class="grid-modulos">
+            <a href="modulos/modulo1.html" class="tarjeta-modulo">
+                <span class="numero">1</span>
+                <h3>La Comunicación Humana</h3>
+                <p>Definición, elementos, barreras y cualidades de una buena comunicación oral.</p>
+            </a>
+
+            <a href="modulos/modulo2.html" class="tarjeta-modulo">
+                <span class="numero">2</span>
+                <h3>Equipos de Radio y Frecuencias</h3>
+                <p>Tipos de equipos, controles básicos, frecuencias radiales y antenas.</p>
+            </a>
+
+            <a href="modulos/modulo3.html" class="tarjeta-modulo">
+                <span class="numero">3</span>
+                <h3>Subsistemas de Comunicación</h3>
+                <p>Redes de emergencia en Colombia: Cruz Roja, Bomberos, Defensa Civil y más.</p>
+            </a>
+
+            <a href="modulos/modulo4.html" class="tarjeta-modulo">
+                <span class="numero">4</span>
+                <h3>Operación Básica de Equipos</h3>
+                <p>Normas de operación, uso del PTT, llamadas generales, específicas y de socorro.</p>
+            </a>
+
+            <a href="modulos/modulo5.html" class="tarjeta-modulo">
+                <span class="numero">5</span>
+                <h3>Códigos y Abreviaturas</h3>
+                <p>Código Fonético ICAO, Código "Q" Internacional, Código Morse y abreviaturas.</p>
+            </a>
+
+            <a href="modulos/modulo6.html" class="tarjeta-modulo">
+                <span class="numero">6</span>
+                <h3>Evaluación Final</h3>
+                <p>Pon a prueba todos los conocimientos adquiridos durante el curso.</p>
+            </a>
+        </section>
+
+        <section class="progreso">
+            <h2>Tu Progreso</h2>
+            <div class="barra-progreso">
+                <div id="barraRelleno" class="barra-relleno">0%</div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 <strong>Cruz Roja Colombiana - Seccional Bolívar</strong> | Curso Nivel 1 de Telecomunicaciones</p>
+        <p>Desarrollado por el Área de Telemática</p>
+    </footer>
+
 </body>
 </html>

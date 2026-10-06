@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 1: La Comunicación Humana | Curso Telecomunicaciones</title>
+    <style>
+        :root {
+            --rojo-cr: #b30000;
+            --rojo-oscuro: #8a0000;
+            --gris-claro: #f4f6f8;
+            --texto: #333;
+            --blanco: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: var(--gris-claro);
+            color: var(--texto);
+            line-height: 1.7;
+        }
+
+        /* --- Encabezado --- */
+        header {
+            background: var(--blanco);
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-izq, .logo-der {
+            height: 60px;
+            width: auto;
+        }
+
+        .header-titulo {
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        .header-titulo h1 {
+            color: var(--rojo-cr);
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        /* --- Contenedor Principal --- */
+        .contenedor {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .boton-volver {
+            display: inline-block;
+            background: var(--rojo-cr);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .boton-volver:hover { background: var(--rojo-oscuro); }
+
+        /* --- Contenido del Módulo --- */
+        .contenido-modulo {
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--rojo-cr);
+        }
+
+        .contenido-modulo h2 {
+            color: var(--rojo-cr);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .contenido-modulo h3 {
+            color: #222;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contenido-modulo p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .contenido-modulo ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .contenido-modulo li {
+            margin-bottom: 8px;
+        }
+
+        /* --- Cajas de Destacado --- */
+        .destacado {
+            background: #fff3f3;
+            border-left: 5px solid var(--rojo-cr);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .destacado h4 {
+            color: var(--rojo-cr);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* --- Espacios para Multimedia --- */
+        .multimedia {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+        }
+
+        .multimedia img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .multimedia video {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .multimedia p {
+            color: #666;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        /* --- Botón Siguiente --- */
+        .siguiente {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .boton-siguiente {
+            display: inline-block;
+            background: var(--rojo-cr);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .boton-siguiente:hover {
+            background: var(--rojo-oscuro);
+            transform: scale(1.05);
+        }
+
+        /* --- Pie de página --- */
+        footer {
+            background: #222;
+            color: #ccc;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        footer strong { color: var(--blanco); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana" class="logo-izq">
+        <div class="header-titulo">
+            <h1>Módulo 1: La Comunicación Humana</h1>
+            <p>Curso Nivel 1 de Telecomunicaciones</p>
+        </div>
+        <img src="../img/logo-telematica.png" alt="Telemática Seccional Bolívar" class="logo-der">
+    </header>
+
+    <main class="contenedor">
+        
+        <a href="../index.html" class="boton-volver">← Volver al Inicio</a>
+
+        <article class="contenido-modulo">
+            <h2>1. La Comunicación Humana</h2>
+            
+            <p>Se puede definir la comunicación como <strong>"el acto mediante el cual establecemos relaciones con los demás e influimos sobre ellos con el fin de cambiar o ratificar su comportamiento."</strong></p>
+            
+            <p>Es el fenómeno que caracteriza al hombre, pues este es capaz de convertir en comunicación todo lo que le rodea, desde sus gestos, sus vestidos y los objetos que él elabora, hasta la misma naturaleza.</p>
+
+            <p>La efectividad de la comunicación no depende de la cantidad de ideas que se transmitan, sino de los resultados que produzcan en quien los reciba. Un buen comunicador, por consiguiente, será aquel capaz de expresarse de tal forma que otros le comprendan y actúen de acuerdo con lo expresado.</p>
+
+            <div class="multimedia">
+                <img src="../img/proceso-comunicacion.png" alt="Diagrama del Proceso de la Comunicación">
+                <p>Figura 1. El Proceso de la Comunicación (Fuente: Manual de Telecomunicaciones para Radio Operador de Despacho).</p>
+            </div>
+
+            <h3>1.1 Elementos de la Comunicación</h3>
+            <p>Cuando alguien comunica sus ideas o expresa sus sentimientos, se cumple la primera etapa del proceso: la emisión del mensaje. Una vez recibida la comunicación o percibida la actitud, provoca una respuesta o efecto y se completa el proceso mediante la <strong>retroalimentación</strong>.</p>
+
+            <ul>
+                <li><strong>Fuente:</strong> Donde se originan las ideas o necesidades que dan origen a un mensaje.</li>
+                <li><strong>Emisor:</strong> Quien expresa las ideas o necesidades; convierte la energía (ideas) en una señal transmisible y coherente.</li>
+                <li><strong>Mensaje:</strong> El contenido de lo que se dice o expresa (conjunto de ideas).</li>
+                <li><strong>Canal o Medio:</strong> El vehículo que se utiliza para hacer llegar el mensaje al receptor.</li>
+                <li><strong>Receptor:</strong> Quien recibe y capta el mensaje, de quien se espera un resultado o respuesta.</li>
+                <li><strong>Retroalimentación:</strong> La conexión que se establece entre el emisor y el receptor. Garantiza la comprensión del mensaje emitido.</li>
+            </ul>
+
+            <div class="destacado">
+                <h4>Requisitos del Mensaje</h4>
+                <ul>
+                    <li><strong>Credibilidad:</strong> El mensaje debe ser veraz y real.</li>
+                    <li><strong>Utilidad:</strong> Debe ser útil a quien va dirigido.</li>
+                    <li><strong>Claridad:</strong> Las ideas y conceptos deben ser claros y sin ambigüedades.</li>
+                </ul>
+            </div>
+
+            <h3>1.2 Barreras de la Comunicación</h3>
+            <p>En algunas ocasiones, cuando el emisor envía un mensaje a un receptor, puede suceder que el mensaje no llegue, llegue distorsionado o llegue incompleto. Estas situaciones se presentan debido a las barreras o interferencias en la comunicación.</p>
+
+            <div class="multimedia">
+                <img src="../img/barreras-comunicacion.png" alt="Diagrama de Barreras de la Comunicación">
+                <p>Figura 2. La Comunicación y las Barreras (Fuente: Manual de Telecomunicaciones para Radio Operador de Despacho).</p>
+            </div>
+
+            <p>Las barreras se pueden presentar en:</p>
+            <ul>
+                <li><strong>El Emisor:</strong> Temor o inseguridad, actitudes negativas, estado emocional, bajo nivel de conocimientos, empleo inapropiado del código.</li>
+                <li><strong>El Canal o Medio:</strong> Ruido, descargas eléctricas, mal funcionamiento de los equipos.</li>
+                <li><strong>El Mensaje:</strong> Código mal empleado (palabras con significado diferente según el contexto), contenidos poco claros o precisos.</li>
+                <li><strong>El Receptor:</strong> Deficiencias físicas, estado emocional, dificultad de comprensión, distracción, no saber escuchar, resistencia al cambio.</li>
+            </ul>
+
+            <h3>1.3 Cualidades de una Buena Comunicación Oral</h3>
+            <p>La capacidad de comunicación oral está vinculada directamente a la empresa de ser persona. Para transmitir un mensaje de manera efectiva por radio, es de notoria importancia tener presente los siguientes factores:</p>
+
+            <ul>
+                <li><strong>Seguridad:</strong> Esté seguro del mensaje que desea transmitir; esquematice mentalmente la "esencia" del mismo.</li>
+                <li><strong>Concisión:</strong> Sea conciso en sus mensajes, con claridad antes que economía de palabras.</li>
+                <li><strong>Claridad:</strong> Conecte "el cerebro con la lengua", hable con calma para articular con claridad las palabras.</li>
+                <li><strong>Tono de voz:</strong> Utilice un tono fuerte de voz, no le tenga miedo al micrófono, pero no levante en exceso la voz.</li>
+                <li><strong>Retroalimentación:</strong> Asegúrese continuamente de que su mensaje realmente llegó al receptor conforme usted necesita que lo entienda.</li>
+                <li><strong>Cortesía:</strong> Sea cortés siempre con su interlocutor. Utilice frases amables, pero sin excederse.</li>
+                <li><strong>Respeto a las normas:</strong> Sea el primero respetuoso de las normas de comunicación radial y hágalas cumplir con sus compañeros de frecuencia.</li>
+            </ul>
+
+            <div class="multimedia">
+                <video controls>
+                    <source src="../video/intro-comunicacion.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Video 1. Introducción a la comunicación radial (Espacio reservado para tu video).</p>
+            </div>
+
+            <div class="siguiente">
+                <p>¡Has completado la teoría del Módulo 1!</p>
+                <br>
+                <a href="modulo2.html" class="boton-siguiente">Ir al Módulo 2 →</a>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 <strong>Cruz Roja Colombiana - Seccional Bolívar</strong> | Curso Nivel 1 de Telecomunicaciones</p>
+    </footer>
+
+</body>
+</html>

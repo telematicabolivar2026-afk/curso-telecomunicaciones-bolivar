@@ -119,7 +119,6 @@
             cursor: pointer;
         }
 
-        /* Estados de respuesta */
         .pregunta.correcta {
             background: #e8f5e9;
             border-left-color: var(--verde);
@@ -382,21 +381,18 @@
             let correctas = 0;
             let respondidas = 0;
 
-            // Recorremos cada pregunta
             document.querySelectorAll('.pregunta').forEach((pregunta) => {
                 const nombre = pregunta.querySelector('input').name;
                 const seleccionada = pregunta.querySelector('input:checked');
                 const retro = pregunta.querySelector('.retro');
 
-                // Limpiamos estados previos
                 pregunta.classList.remove('correcta', 'incorrecta');
                 retro.classList.remove('ok', 'no');
                 retro.style.display = 'none';
 
-                if (!seleccionada) return; // Si no respondió, la dejamos en blanco
+                if (!seleccionada) return;
                 respondidas++;
 
-                // Marcamos la opción seleccionada
                 pregunta.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
                 seleccionada.parentElement.classList.add('seleccionada');
 
@@ -409,7 +405,6 @@
                     pregunta.classList.add('incorrecta');
                     retro.classList.add('no');
                     retro.textContent = '❌ Incorrecto. La respuesta correcta está marcada en verde.';
-                    // Marcamos visualmente la respuesta correcta
                     pregunta.querySelectorAll('input').forEach(inp => {
                         if (inp.value === respuestasCorrectas[nombre]) {
                             inp.parentElement.style.borderColor = '#2e7d32';
@@ -425,7 +420,6 @@
                 return;
             }
 
-            // Mostrar resultado final
             const resultado = document.getElementById('resultado');
             const nota = document.getElementById('notaFinal');
             const mensaje = document.getElementById('mensajeFinal');
@@ -433,7 +427,6 @@
             nota.textContent = correctas + '/' + totalPreguntas;
             resultado.style.display = 'block';
 
-            // Ocultar el botón de calificar y mostrar el de reiniciar
             document.querySelector('.boton-calificar').style.display = 'none';
             document.getElementById('btnReiniciar').style.display = 'inline-block';
 
@@ -445,15 +438,12 @@
                 mensaje.textContent = '📚 No has aprobado. Obtuviste un ' + Math.round((correctas/totalPreguntas)*100) + '%. Te recomendamos repasar la teoría y volver a intentarlo.';
             }
 
-            // Scroll hasta el resultado
             resultado.scrollIntoView({ behavior: 'smooth' });
         }
 
         function reiniciar() {
-            // Limpiar formulario
             document.getElementById('quizForm').reset();
 
-            // Limpiar estados visuales
             document.querySelectorAll('.pregunta').forEach(p => {
                 p.classList.remove('correcta', 'incorrecta');
                 p.querySelectorAll('label').forEach(l => {
@@ -466,11 +456,9 @@
                 retro.classList.remove('ok', 'no');
             });
 
-            // Ocultar resultado
             document.getElementById('resultado').style.display = 'none';
             document.getElementById('resultado').classList.remove('aprobado');
 
-            // Mostrar botón calificar, ocultar reiniciar
             document.querySelector('.boton-calificar').style.display = 'inline-block';
             document.getElementById('btnReiniciar').style.display = 'none';
 

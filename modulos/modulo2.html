@@ -1,1 +1,434 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 2: Equipos de Radio y Frecuencias | Curso Telecomunicaciones</title>
+    <style>
+        :root {
+            --rojo-cr: #b30000;
+            --rojo-oscuro: #8a0000;
+            --verde: #2e7d32;
+            --gris-claro: #f4f6f8;
+            --texto: #333;
+            --blanco: #ffffff;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: var(--gris-claro);
+            color: var(--texto);
+            line-height: 1.7;
+        }
+
+        header {
+            background: var(--blanco);
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-izq, .logo-der { height: 60px; width: auto; }
+
+        .header-titulo { text-align: center; flex-grow: 1; }
+
+        .header-titulo h1 {
+            color: var(--rojo-cr);
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .contenedor { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+
+        .boton-volver {
+            display: inline-block;
+            background: var(--rojo-cr);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .boton-volver:hover { background: var(--rojo-oscuro); }
+
+        .contenido-modulo {
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--rojo-cr);
+        }
+
+        .contenido-modulo h2 {
+            color: var(--rojo-cr);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .contenido-modulo h3 {
+            color: #222;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contenido-modulo h4 {
+            color: var(--rojo-cr);
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.15rem;
+        }
+
+        .contenido-modulo p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .contenido-modulo ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .contenido-modulo li {
+            margin-bottom: 8px;
+        }
+
+        .destacado {
+            background: #fff3f3;
+            border-left: 5px solid var(--rojo-cr);
+            padding: 20px;
+            margin: 25px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .destacado h4 {
+            color: var(--rojo-cr);
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-top: 0;
+        }
+
+        .multimedia {
+            text-align: center;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+        }
+
+        .multimedia img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .multimedia p {
+            color: #666;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        /* Espacio reservado cuando la imagen aún no se ha subido */
+        .placeholder {
+            background: #fff8e1;
+            border: 2px dashed #f9a825;
+            padding: 30px;
+            text-align: center;
+            color: #7a5c00;
+            font-style: italic;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .placeholder strong {
+            color: #b30000;
+            display: block;
+            margin-top: 10px;
+            font-size: 1.1rem;
+        }
+
+        .tabla-espectro {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+
+        .tabla-espectro th {
+            background: var(--rojo-cr);
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .tabla-espectro td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .tabla-espectro tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .formula {
+            background: #f0f0f0;
+            border-left: 5px solid #555;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.05rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .siguiente {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+
+        .boton-siguiente {
+            display: inline-block;
+            background: var(--rojo-cr);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .boton-siguiente:hover {
+            background: var(--rojo-oscuro);
+            transform: scale(1.05);
+        }
+
+        .boton-quiz {
+            background: var(--verde) !important;
+        }
+
+        .boton-quiz:hover {
+            background: #1b5e20 !important;
+        }
+
+        footer {
+            background: #222;
+            color: #ccc;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        footer strong { color: var(--blanco); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana" class="logo-izq">
+        <div class="header-titulo">
+            <h1>Módulo 2: Equipos de Radio y Frecuencias</h1>
+            <p>Curso Nivel 1 de Telecomunicaciones</p>
+        </div>
+        <img src="../img/logo-telematica.png" alt="Telemática Seccional Bolívar" class="logo-der">
+    </header>
+
+    <main class="contenedor">
+        
+        <a href="../index.html" class="boton-volver">← Volver al Inicio</a>
+
+        <article class="contenido-modulo">
+            <h2>2. Equipos de Radio y Frecuencias</h2>
+            
+            <p>En este módulo conoceremos cómo funciona un equipo de radio, sus componentes básicos, los controles que debemos manejar como operadores y los conceptos fundamentales sobre frecuencias y antenas.</p>
+
+            <h3>2.1 ¿Qué es un equipo de radio recepción y transmisión?</h3>
+            
+            <p>Es posible que muy pocos hayan tenido contacto directo con transmisores. Para muchos, la palabra misma es poco familiar. Sin embargo, en ocasiones hemos hecho referencia a un tipo de transmisor o a otro, llamándolo <strong>estación de radio</strong> o <strong>estación difusora</strong>.</p>
+
+            <p>Cuando escuchamos un radio, las señales que recibimos llegan al radiorreceptor a través del espacio. El <strong>transmisor más sencillo</strong> consiste en un oscilador que genera una señal de alta frecuencia. El oscilador se puede conectar a una antena para completar el transmisor. La antena, en este caso, irradia la señal con una intensidad igual a la del oscilador.</p>
+
+            <div class="multimedia">
+                <img src="../img/transmisor-sencillo.png" alt="Diagrama del Transmisor Sencillo">
+                <p>Figura 1. Transmisor Sencillo (Fuente: Manual de Telecomunicaciones para Radio Operador de Despacho).</p>
+            </div>
+
+            <p>Sin un radiorreceptor que capte la señal del transmisor no oiríamos nada, pero si percibiríamos un sonido agudo y continuo. Para añadir inteligencia a la señal, el oscilador tendría que interrumpir en forma predeterminada la señal para producir sonidos cortos y largos, los cuales equivaldrían a puntos (los cortos) y rayas (los largos) — el principio del <strong>código Morse</strong>.</p>
+
+            <div class="multimedia">
+                <img src="../img/transmisor-senal.png" alt="Transmisor con Señal de Alta Frecuencia">
+                <p>Figura 2. Transmisor Sencillo emitiendo señal de alta frecuencia.</p>
+            </div>
+
+            <h4>Potencia</h4>
+            <p>Para darle un poco más de potencia al transmisor, es necesario colocarle una serie de amplificadores hasta obtener un nivel adecuado. Tendríamos así el <strong>oscilador</strong> (que genera la señal), más la primera etapa de amplificación, y esta a su vez es amplificada por siguientes etapas hasta obtener una potencia lo suficientemente fuerte que es emitida al espacio.</p>
+
+            <h4>Receptor Superheterodino</h4>
+            <p>El receptor más sencillo es el llamado <strong>detector o cristal</strong>, que consiste en una antena aérea, una bobina, unos audífonos y un diodo detector. A partir de este sencillo detector se desarrolla todo receptor que hoy usamos: el <strong>Superheterodino</strong>.</p>
+
+            <div class="multimedia">
+                <img src="../img/receptor-superheterodino.png" alt="Diagrama del Receptor Superheterodino">
+                <p>Figura 3. Receptor Superheterodino (Fuente: Manual de Telecomunicaciones para Radio Operador de Despacho).</p>
+            </div>
+
+            <p>Si combinamos, con un selector conmutable (un switch), las etapas de receptor y transmisor, tendremos un equipo completo para <strong>Comunicación (Transmisor - Receptor)</strong>.</p>
+
+            <h3>2.2 Tipos de Radio Receptores y Transmisores</h3>
+
+            <h4>Equipos Portátiles</h4>
+            <p>Entiéndase por estación destinada a ser utilizada en movimiento o mientras esté detenida en puntos no determinados, compuesta por equipos fácilmente transportables. El equipo y su sistema irradiante (antena) están unidos en un solo cuerpo, lo cual le hace especialmente fácil y cómodo de utilizar.</p>
+            <p>La mayoría de las instituciones cuentan con modelos de radios portátiles, tales como los siguientes: <strong>Motorola P-200, Yaesu FT-23R, Yaesu FT-26, Motorola SP-50</strong>.</p>
+            <p>Todos los anteriores modelos son poseedores de los siguientes controles: <strong>Volumen, Squelch, Dial</strong>; además, algunos tienen funciones alternas como bipper, llamada selectiva, monitoreo de canal prioritario y otras.</p>
+
+            <h4>Equipos Móviles</h4>
+            <p>Entiéndase por estación determinada a ser usada en un vehículo en movimiento. El equipo y su sistema irradiante (antena) están separados, lo que hace que sea usado solo en vehículos. Las instituciones de socorro cuentan con este tipo de equipo en sus vehículos asistenciales; entre los más usados están los equipos <strong>Motorola M-214 - GM-300</strong>, por ser modelos de fácil manejo.</p>
+
+            <h4>Equipos Fijos</h4>
+            <p>Se entiende por equipo fijo al que se usa en la consola y que por sus características técnicas y sistema irradiante (antena) es de difícil traslado de un lugar a otro. Por ejemplo, los que usan formaciones directivas, torres, etc. En esta clasificación se pueden agrupar las estaciones de enlace con las sedes nacionales de algunas entidades. Por lo general, son equipos de gran tamaño y con un gran número de funciones.</p>
+
+            <h3>2.3 Controles de un Equipo de Radio</h3>
+            <p>No todos los equipos de radio tienen igual cantidad de funciones y controles, pero sí tienen algunos controles comunes que hacen funciones específicas:</p>
+
+            <ul>
+                <li><strong>Encendido:</strong> Su función es permitir el paso de la corriente eléctrica en los componentes del equipo. Se le denomina "cerrar el circuito" o energizar el equipo.</li>
+                <li><strong>Control de Audio Frecuencia (Volumen):</strong> Ajusta a un nivel de sonido agradable el audio del equipo.</li>
+                <li><strong>Selector de Canales (Dial):</strong> Permite seleccionar la frecuencia o el canal que vamos a utilizar.</li>
+                <li><strong>Squelch (Estrangulador):</strong> No permite sonido alguno mientras está activado. Solo se escuchará sonido cuando la señal sobrepase el nivel ajustado previamente.</li>
+            </ul>
+
+            <div class="destacado">
+                <h4>Recomendación</h4>
+                <p>Para un mejor manejo del equipo de radio, es recomendable que se tenga muy en cuenta y se <strong>LEA el MANUAL DE INSTRUCCIÓN</strong> del equipo a usar.</p>
+            </div>
+
+            <h3>2.4 ¿Qué es una Frecuencia Radial?</h3>
+
+            <p>Para saber qué es una frecuencia, debemos tener definido qué es una <strong>onda de radio</strong>. La onda es una forma especial de movimiento vibratorio que se propaga por el medio desde donde se origina.</p>
+
+            <p>Existen <strong>ondas materiales</strong> (como el sonido), que se propagan por las vibraciones de la materia y no pueden propagarse en el vacío; y las <strong>ondas electromagnéticas</strong>, que no necesitan de medio material para propagarse, por lo tanto pueden hacerlo en el vacío.</p>
+
+            <p>La velocidad de propagación de las ondas electromagnéticas es aproximadamente <strong>300.000 Km/segundo</strong>. La <strong>Frecuencia</strong> es el número de oscilaciones por segundo y se mide en <strong>Hertz</strong>. La <strong>Longitud de onda</strong> es la distancia recorrida en cada oscilación.</p>
+
+            <div class="formula">
+                <strong>λ (Longitud de onda) = V (Velocidad) / F (Frecuencia)</strong>
+            </div>
+
+            <p>Las magnitudes que frecuentemente investigaremos son la Frecuencia y la Longitud de Onda. Las fórmulas para despejarlas son:</p>
+
+            <div class="formula">
+                Frecuencia en Kilohertz = 300.000 / Longitud de Onda en Metros<br><br>
+                Frecuencia en Megahertz = 300 / Longitud de Onda en Metros
+            </div>
+
+            <div class="formula">
+                Longitud de Onda en metros = 300.000 / Fcia en Kilohertz (KHz)<br><br>
+                Longitud de Onda en metros = 300 / Fcia en Megahertz (MHz)
+            </div>
+
+            <h3>2.5 Tipos o Rangos de Frecuencias Radial</h3>
+            <p>La agrupación de los rangos de frecuencias se denomina <strong>espectro radioeléctrico</strong>, el cual se agrupa así:</p>
+
+            <table class="tabla-espectro">
+                <thead>
+                    <tr>
+                        <th>Gama de Fcia</th>
+                        <th>Abreviatura</th>
+                        <th>Calificativa</th>
+                        <th>Subdivisión Métrica</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>3 a 30 KHz</td><td>VLF</td><td>Frecuencia Muy Baja</td><td>Ondas Miriométricas</td></tr>
+                    <tr><td>30 a 300 KHz</td><td>LF</td><td>Frecuencia Baja</td><td>Ondas Kilométricas</td></tr>
+                    <tr><td>300 a 3.000 KHz</td><td>MF</td><td>Frecuencia Media</td><td>Ondas Hectométricas</td></tr>
+                    <tr><td>3 a 30 MHz</td><td>HF</td><td>Frecuencia Alta</td><td>Ondas Decamétricas</td></tr>
+                    <tr><td>30 a 300 MHz</td><td>VHF</td><td>Frecuencia Muy Alta</td><td>Ondas Métricas</td></tr>
+                    <tr><td>300 a 3.000 MHz</td><td>UHF</td><td>Frecuencia Ultra Alta</td><td>Ondas Decimétricas</td></tr>
+                    <tr><td>3 a 30 GHz</td><td>SHF</td><td>Frecuencia Súper Alta</td><td>Ondas Centimétricas</td></tr>
+                    <tr><td>30 a 300 GHz</td><td>EHF</td><td>Frecuencia Extremadamente Alta</td><td>Ondas Milimétricas</td></tr>
+                </tbody>
+            </table>
+
+            <h3>2.6 Función y Tipos de Antenas</h3>
+
+            <p><strong>Antena:</strong> Es la porción del conjunto que irradia la energía de RF (Radio Frecuencia) y la que convierte esta energía en ondas electromagnéticas. Este conjunto está formado por la línea de transmisión y la formación metálica.</p>
+
+            <p>Hay muchos tipos de antenas. Los dos tipos más comunes son la <strong>antena MARCONI</strong> y la <strong>antena HERTZ</strong>.</p>
+
+            <h4>Antena Marconi</h4>
+            <p>También llamada antena puesta a tierra. Consiste en un simple alambre al cual se le suministra energía de alta frecuencia cerca de su extremo de tierra. La longitud eléctrica de esta antena debe ser normalmente un cuarto de longitud de onda (λ/4).</p>
+
+            <div class="multimedia">
+                <img src="../img/antena-marconi.png" alt="Antena Marconi">
+                <p>Figura 4. Antena Marconi (Fuente: Manual de Telecomunicaciones para Radio Operador de Despacho).</p>
+            </div>
+
+            <h4>Antena Hertz</h4>
+            <p>Al contrario que la Marconi, funciona sin conexión a tierra. La energía de alta frecuencia se aplica en el centro de la antena. La longitud del conductor es igual a múltiplos de media longitud de onda a irradiar (λ/2).</p>
+
+            <div class="multimedia">
+                <img src="../img/antena-hertz.png" alt="Antena Hertz">
+                <p>Figura 5. Antena Hertz (Fuente: Manual de Telecomunicaciones para Radio Operador de Despacho).</p>
+            </div>
+
+            <h4>Antenas Direccionales</h4>
+            <p>Con base en los dos tipos anteriores, se desarrollan un sinnúmero de modelos de los cuales el más destacado son las formaciones direccionales o directivas. Proporcionan ciertas ventajas, como la llamada "ganancia sobre el dipolo básico", pudiéndose tener ganancias de 15 o 20 decibelios.</p>
+
+            <div class="multimedia">
+                <img src="../img/antena-direccional.png" alt="Antena Direccional">
+                <p>Figura 6. Antena Direccional (Fuente: Manual de Telecomunicaciones para Radio Operador de Despacho).</p>
+            </div>
+
+            <!-- 🎧 ESPACIO PARA AUDIO DEL MÓDULO 2 -->
+            <div style="margin: 30px 0; padding: 20px; background: #fff3f3; border-left: 5px solid #b30000; border-radius: 0 8px 8px 0;">
+                <p style="margin-bottom: 10px; font-weight: bold; color: #b30000; font-size: 1.1rem;">🎧 Escucha la teoría completa del módulo:</p>
+                <audio controls style="width: 100%;">
+                    <source src="../audio/modulo2-teoria.mp3" type="audio/mpeg">
+                    Tu navegador no soporta la etiqueta de audio.
+                </audio>
+                <p style="font-size: 0.85rem; color: #777; margin-top: 8px; font-style: italic;">(Audio en proceso de grabación)</p>
+            </div>
+
+            <!-- 🎥 ESPACIO PARA VIDEO DEL MÓDULO 2 -->
+            <div class="multimedia">
+                <video controls>
+                    <source src="../video/intro-equipos.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Video 1. Introducción a los equipos de radio (Espacio reservado para tu video).</p>
+            </div>
+
+            <div class="siguiente">
+                <p>¡Has completado la teoría del Módulo 2!</p>
+                <br>
+                <a href="modulo2-evaluacion.html" class="boton-siguiente boton-quiz" style="margin-bottom: 15px;">📝 Presentar Evaluación del Módulo 2</a>
+                <br>
+                <a href="modulo3.html" class="boton-siguiente">Ir al Módulo 3 →</a>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 <strong>Cruz Roja Colombiana - Seccional Bolívar</strong> | Curso Nivel 1 de Telecomunicaciones</p>
+    </footer>
+
+</body>
+</html>

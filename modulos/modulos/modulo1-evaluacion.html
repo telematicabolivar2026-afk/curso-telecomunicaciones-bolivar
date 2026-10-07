@@ -1,1 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Módulo 1 | Curso Telecomunicaciones</title>
+    <style>
+        :root {
+            --rojo-cr: #b30000;
+            --rojo-oscuro: #8a0000;
+            --verde: #2e7d32;
+            --gris-claro: #f4f6f8;
+            --texto: #333;
+            --blanco: #ffffff;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: var(--gris-claro);
+            color: var(--texto);
+            line-height: 1.7;
+        }
+
+        header {
+            background: var(--blanco);
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-izq, .logo-der { height: 60px; width: auto; }
+
+        .header-titulo { text-align: center; flex-grow: 1; }
+
+        .header-titulo h1 {
+            color: var(--rojo-cr);
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .contenedor { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+
+        .boton-volver {
+            display: inline-block;
+            background: var(--rojo-cr);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .boton-volver:hover { background: var(--rojo-oscuro); }
+
+        .contenido-quiz {
+            background: var(--blanco);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--rojo-cr);
+        }
+
+        .contenido-quiz h2 {
+            color: var(--rojo-cr);
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .instrucciones {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .pregunta {
+            background: #f9f9f9;
+            border-left: 5px solid var(--rojo-cr);
+            border-radius: 0 8px 8px 0;
+            padding: 20px;
+            margin-bottom: 25px;
+            transition: background 0.3s;
+        }
+
+        .pregunta h3 {
+            color: #222;
+            font-size: 1.15rem;
+            margin-bottom: 15px;
+        }
+
+        .opciones label {
+            display: block;
+            padding: 12px 15px;
+            margin-bottom: 8px;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 1rem;
+        }
+
+        .opciones label:hover {
+            border-color: var(--rojo-cr);
+            background: #fff3f3;
+        }
+
+        .opciones input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        /* Estados de respuesta */
+        .pregunta.correcta {
+            background: #e8f5e9;
+            border-left-color: var(--verde);
+        }
+
+        .pregunta.incorrecta {
+            background: #ffebee;
+            border-left-color: var(--rojo-cr);
+        }
+
+        .pregunta.correcta label.seleccionada {
+            background: #c8e6c9;
+            border-color: var(--verde);
+        }
+
+        .pregunta.incorrecta label.seleccionada {
+            background: #ffcdd2;
+            border-color: var(--rojo-cr);
+        }
+
+        .retro {
+            margin-top: 12px;
+            padding: 12px;
+            border-radius: 6px;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .retro.ok {
+            background: #c8e6c9;
+            color: #1b5e20;
+        }
+
+        .retro.no {
+            background: #ffcdd2;
+            color: #b71c1c;
+        }
+
+        .botones {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #eee;
+        }
+
+        .boton {
+            display: inline-block;
+            padding: 14px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin: 5px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .boton-calificar {
+            background: var(--rojo-cr);
+            color: white;
+        }
+
+        .boton-calificar:hover { background: var(--rojo-oscuro); transform: scale(1.03); }
+
+        .boton-reiniciar {
+            background: #666;
+            color: white;
+            display: none;
+        }
+
+        .boton-reiniciar:hover { background: #444; }
+
+        .resultado {
+            display: none;
+            text-align: center;
+            margin-top: 30px;
+            padding: 30px;
+            border-radius: 12px;
+            background: #fff3f3;
+            border: 3px solid var(--rojo-cr);
+        }
+
+        .resultado h3 {
+            color: var(--rojo-cr);
+            font-size: 1.6rem;
+            margin-bottom: 15px;
+        }
+
+        .resultado .nota {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--rojo-cr);
+            margin: 10px 0;
+        }
+
+        .resultado .mensaje {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .resultado.aprobado { background: #e8f5e9; border-color: var(--verde); }
+        .resultado.aprobado h3, .resultado.aprobado .nota { color: var(--verde); }
+
+        footer {
+            background: #222;
+            color: #ccc;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        footer strong { color: var(--blanco); }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana" class="logo-izq">
+        <div class="header-titulo">
+            <h1>Evaluación - Módulo 1</h1>
+            <p>La Comunicación Humana</p>
+        </div>
+        <img src="../img/logo-telematica.png" alt="Telemática Seccional Bolívar" class="logo-der">
+    </header>
+
+    <main class="contenedor">
+        <a href="modulo1.html" class="boton-volver">← Volver al Módulo 1</a>
+
+        <div class="contenido-quiz">
+            <h2>Quiz de Evaluación</h2>
+            <p class="instrucciones">Responde las 8 preguntas. Para aprobar necesitas un mínimo de 6 respuestas correctas (75%).</p>
+
+            <form id="quizForm">
+
+                <div class="pregunta" data-correcta="b">
+                    <h3>1. ¿Qué es la comunicación?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p1" value="a"> El acto de hablar por radio únicamente.</label>
+                        <label><input type="radio" name="p1" value="b"> El acto mediante el cual establecemos relaciones con los demás e influimos sobre ellos.</label>
+                        <label><input type="radio" name="p1" value="c"> El proceso de transmitir información exclusivamente técnica.</label>
+                        <label><input type="radio" name="p1" value="d"> La capacidad de escribir mensajes largos.</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="pregunta" data-correcta="c">
+                    <h3>2. ¿Cuál de los siguientes NO es un elemento de la comunicación?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p2" value="a"> Fuente</label>
+                        <label><input type="radio" name="p2" value="b"> Emisor</label>
+                        <label><input type="radio" name="p2" value="c"> Antena</label>
+                        <label><input type="radio" name="p2" value="d"> Receptor</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="pregunta" data-correcta="b">
+                    <h3>3. ¿Qué elemento de la comunicación convierte las ideas en una señal transmisible?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p3" value="a"> Fuente</label>
+                        <label><input type="radio" name="p3" value="b"> Emisor</label>
+                        <label><input type="radio" name="p3" value="c"> Canal</label>
+                        <label><input type="radio" name="p3" value="d"> Receptor</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="pregunta" data-correcta="c">
+                    <h3>4. ¿Cuál es la función principal de la retroalimentación?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p4" value="a"> Aumentar la potencia de la señal.</label>
+                        <label><input type="radio" name="p4" value="b"> Seleccionar la frecuencia.</label>
+                        <label><input type="radio" name="p4" value="c"> Garantizar la comprensión del mensaje emitido.</label>
+                        <label><input type="radio" name="p4" value="d"> Amplificar el audio del equipo.</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="pregunta" data-correcta="b">
+                    <h3>5. ¿Cuáles son los requisitos que debe cumplir todo mensaje?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p5" value="a"> Ser largo, técnico y complejo.</label>
+                        <label><input type="radio" name="p5" value="b"> Credibilidad, utilidad y claridad.</label>
+                        <label><input type="radio" name="p5" value="c"> Usar palabras rebuscadas y códigos secretos.</label>
+                        <label><input type="radio" name="p5" value="d"> Ser transmitido únicamente en código Morse.</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="pregunta" data-correcta="d">
+                    <h3>6. ¿Cuál de las siguientes es una barrera en el EMISOR?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p6" value="a"> Ruido en el canal.</label>
+                        <label><input type="radio" name="p6" value="b"> Descargas eléctricas.</label>
+                        <label><input type="radio" name="p6" value="c"> Mal funcionamiento del equipo.</label>
+                        <label><input type="radio" name="p6" value="d"> Temor o inseguridad para hablar.</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="pregunta" data-correcta="c">
+                    <h3>7. ¿Cuál de las siguientes es una cualidad de una buena comunicación oral?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p7" value="a"> Hablar muy rápido para ahorrar tiempo.</label>
+                        <label><input type="radio" name="p7" value="b"> Usar palabras rebuscadas para impresionar.</label>
+                        <label><input type="radio" name="p7" value="c"> Tener seguridad en el mensaje que se transmite.</label>
+                        <label><input type="radio" name="p7" value="d"> Levantar la voz al máximo nivel.</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="pregunta" data-correcta="b">
+                    <h3>8. ¿Qué significa la expresión "conectar el cerebro con la lengua"?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p8" value="a"> Hablar sin pensar para ser más rápido.</label>
+                        <label><input type="radio" name="p8" value="b"> Hablar con calma para articular con claridad las palabras.</label>
+                        <label><input type="radio" name="p8" value="c"> Transmitir en HF en lugar de VHF.</label>
+                        <label><input type="radio" name="p8" value="d"> Usar el código fonético ICAO.</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="botones">
+                    <button type="button" class="boton boton-calificar" onclick="calificar()">Calificar Quiz</button>
+                    <button type="button" class="boton boton-reiniciar" id="btnReiniciar" onclick="reiniciar()">Intentar de nuevo</button>
+                </div>
+
+            </form>
+
+            <div class="resultado" id="resultado">
+                <h3>Resultado Final</h3>
+                <div class="nota" id="notaFinal">0/8</div>
+                <p class="mensaje" id="mensajeFinal"></p>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 <strong>Cruz Roja Colombiana - Seccional Bolívar</strong> | Curso Nivel 1 de Telecomunicaciones</p>
+    </footer>
+
+    <script>
+        const respuestasCorrectas = {
+            p1: 'b',
+            p2: 'c',
+            p3: 'b',
+            p4: 'c',
+            p5: 'b',
+            p6: 'd',
+            p7: 'c',
+            p8: 'b'
+        };
+
+        const totalPreguntas = Object.keys(respuestasCorrectas).length;
+
+        function calificar() {
+            let correctas = 0;
+            let respondidas = 0;
+
+            // Recorremos cada pregunta
+            document.querySelectorAll('.pregunta').forEach((pregunta) => {
+                const nombre = pregunta.querySelector('input').name;
+                const seleccionada = pregunta.querySelector('input:checked');
+                const retro = pregunta.querySelector('.retro');
+
+                // Limpiamos estados previos
+                pregunta.classList.remove('correcta', 'incorrecta');
+                retro.classList.remove('ok', 'no');
+                retro.style.display = 'none';
+
+                if (!seleccionada) return; // Si no respondió, la dejamos en blanco
+                respondidas++;
+
+                // Marcamos la opción seleccionada
+                pregunta.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
+                seleccionada.parentElement.classList.add('seleccionada');
+
+                if (seleccionada.value === respuestasCorrectas[nombre]) {
+                    correctas++;
+                    pregunta.classList.add('correcta');
+                    retro.classList.add('ok');
+                    retro.textContent = '✅ ¡Correcto!';
+                } else {
+                    pregunta.classList.add('incorrecta');
+                    retro.classList.add('no');
+                    retro.textContent = '❌ Incorrecto. La respuesta correcta está marcada en verde.';
+                    // Marcamos visualmente la respuesta correcta
+                    pregunta.querySelectorAll('input').forEach(inp => {
+                        if (inp.value === respuestasCorrectas[nombre]) {
+                            inp.parentElement.style.borderColor = '#2e7d32';
+                            inp.parentElement.style.background = '#e8f5e9';
+                        }
+                    });
+                }
+                retro.style.display = 'block';
+            });
+
+            if (respondidas === 0) {
+                alert('Por favor responde al menos una pregunta antes de calificar.');
+                return;
+            }
+
+            // Mostrar resultado final
+            const resultado = document.getElementById('resultado');
+            const nota = document.getElementById('notaFinal');
+            const mensaje = document.getElementById('mensajeFinal');
+
+            nota.textContent = correctas + '/' + totalPreguntas;
+            resultado.style.display = 'block';
+
+            // Ocultar el botón de calificar y mostrar el de reiniciar
+            document.querySelector('.boton-calificar').style.display = 'none';
+            document.getElementById('btnReiniciar').style.display = 'inline-block';
+
+            if (correctas >= 6) {
+                resultado.classList.add('aprobado');
+                mensaje.textContent = '🎉 ¡Felicidades! Has aprobado el Módulo 1 con un ' + Math.round((correctas/totalPreguntas)*100) + '%.';
+            } else {
+                resultado.classList.remove('aprobado');
+                mensaje.textContent = '📚 No has aprobado. Obtuviste un ' + Math.round((correctas/totalPreguntas)*100) + '%. Te recomendamos repasar la teoría y volver a intentarlo.';
+            }
+
+            // Scroll hasta el resultado
+            resultado.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function reiniciar() {
+            // Limpiar formulario
+            document.getElementById('quizForm').reset();
+
+            // Limpiar estados visuales
+            document.querySelectorAll('.pregunta').forEach(p => {
+                p.classList.remove('correcta', 'incorrecta');
+                p.querySelectorAll('label').forEach(l => {
+                    l.classList.remove('seleccionada');
+                    l.style.borderColor = '';
+                    l.style.background = '';
+                });
+                const retro = p.querySelector('.retro');
+                retro.style.display = 'none';
+                retro.classList.remove('ok', 'no');
+            });
+
+            // Ocultar resultado
+            document.getElementById('resultado').style.display = 'none';
+            document.getElementById('resultado').classList.remove('aprobado');
+
+            // Mostrar botón calificar, ocultar reiniciar
+            document.querySelector('.boton-calificar').style.display = 'inline-block';
+            document.getElementById('btnReiniciar').style.display = 'none';
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>

@@ -24,7 +24,6 @@
             line-height: 1.6;
         }
 
-        /* --- Encabezado del sitio --- */
         header {
             background: var(--blanco);
             padding: 15px 40px;
@@ -142,6 +141,7 @@
             text-align: center;
         }
 
+        /* Elemento decorativo (solo pantalla) */
         .certificado::before {
             content: "";
             position: absolute;
@@ -349,10 +349,10 @@
 
         footer strong { color: var(--blanco); }
 
-        /* ============ IMPRIMIR - 24cm ANCHO × 19cm ALTO (HORIZONTAL) ============ */
+        /* ============ IMPRIMIR - 24cm x 19cm HORIZONTAL ============ */
         @media print {
             @page {
-                size: 24cm 19cm landscape;
+                size: 24cm 19cm;
                 margin: 0;
             }
 
@@ -361,22 +361,22 @@
                 height: 19cm !important;
                 margin: 0 !important;
                 padding: 0 !important;
-                background: white !important;
+                background: #ffffff !important;
                 overflow: hidden !important;
             }
 
-            /* Ocultar todo lo que no es el certificado */
+            /* Ocultar todo lo que no es certificado */
             header, footer, .boton-volver, .panel-nombre, .acciones, .nota-correo {
                 display: none !important;
             }
 
             .contenedor {
-                max-width: none !important;
+                max-width: 24cm !important;
                 width: 24cm !important;
                 height: 19cm !important;
                 margin: 0 !important;
                 padding: 0 !important;
-                display: block !important;
+                overflow: hidden !important;
             }
 
             .certificado-wrapper {
@@ -387,90 +387,109 @@
                 padding: 0 !important;
             }
 
+            /* 🛠️ LA CLAVE: eliminar el elemento decorativo que tapaba el contenido */
+            .certificado::before {
+                display: none !important;
+            }
+
             .certificado {
                 width: 24cm !important;
                 height: 19cm !important;
                 box-sizing: border-box !important;
-                padding: 12px 20px !important;
-                border: 6px double var(--rojo-cr) !important;
-                outline: 2px solid var(--dorado) !important;
+                padding: 15px 25px !important;
+                border: 6px double #b30000 !important;
+                outline: 2px solid #c9a227 !important;
                 outline-offset: 4px;
                 box-shadow: none !important;
+                background: #ffffff !important;
                 margin: 0 !important;
                 page-break-inside: avoid !important;
                 page-break-after: avoid !important;
                 page-break-before: avoid !important;
                 overflow: hidden !important;
+                position: relative !important;
             }
 
             .certificado-logos {
-                margin-bottom: 8px !important;
+                margin-bottom: 10px !important;
                 padding: 0 !important;
             }
 
             .certificado-logos img {
-                height: 65px !important;
+                height: 60px !important;
                 max-width: 40% !important;
             }
 
             .certificado h1 {
-                font-size: 1.5rem !important;
+                font-size: 18pt !important;
                 letter-spacing: 3px !important;
                 margin-bottom: 2px !important;
+                color: #b30000 !important;
             }
 
             .certificado .subtitulo-cert {
-                font-size: 0.7rem !important;
+                font-size: 8pt !important;
                 letter-spacing: 4px !important;
                 margin-bottom: 6px !important;
+                color: #666666 !important;
             }
 
             .certificado .linea-deco {
                 width: 60px !important;
                 height: 2px !important;
                 margin: 6px auto !important;
+                background: #c9a227 !important;
             }
 
             .certificado .otorgado {
-                font-size: 0.8rem !important;
+                font-size: 9pt !important;
                 margin-bottom: 4px !important;
+                color: #333333 !important;
             }
 
             .certificado .nombre-estudiante {
-                font-size: 1.6rem !important;
+                font-size: 20pt !important;
                 padding: 0 20px 5px 20px !important;
                 margin: 5px 0 5px 0 !important;
                 min-width: 280px !important;
+                color: #b30000 !important;
+                border-bottom: 1px solid #c9a227 !important;
             }
 
             .certificado .carnet-estudiante {
-                font-size: 0.8rem !important;
+                font-size: 9pt !important;
                 margin: 4px 0 10px 0 !important;
+                color: #333333 !important;
             }
 
             .certificado .carnet-estudiante span {
-                font-size: 0.9rem !important;
+                font-size: 10pt !important;
+                color: #b30000 !important;
             }
 
             .certificado .texto-cert {
-                font-size: 0.85rem !important;
+                font-size: 9pt !important;
                 margin-bottom: 6px !important;
                 line-height: 1.3 !important;
+                color: #333333 !important;
             }
 
             .certificado .curso-nombre {
-                font-size: 1rem !important;
+                font-size: 11pt !important;
                 margin: 8px 0 !important;
+                color: #b30000 !important;
             }
 
             .certificado .institucion {
-                font-size: 0.9rem !important;
+                font-size: 10pt !important;
                 margin: 6px 0 !important;
+                color: #333333 !important;
             }
 
             .certificado .fecha {
-                font-size: 0.75rem !important;
+                font-size: 8pt !important;
                 margin: 10px 0 12px 0 !important;
+                color: #666666 !important;
             }
 
             .firmas {
@@ -480,20 +499,24 @@
 
             .firma .linea-firma {
                 margin-top: 22px !important;
+                border-top: 1px solid #333333 !important;
             }
 
             .firma .nombre-firma {
-                font-size: 0.8rem !important;
+                font-size: 8pt !important;
+                color: #333333 !important;
             }
 
             .firma .cargo-firma {
-                font-size: 0.7rem !important;
+                font-size: 7pt !important;
+                color: #666666 !important;
             }
 
             .numero-cert {
-                font-size: 0.65rem !important;
+                font-size: 7pt !important;
                 bottom: 6px !important;
                 right: 12px !important;
+                color: #999999 !important;
             }
         }
     </style>
@@ -512,7 +535,6 @@
 
         <a href="modulo6-evaluacion.html" class="boton-volver">← Volver a la Evaluación</a>
 
-        <!-- FORMULARIO DE DATOS -->
         <div class="panel-nombre" id="panelNombre">
             <h2>🎓 Diligencia tu Certificación</h2>
             <p>Completa los siguientes datos tal como deseas que aparezcan en tu certificado.</p>
@@ -530,7 +552,6 @@
             <button class="boton-generar" onclick="generarCertificado()">Generar Certificado</button>
         </div>
 
-        <!-- CERTIFICADO -->
         <div class="certificado-wrapper" id="certificadoWrapper">
             <div class="certificado">
 
@@ -583,7 +604,6 @@
 
             </div>
 
-            <!-- BOTONES DE ACCIÓN -->
             <div class="acciones">
                 <h3>¿Qué deseas hacer con tu certificado?</h3>
                 <button class="boton-accion boton-imprimir" onclick="imprimirCertificado()">

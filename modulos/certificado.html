@@ -350,34 +350,144 @@
 
         footer strong { color: var(--blanco); }
 
-        /* ============ IMPRIMIR ============ */
+        /* ============ IMPRIMIR - TAMAÑO 24x19 cm ============ */
         @media print {
-            @page { size: landscape; margin: 10mm; }
+            @page {
+                size: 24cm 19cm;
+                margin: 0;
+            }
+
+            html, body {
+                width: 24cm;
+                height: 19cm;
+                margin: 0 !important;
+                padding: 0 !important;
+                background: white !important;
+                overflow: hidden;
+            }
 
             header, footer, .boton-volver, .panel-nombre, .acciones, .nota-correo {
                 display: none !important;
             }
 
-            body { background: white !important; margin: 0; padding: 0; }
-
-            .contenedor { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
-
-            .certificado-wrapper { display: block !important; }
-
-            .certificado {
-                box-shadow: none !important;
-                border: 8px double var(--rojo-cr) !important;
-                outline: 2px solid var(--dorado) !important;
-                outline-offset: 5px;
-                padding: 30px !important;
-                page-break-inside: avoid;
+            .contenedor {
+                max-width: 100% !important;
+                width: 24cm !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
 
-            .certificado h1 { font-size: 1.8rem !important; }
-            .certificado .nombre-estudiante { font-size: 2rem !important; }
-            .certificado .curso-nombre { font-size: 1.2rem !important; }
-            .certificado-logos img { height: 90px !important; }
-            .firma .linea-firma { margin-top: 30px !important; }
+            .certificado-wrapper {
+                display: block !important;
+                width: 24cm !important;
+                height: 19cm !important;
+            }
+
+            .certificado {
+                width: 24cm !important;
+                height: 19cm !important;
+                box-sizing: border-box !important;
+                padding: 15px 25px !important;
+                border: 6px double var(--rojo-cr) !important;
+                outline: 2px solid var(--dorado) !important;
+                outline-offset: 4px;
+                box-shadow: none !important;
+                page-break-inside: avoid;
+                page-break-after: avoid;
+                overflow: hidden;
+            }
+
+            .certificado-logos {
+                margin-bottom: 10px !important;
+                padding: 0 !important;
+            }
+
+            .certificado-logos img {
+                height: 70px !important;
+                max-width: 40% !important;
+            }
+
+            .certificado h1 {
+                font-size: 1.5rem !important;
+                letter-spacing: 3px !important;
+                margin-bottom: 3px !important;
+            }
+
+            .certificado .subtitulo-cert {
+                font-size: 0.75rem !important;
+                letter-spacing: 4px !important;
+                margin-bottom: 8px !important;
+            }
+
+            .certificado .linea-deco {
+                width: 60px !important;
+                margin: 8px auto !important;
+            }
+
+            .certificado .otorgado {
+                font-size: 0.85rem !important;
+                margin-bottom: 5px !important;
+            }
+
+            .certificado .nombre-estudiante {
+                font-size: 1.7rem !important;
+                padding: 0 20px 6px 20px !important;
+                margin: 8px 0 8px 0 !important;
+                min-width: 300px !important;
+            }
+
+            .certificado .carnet-estudiante {
+                font-size: 0.85rem !important;
+                margin: 5px 0 12px 0 !important;
+            }
+
+            .certificado .carnet-estudiante span {
+                font-size: 0.95rem !important;
+            }
+
+            .certificado .texto-cert {
+                font-size: 0.9rem !important;
+                margin-bottom: 8px !important;
+                line-height: 1.4 !important;
+            }
+
+            .certificado .curso-nombre {
+                font-size: 1.05rem !important;
+                margin: 10px 0 !important;
+            }
+
+            .certificado .institucion {
+                font-size: 0.95rem !important;
+                margin: 8px 0 !important;
+            }
+
+            .certificado .fecha {
+                font-size: 0.8rem !important;
+                margin: 12px 0 15px 0 !important;
+            }
+
+            .firmas {
+                margin-top: 15px !important;
+                gap: 20px !important;
+            }
+
+            .firma .linea-firma {
+                margin-top: 25px !important;
+            }
+
+            .firma .nombre-firma {
+                font-size: 0.85rem !important;
+            }
+
+            .firma .cargo-firma {
+                font-size: 0.75rem !important;
+            }
+
+            .numero-cert {
+                font-size: 0.7rem !important;
+                bottom: 8px !important;
+                right: 15px !important;
+            }
         }
     </style>
 </head>

@@ -22,7 +22,6 @@
             line-height: 1.7;
         }
 
-        /* --- Encabezado --- */
         header {
             background: var(--blanco);
             padding: 15px 40px;
@@ -50,7 +49,6 @@
             margin-bottom: 5px;
         }
 
-        /* --- Contenedor Principal --- */
         .contenedor {
             max-width: 900px;
             margin: 40px auto;
@@ -71,7 +69,6 @@
 
         .boton-volver:hover { background: var(--rojo-oscuro); }
 
-        /* --- Contenido del Módulo --- */
         .contenido-modulo {
             background: var(--blanco);
             padding: 40px;
@@ -109,7 +106,6 @@
             margin-bottom: 8px;
         }
 
-        /* --- Cajas de Destacado --- */
         .destacado {
             background: #fff3f3;
             border-left: 5px solid var(--rojo-cr);
@@ -124,7 +120,6 @@
             font-size: 1.2rem;
         }
 
-        /* --- Espacios para Multimedia --- */
         .multimedia {
             text-align: center;
             margin: 30px 0;
@@ -152,7 +147,6 @@
             margin-top: 10px;
         }
 
-        /* --- Botón Siguiente --- */
         .siguiente {
             text-align: center;
             margin-top: 40px;
@@ -177,7 +171,6 @@
             transform: scale(1.05);
         }
 
-        /* --- Pie de página --- */
         footer {
             background: #222;
             color: #ccc;
@@ -209,16 +202,6 @@
             <h2>1. La Comunicación Humana</h2>
             
             <p>Se puede definir la comunicación como <strong>"el acto mediante el cual establecemos relaciones con los demás e influimos sobre ellos con el fin de cambiar o ratificar su comportamiento."</strong></p>
-            
-            <!-- 🎧 REPRODUCTOR DE AUDIO -->
-            <div style="margin: 20px 0; padding: 15px; background: #fff3f3; border-left: 4px solid #b30000; border-radius: 0 8px 8px 0;">
-                <p style="margin-bottom: 5px; font-weight: bold; color: #b30000;">🎧 Escucha la introducción:</p>
-                <audio controls style="width: 100%;">
-                    <source src="../audio/modulo1-parrafo1.mp3" type="audio/mpeg">
-                    Tu navegador no soporta la etiqueta de audio.
-                </audio>
-            </div>
-            <!-- FIN REPRODUCTOR DE AUDIO -->
 
             <p>Es el fenómeno que caracteriza al hombre, pues este es capaz de convertir en comunicación todo lo que le rodea, desde sus gestos, sus vestidos y los objetos que él elabora, hasta la misma naturaleza.</p>
 
@@ -286,6 +269,16 @@
                 </video>
                 <p>Video 1. Introducción a la comunicación radial (Espacio reservado para tu video).</p>
             </div>
+
+            <!-- 🎧 AUDIO AL FINAL DEL MÓDULO -->
+            <div style="margin: 30px 0; padding: 20px; background: #fff3f3; border-left: 5px solid #b30000; border-radius: 0 8px 8px 0;">
+                <p style="margin-bottom: 10px; font-weight: bold; color: #b30000; font-size: 1.1rem;">🎧 Escucha el resumen del módulo:</p>
+                <audio controls style="width: 100%;">
+                    <source src="../audio/modulo1-parrafo1.mp3" type="audio/mpeg">
+                    Tu navegador no soporta la etiqueta de audio.
+                </audio>
+            </div>
+            <!-- FIN AUDIO -->
 
             <div class="siguiente">
                 <p>¡Has completado la teoría del Módulo 1!</p>

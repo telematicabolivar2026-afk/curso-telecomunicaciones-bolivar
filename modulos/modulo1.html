@@ -8,6 +8,7 @@
         :root {
             --rojo-cr: #b30000;
             --rojo-oscuro: #8a0000;
+            --verde: #2e7d32;
             --gris-claro: #f4f6f8;
             --texto: #333;
             --blanco: #ffffff;
@@ -171,6 +172,14 @@
             transform: scale(1.05);
         }
 
+        .boton-quiz {
+            background: var(--verde) !important;
+        }
+
+        .boton-quiz:hover {
+            background: #1b5e20 !important;
+        }
+
         footer {
             background: #222;
             color: #ccc;
@@ -282,6 +291,8 @@
 
             <div class="siguiente">
                 <p>¡Has completado la teoría del Módulo 1!</p>
+                <br>
+                <a href="modulo1-evaluacion.html" class="boton-siguiente boton-quiz" style="margin-bottom: 15px;">📝 Presentar Evaluación del Módulo 1</a>
                 <br>
                 <a href="modulo2.html" class="boton-siguiente">Ir al Módulo 2 →</a>
             </div>

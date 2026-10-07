@@ -1,1 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 5: Códigos y Abreviaturas | Curso Telecomunicaciones</title>
+    <style>
+        :root {
+            --rojo-cr: #b30000; --rojo-oscuro: #8a0000; --verde: #2e7d32;
+            --gris-claro: #f4f6f8; --texto: #333; --blanco: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Times New Roman', Times, serif; background: var(--gris-claro); color: var(--texto); line-height: 1.7; }
+        header { background: var(--blanco); padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.1); flex-wrap: wrap; gap: 15px; }
+        .logo-izq, .logo-der { height: 60px; width: auto; }
+        .header-titulo { text-align: center; flex-grow: 1; }
+        .header-titulo h1 { color: var(--rojo-cr); font-size: 1.4rem; margin-bottom: 5px; }
+        .contenedor { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .boton-volver { display: inline-block; background: var(--rojo-cr); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-bottom: 20px; font-weight: bold; transition: background 0.3s; }
+        .boton-volver:hover { background: var(--rojo-oscuro); }
+        .contenido-modulo { background: var(--blanco); padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rojo-cr); }
+        .contenido-modulo h2 { color: var(--rojo-cr); margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .contenido-modulo h3 { color: #222; margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
+        .contenido-modulo h4 { color: var(--rojo-cr); margin-top: 20px; margin-bottom: 10px; font-size: 1.15rem; }
+        .contenido-modulo p { margin-bottom: 15px; text-align: justify; }
+        .contenido-modulo ul { margin-left: 20px; margin-bottom: 20px; }
+        .contenido-modulo li { margin-bottom: 8px; }
+        .destacado { background: #fff3f3; border-left: 5px solid var(--rojo-cr); padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0; }
+        .destacado h4 { color: var(--rojo-cr); margin-bottom: 10px; font-size: 1.2rem; margin-top: 0; }
+        .multimedia { text-align: center; margin: 30px 0; padding: 20px; background: #f9f9f9; border: 2px dashed #ccc; border-radius: 8px; }
+        .multimedia img { max-width: 100%; height: auto; border-radius: 8px; }
+        .multimedia p { color: #666; font-size: 0.9rem; font-style: italic; margin-top: 10px; text-align: center; }
+        .tabla { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.95rem; }
+        .tabla th { background: var(--rojo-cr); color: white; padding: 10px; text-align: center; }
+        .tabla td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        .tabla tr:nth-child(even) { background: #f9f9f9; }
+        .siguiente { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
+        .boton-siguiente { display: inline-block; background: var(--rojo-cr); color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; transition: background 0.3s, transform 0.2s; }
+        .boton-siguiente:hover { background: var(--rojo-oscuro); transform: scale(1.05); }
+        .boton-quiz { background: var(--verde) !important; }
+        .boton-quiz:hover { background: #1b5e20 !important; }
+        footer { background: #222; color: #ccc; text-align: center; padding: 25px; font-size: 0.9rem; margin-top: 50px; }
+        footer strong { color: var(--blanco); }
+    </style>
+</head>
+<body>
 
+    <header>
+        <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana" class="logo-izq">
+        <div class="header-titulo">
+            <h1>Módulo 5: Códigos y Abreviaturas</h1>
+            <p>Curso Nivel 1 de Telecomunicaciones</p>
+        </div>
+        <img src="../img/logo-telematica.png" alt="Telemática Seccional Bolívar" class="logo-der">
+    </header>
+
+    <main class="contenedor">
+        <a href="../index.html" class="boton-volver">← Volver al Inicio</a>
+
+        <article class="contenido-modulo">
+            <h2>5. Códigos y Abreviaturas</h2>
+            
+            <p>Los códigos son abreviaturas especiales usadas en telegrafía para simplificar largas expresiones, que por su uso se han extendido a la modalidad de fonía. De estos códigos el más usado es el <strong>Código "Q"</strong> y algunas abreviaturas.</p>
+
+            <p>Estos los deben conocer el operador, no para usarlos en todo momento, pero sí para interpretarlos cuando se los digan. <em>(En las frecuencias de Cruz Roja Colombiana, la estación control sugiere eliminar su uso en los comunicados, pero se hace necesario saber su significado).</em></p>
+
+            <h3>5.1 Código Fonético</h3>
+            <p>Este código es usado por la Organización Internacional de Aviación Civil (ICAO). Usa palabras de uso común para nombrar las letras del alfabeto:</p>
+
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Letra</th>
+                        <th>I.C.A.O.</th>
+                        <th>Colombia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>A</td><td>Alfa</td><td>América</td></tr>
+                    <tr><td>B</td><td>Bravo</td><td>Boston</td></tr>
+                    <tr><td>C</td><td>Charlie</td><td>Canadá</td></tr>
+                    <tr><td>D</td><td>Delta</td><td>Dinamarca</td></tr>
+                    <tr><td>E</td><td>Echo</td><td>España</td></tr>
+                    <tr><td>F</td><td>Foxtrot</td><td>Francia</td></tr>
+                    <tr><td>G</td><td>Golf</td><td>Guatemala</td></tr>
+                    <tr><td>H</td><td>Hotel</td><td>Hotel</td></tr>
+                    <tr><td>I</td><td>India</td><td>Italia</td></tr>
+                    <tr><td>J</td><td>Juliett</td><td>Japón</td></tr>
+                    <tr><td>K</td><td>Kilo</td><td>Kilo</td></tr>
+                    <tr><td>L</td><td>Lima</td><td>Londres</td></tr>
+                    <tr><td>M</td><td>Mike</td><td>México</td></tr>
+                    <tr><td>N</td><td>November</td><td>Nicaragua</td></tr>
+                    <tr><td>O</td><td>Oscar</td><td>Ontario</td></tr>
+                    <tr><td>P</td><td>Papa</td><td>Panamá</td></tr>
+                    <tr><td>Q</td><td>Quebec</td><td>Quito</td></tr>
+                    <tr><td>R</td><td>Romeo</td><td>Radio</td></tr>
+                    <tr><td>S</td><td>Sierra</td><td>Santiago</td></tr>
+                    <tr><td>T</td><td>Tango</td><td>Tango</td></tr>
+                    <tr><td>U</td><td>Uniform</td><td>Uruguay</td></tr>
+                    <tr><td>V</td><td>Victor</td><td>Victoria</td></tr>
+                    <tr><td>W</td><td>Whisky</td><td>Washington</td></tr>
+                    <tr><td>X</td><td>X-Ray</td><td>Xilófono</td></tr>
+                    <tr><td>Y</td><td>Yankee</td><td>Yokohama</td></tr>
+                    <tr><td>Z</td><td>Zulu</td><td>Zanzíbar</td></tr>
+                </tbody>
+            </table>
+
+            <h3>5.2 Código "Q" Internacional</h3>
+            <p>El Código "Q" fue diseñado para ser transmitido en la modalidad de telegrafía. Está conformado por tres letras, de las cuales la primera es la letra "Q", seguida por una combinación de dos letras, y en algunas oportunidades de un número. Según esta combinación de letras variará su significado.</p>
+
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Pregunta</th>
+                        <th>Respuesta</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>QRA</strong></td><td>¿Cuál es el nombre de su estación?</td><td>El nombre de mi estación es...</td></tr>
+                    <tr><td><strong>QRB</strong></td><td>¿Qué tan lejos está usted de mí?</td><td>La distancia entre las dos estaciones es de... kms.</td></tr>
+                    <tr><td><strong>QRD</strong></td><td>¿Cuáles son sus límites y de dónde viene?</td><td>Mis límites son... y vengo de...</td></tr>
+                    <tr><td><strong>QRG</strong></td><td>¿Cuál es mi frecuencia exacta?</td><td>Su frecuencia exacta es... MHz.</td></tr>
+                    <tr><td><strong>QRK</strong></td><td>¿Cómo es de entendible mi señal?</td><td>La entendibilidad de su señal es: 1=no entendible, 2=entendible en algo, 3=entendible con dificultad, 4=entendible, 5=muy buena.</td></tr>
+                    <tr><td><strong>QRL</strong></td><td>¿Está ocupado?</td><td>Estoy ocupado, por favor no interfiera.</td></tr>
+                    <tr><td><strong>QRM</strong></td><td>¿Está siendo interferido?</td><td>Estoy siendo interferido.</td></tr>
+                    <tr><td><strong>QRN</strong></td><td>¿Tiene ruidos atmosféricos?</td><td>Tengo ruidos atmosféricos.</td></tr>
+                    <tr><td><strong>QRO</strong></td><td>¿Debo aumentar mi potencia?</td><td>Aumento mi potencia.</td></tr>
+                    <tr><td><strong>QRP</strong></td><td>¿Debo disminuir mi potencia?</td><td>Disminuyo mi potencia.</td></tr>
+                    <tr><td><strong>QRQ</strong></td><td>¿Debo transmitir más rápido?</td><td>Transmita más rápido, a... palabras por minuto.</td></tr>
+                    <tr><td><strong>QRS</strong></td><td>¿Debo transmitir más despacio?</td><td>Transmita más despacio, a...</td></tr>
+                    <tr><td><strong>QRT</strong></td><td>¿Suspendo mi transmisión?</td><td>Suspendo mi transmisión.</td></tr>
+                    <tr><td><strong>QRU</strong></td><td>¿Tiene algo para mí?</td><td>No tengo nada para usted.</td></tr>
+                    <tr><td><strong>QRV</strong></td><td>¿Está listo?</td><td>Estoy listo.</td></tr>
+                    <tr><td><strong>QRX</strong></td><td>¿Cuándo me llama nuevamente?</td><td>Lo llamaré nuevamente a las... hrs. en... KHz.</td></tr>
+                    <tr><td><strong>QRZ</strong></td><td>¿Quién me llama?</td><td>Lo llama... en... KHz.</td></tr>
+                    <tr><td><strong>QSA</strong></td><td>¿Cuál es la potencia de mi señal?</td><td>La potencia de su señal es: 1=apenas perceptible, 2=débil, 3=más o menos buena, 4=buena, 5=muy buena.</td></tr>
+                    <tr><td><strong>QSL</strong></td><td>¿Puede Ud. acusar recibo?</td><td>Estoy acusando recibo.</td></tr>
+                    <tr><td><strong>QSO</strong></td><td>¿Puede Ud. comunicarse con...?</td><td>Puedo comunicarme con...</td></tr>
+                    <tr><td><strong>QSY</strong></td><td>¿Transmito en otra frecuencia?</td><td>Transmita en... KHz.</td></tr>
+                    <tr><td><strong>QTH</strong></td><td>¿Cuál es su posición en latitud y longitud?</td><td>Mi posición es... grados.</td></tr>
+                    <tr><td><strong>QTR</strong></td><td>¿Cuál es el tiempo correcto?</td><td>El tiempo correcto es... hrs.</td></tr>
+                </tbody>
+            </table>
+
+            <h3>5.3 Código Morse y Continental</h3>
+            <p>El Código Morse es un sistema de representación de letras y números mediante señales emitidas de forma intermitente. Es usado principalmente en telegrafía.</p>
+
+            <div class="multimedia">
+                <img src="../img/codigo-morse.png" alt="Tabla del Código Morse">
+                <p>Figura 1. Tabla del Código Morse (Espacio reservado para tu dibujo).</p>
+            </div>
+
+            <h3>5.4 Abreviaturas</h3>
+            <p>Las abreviaturas que a continuación se presentan son las usadas en telegrafía y que se utilizan en algunas oportunidades para escribir o hacer anotaciones en el libro de operaciones:</p>
+
+            <table class="tabla">
+                <thead>
+                    <tr>
+                        <th>Abreviatura</th>
+                        <th>Significado</th>
+                        <th>Abreviatura</th>
+                        <th>Significado</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>ABT</strong></td><td>Aproximadamente</td><td><strong>DA</strong></td><td>Día</td></tr>
+                    <tr><td><strong>ADR</strong></td><td>Dirección</td><td><strong>DBL</strong></td><td>Doble</td></tr>
+                    <tr><td><strong>AFTRN</strong></td><td>Por la tarde</td><td><strong>DCN</strong></td><td>Dirección</td></tr>
+                    <tr><td><strong>AGN</strong></td><td>Otra vez</td><td><strong>DCT</strong></td><td>Directo</td></tr>
+                    <tr><td><strong>ANT</strong></td><td>Antena</td><td><strong>DE</strong></td><td>De</td></tr>
+                    <tr><td><strong>BK</strong></td><td>Break</td><td><strong>DX</strong></td><td>Distancia</td></tr>
+                    <tr><td><strong>BTR</strong></td><td>Mejor que...</td><td><strong>ES</strong></td><td>Y</td></tr>
+                    <tr><td><strong>C</strong></td><td>Sí</td><td><strong>FB</strong></td><td>Muy bien</td></tr>
+                    <tr><td><strong>CFM</strong></td><td>Confirmación</td><td><strong>FQ</strong></td><td>Frecuencia</td></tr>
+                    <tr><td><strong>CK</strong></td><td>Revisión</td><td><strong>GA</strong></td><td>Buenas tardes</td></tr>
+                    <tr><td><strong>CL</strong></td><td>Llamada, Llamado</td><td><strong>GB</strong></td><td>Hasta luego</td></tr>
+                    <tr><td><strong>CLR</strong></td><td>Despejar</td><td><strong>GD</strong></td><td>Buen día</td></tr>
+                    <tr><td><strong>COS</strong></td><td>¿Por qué?</td><td><strong>GE</strong></td><td>Buenas noches</td></tr>
+                    <tr><td><strong>CQ</strong></td><td>Llamado general</td><td><strong>GL</strong></td><td>Buena suerte</td></tr>
+                    <tr><td><strong>CS</strong></td><td>Letras de llamada</td><td><strong>GM</strong></td><td>Buenos días</td></tr>
+                    <tr><td><strong>CU</strong></td><td>Lo veré más tarde</td><td><strong>GN</strong></td><td>Se fue</td></tr>
+                    <tr><td><strong>HR</strong></td><td>Oír, oído</td><td><strong>R</strong></td><td>Recibido</td></tr>
+                    <tr><td><strong>HLO</strong></td><td>Hola</td><td><strong>RX</strong></td><td>Receptor</td></tr>
+                    <tr><td><strong>HPE</strong></td><td>Espero</td><td><strong>TX</strong></td><td>Transmisor</td></tr>
+                    <tr><td><strong>HPI</strong></td><td>Feliz</td><td><strong>U</strong></td><td>Usted</td></tr>
+                    <tr><td><strong>INFO</strong></td><td>Información</td><td><strong>UTC</strong></td><td>Tiempo Universal (GMT)</td></tr>
+                    <tr><td><strong>K</strong></td><td>Cambio</td><td><strong>WX</strong></td><td>Tiempo (meteorológico)</td></tr>
+                    <tr><td><strong>MSG</strong></td><td>Mensaje</td><td><strong>XTAL</strong></td><td>Cristal</td></tr>
+                    <tr><td><strong>NIL</strong></td><td>Nada</td><td><strong>YR</strong></td><td>Año</td></tr>
+                    <tr><td><strong>OP</strong></td><td>Operador</td><td><strong>Z</strong></td><td>Tiempo de Greenwich (UTC)</td></tr>
+                    <tr><td><strong>PSE</strong></td><td>Por favor</td><td><strong>QST</strong></td><td>De interés para todos los OPR</td></tr>
+                </tbody>
+            </table>
+
+            <div class="multimedia">
+                <img src="../img/codigo-q.png" alt="Tabla del Código Q">
+                <p>Figura 2. Tabla del Código Q Internacional (Espacio reservado para tu dibujo).</p>
+            </div>
+
+            <!-- 🎧 AUDIO DEL MÓDULO 5 -->
+            <div style="margin: 30px 0; padding: 20px; background: #fff3f3; border-left: 5px solid #b30000; border-radius: 0 8px 8px 0;">
+                <p style="margin-bottom: 10px; font-weight: bold; color: #b30000; font-size: 1.1rem;">🎧 Escucha la teoría completa del módulo:</p>
+                <audio controls style="width: 100%;">
+                    <source src="../audio/modulo5-teoria.mp3" type="audio/mpeg">
+                    Tu navegador no soporta la etiqueta de audio.
+                </audio>
+                <p style="font-size: 0.85rem; color: #777; margin-top: 8px; font-style: italic;">(Audio en proceso de grabación)</p>
+            </div>
+
+            <!-- 🎥 VIDEO DEL MÓDULO 5 -->
+            <div class="multimedia">
+                <video controls>
+                    <source src="../video/intro-codigos.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Video 1. Práctica de deletreo con el código fonético (Espacio reservado).</p>
+            </div>
+
+            <div class="siguiente">
+                <p>¡Has completado la teoría del Módulo 5!</p>
+                <br>
+                <a href="modulo5-evaluacion.html" class="boton-siguiente boton-quiz" style="margin-bottom: 15px;">📝 Presentar Evaluación del Módulo 5</a>
+                <br>
+                <a href="modulo6.html" class="boton-siguiente">Ir a la Evaluación Final →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 <strong>Cruz Roja Colombiana - Seccional Bolívar</strong> | Curso Nivel 1 de Telecomunicaciones</p>
+    </footer>
+</body>
+</html>

@@ -1,1 +1,586 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificado de Finalización | Curso Telecomunicaciones</title>
+    <style>
+        :root {
+            --rojo-cr: #b30000;
+            --rojo-oscuro: #8a0000;
+            --verde: #2e7d32;
+            --dorado: #c9a227;
+            --gris-claro: #f4f6f8;
+            --texto: #333;
+            --blanco: #ffffff;
+        }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: var(--gris-claro);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        /* --- Encabezado del sitio --- */
+        header {
+            background: var(--blanco);
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .logo-izq, .logo-der { height: 50px; width: auto; }
+
+        .header-titulo { text-align: center; flex-grow: 1; }
+        .header-titulo h1 { color: var(--rojo-cr); font-size: 1.2rem; }
+
+        .contenedor { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+
+        .boton-volver {
+            display: inline-block;
+            background: var(--rojo-cr);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        .boton-volver:hover { background: var(--rojo-oscuro); }
+
+        /* --- Panel de datos del estudiante --- */
+        .panel-nombre {
+            background: var(--blanco);
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--rojo-cr);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .panel-nombre h2 {
+            color: var(--rojo-cr);
+            margin-bottom: 10px;
+            font-size: 1.6rem;
+        }
+
+        .panel-nombre > p {
+            margin-bottom: 25px;
+            color: #666;
+            font-size: 1.05rem;
+        }
+
+        .campo-grupo {
+            max-width: 500px;
+            margin: 0 auto 20px auto;
+            text-align: left;
+        }
+
+        .campo-grupo label {
+            display: block;
+            font-weight: bold;
+            color: var(--rojo-cr);
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .campo-grupo input {
+            width: 100%;
+            padding: 14px 20px;
+            font-size: 1.1rem;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .campo-grupo input:focus {
+            outline: none;
+            border-color: var(--rojo-cr);
+            background: #fff9f9;
+        }
+
+        .boton-generar {
+            background: var(--rojo-cr);
+            color: white;
+            padding: 15px 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Times New Roman', Times, serif;
+            transition: background 0.3s, transform 0.2s;
+            margin-top: 15px;
+        }
+
+        .boton-generar:hover {
+            background: var(--rojo-oscuro);
+            transform: scale(1.03);
+        }
+
+        /* --- Certificado --- */
+        .certificado-wrapper { display: none; }
+
+        .certificado {
+            background: var(--blanco);
+            padding: 40px;
+            border: 12px double var(--rojo-cr);
+            outline: 3px solid var(--dorado);
+            outline-offset: 8px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            position: relative;
+            text-align: center;
+        }
+
+        .certificado::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: radial-gradient(circle, rgba(179,0,0,0.04) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+
+        .certificado-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .certificado-logos img { height: 80px; width: auto; }
+
+        .certificado h1 {
+            font-size: 2.2rem;
+            color: var(--rojo-cr);
+            letter-spacing: 4px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .certificado .subtitulo-cert {
+            font-size: 0.95rem;
+            color: #666;
+            letter-spacing: 6px;
+            margin-bottom: 20px;
+        }
+
+        .certificado .linea-deco {
+            width: 80px;
+            height: 3px;
+            background: var(--dorado);
+            margin: 15px auto;
+        }
+
+        .certificado .otorgado {
+            font-size: 1.1rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .certificado .nombre-estudiante {
+            font-size: 2.5rem;
+            color: var(--rojo-cr);
+            font-style: italic;
+            border-bottom: 2px solid var(--dorado);
+            display: inline-block;
+            padding: 0 30px 10px 30px;
+            margin: 15px 0 15px 0;
+            min-width: 400px;
+            font-weight: bold;
+        }
+
+        .certificado .carnet-estudiante {
+            font-size: 1.05rem;
+            color: #333;
+            margin: 10px 0 25px 0;
+            font-weight: bold;
+        }
+
+        .certificado .carnet-estudiante span {
+            color: var(--rojo-cr);
+            font-family: 'Courier New', monospace;
+            font-size: 1.15rem;
+            letter-spacing: 2px;
+        }
+
+        .certificado .texto-cert {
+            font-size: 1.15rem;
+            max-width: 700px;
+            margin: 0 auto 15px auto;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .certificado .curso-nombre {
+            font-size: 1.4rem;
+            color: var(--rojo-cr);
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .certificado .institucion {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 15px 0;
+            font-weight: bold;
+        }
+
+        .certificado .fecha {
+            font-size: 1rem;
+            color: #666;
+            font-style: italic;
+            margin: 25px 0 30px 0;
+        }
+
+        .firmas {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 40px;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .firma {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .firma .linea-firma {
+            border-top: 2px solid #333;
+            margin-bottom: 8px;
+            margin-top: 50px;
+        }
+
+        .firma .nombre-firma {
+            font-weight: bold;
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .firma .cargo-firma {
+            font-size: 0.9rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .numero-cert {
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+            font-size: 0.85rem;
+            color: #999;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* --- Botones de acción --- */
+        .acciones {
+            text-align: center;
+            margin-top: 30px;
+            padding: 25px;
+            background: var(--blanco);
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .acciones h3 {
+            color: var(--rojo-cr);
+            margin-bottom: 20px;
+        }
+
+        .boton-accion {
+            display: inline-block;
+            padding: 15px 35px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Times New Roman', Times, serif;
+            transition: all 0.3s;
+            margin: 8px;
+            text-decoration: none;
+        }
+
+        .boton-imprimir { background: var(--rojo-cr); color: white; }
+        .boton-imprimir:hover { background: var(--rojo-oscuro); transform: scale(1.05); }
+
+        .boton-correo { background: var(--verde); color: white; }
+        .boton-correo:hover { background: #1b5e20; transform: scale(1.05); }
+
+        .boton-editar { background: #666; color: white; }
+        .boton-editar:hover { background: #444; transform: scale(1.05); }
+
+        .nota-correo {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff8e1;
+            border-left: 4px solid #f9a825;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.95rem;
+            color: #7a5c00;
+            text-align: left;
+        }
+
+        footer {
+            background: #222;
+            color: #ccc;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        footer strong { color: var(--blanco); }
+
+        /* ============ IMPRIMIR ============ */
+        @media print {
+            @page { size: landscape; margin: 10mm; }
+
+            header, footer, .boton-volver, .panel-nombre, .acciones, .nota-correo {
+                display: none !important;
+            }
+
+            body { background: white !important; margin: 0; padding: 0; }
+
+            .contenedor { max-width: 100% !important; margin: 0 !important; padding: 0 !important; }
+
+            .certificado-wrapper { display: block !important; }
+
+            .certificado {
+                box-shadow: none !important;
+                border: 8px double var(--rojo-cr) !important;
+                outline: 2px solid var(--dorado) !important;
+                outline-offset: 5px;
+                padding: 30px !important;
+                page-break-inside: avoid;
+            }
+
+            .certificado h1 { font-size: 1.8rem !important; }
+            .certificado .nombre-estudiante { font-size: 2rem !important; }
+            .certificado .curso-nombre { font-size: 1.2rem !important; }
+            .certificado-logos img { height: 60px !important; }
+            .firma .linea-firma { margin-top: 30px !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana" class="logo-izq">
+        <div class="header-titulo">
+            <h1>Certificado de Finalización</h1>
+        </div>
+        <img src="../img/logo-telematica.png" alt="Telemática Seccional Bolívar" class="logo-der">
+    </header>
+
+    <main class="contenedor">
+
+        <a href="modulo6-evaluacion.html" class="boton-volver">← Volver a la Evaluación</a>
+
+        <!-- FORMULARIO DE DATOS -->
+        <div class="panel-nombre" id="panelNombre">
+            <h2>🎓 Diligencia tu Certificación</h2>
+            <p>Completa los siguientes datos tal como deseas que aparezcan en tu certificado.</p>
+
+            <div class="campo-grupo">
+                <label for="nombreInput">Nombres y Apellidos Completos:</label>
+                <input type="text" id="nombreInput" placeholder="Ej: Juan Pérez González" maxlength="60">
+            </div>
+
+            <div class="campo-grupo">
+                <label for="carnetInput">Número de Carnet:</label>
+                <input type="text" id="carnetInput" placeholder="Ej: 05-108" maxlength="20">
+            </div>
+
+            <button class="boton-generar" onclick="generarCertificado()">Generar Certificado</button>
+        </div>
+
+        <!-- CERTIFICADO -->
+        <div class="certificado-wrapper" id="certificadoWrapper">
+            <div class="certificado">
+
+                <div class="certificado-logos">
+                    <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana">
+                    <img src="../img/logo-telematica.png" alt="Telemática Seccional Bolívar">
+                </div>
+
+                <h1>CERTIFICADO</h1>
+                <div class="subtitulo-cert">DE FINALIZACIÓN</div>
+
+                <div class="linea-deco"></div>
+
+                <p class="otorgado">Se otorga el presente certificado a:</p>
+                <div class="nombre-estudiante" id="nombreCertificado">Nombre del Estudiante</div>
+
+                <div class="carnet-estudiante">
+                    Número de Carnet: <span id="carnetCertificado">000-000</span>
+                </div>
+
+                <p class="texto-cert">
+                    Por haber completado satisfactoriamente todas las etapas del
+                </p>
+
+                <div class="curso-nombre">
+                    Curso Nivel 1 de Telecomunicaciones<br>
+                    Radio Operador de Despacho
+                </div>
+
+                <p class="institucion">
+                    Cruz Roja Colombiana – Seccional Bolívar
+                </p>
+
+                <p class="fecha" id="fechaCertificado"></p>
+
+                <div class="firmas">
+                    <div class="firma">
+                        <div class="linea-firma"></div>
+                        <div class="nombre-firma">Director de Socorro</div>
+                        <div class="cargo-firma">Cruz Roja Colombiana – Seccional Bolívar</div>
+                    </div>
+                    <div class="firma">
+                        <div class="linea-firma"></div>
+                        <div class="nombre-firma">Pedro Ramos Herrán</div>
+                        <div class="cargo-firma">Referente de Telemática – Seccional Bolívar</div>
+                    </div>
+                </div>
+
+                <div class="numero-cert" id="numeroCertificado"></div>
+
+            </div>
+
+            <!-- BOTONES DE ACCIÓN -->
+            <div class="acciones">
+                <h3>¿Qué deseas hacer con tu certificado?</h3>
+                <button class="boton-accion boton-imprimir" onclick="imprimirCertificado()">
+                    🖨️ Imprimir o Guardar en PDF
+                </button>
+                <button class="boton-accion boton-correo" onclick="enviarPorCorreo()">
+                    📧 Enviar por Correo
+                </button>
+                <button class="boton-accion boton-editar" onclick="editarDatos()">
+                    ✏️ Editar mis datos
+                </button>
+
+                <div class="nota-correo">
+                    <strong>💡 Nota sobre el correo:</strong> Al hacer clic en "Enviar por Correo", se abrirá tu programa de correo con un mensaje preparado. Como los navegadores no pueden adjuntar archivos automáticamente por seguridad, deberás:
+                    <ol style="margin-left: 20px; margin-top: 8px;">
+                        <li>Primero, guarda el certificado como PDF con el botón "Imprimir o Guardar en PDF".</li>
+                        <li>Luego, en el correo que se abre, adjunta el PDF manualmente y envíalo al destinatario que desees.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 <strong>Cruz Roja Colombiana - Seccional Bolívar</strong> | Curso Nivel 1 de Telecomunicaciones</p>
+    </footer>
+
+    <script>
+        function generarCertificado() {
+            const nombre = document.getElementById('nombreInput').value.trim();
+            const carnet = document.getElementById('carnetInput').value.trim();
+
+            if (nombre === '') {
+                alert('Por favor escribe tus Nombres y Apellidos completos.');
+                document.getElementById('nombreInput').focus();
+                return;
+            }
+
+            if (carnet === '') {
+                alert('Por favor escribe tu Número de Carnet.');
+                document.getElementById('carnetInput').focus();
+                return;
+            }
+
+            // Colocar los datos en el certificado
+            document.getElementById('nombreCertificado').textContent = nombre;
+            document.getElementById('carnetCertificado').textContent = carnet;
+
+            // Fecha actual
+            const hoy = new Date();
+            const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
+            const fechaTexto = hoy.toLocaleDateString('es-CO', opciones);
+            document.getElementById('fechaCertificado').textContent =
+                'Expedido en Cartagena de Indias, Colombia, el ' + fechaTexto;
+
+            // Número único de certificado
+            const año = hoy.getFullYear();
+            const mes = String(hoy.getMonth() + 1).padStart(2, '0');
+            const dia = String(hoy.getDate()).padStart(2, '0');
+            const random = Math.floor(Math.random() * 9000) + 1000;
+            const numCert = 'CRB-' + año + mes + dia + '-' + random;
+            document.getElementById('numeroCertificado').textContent =
+                'N° de Certificado: ' + numCert;
+
+            // Ocultar el panel de datos y mostrar el certificado
+            document.getElementById('panelNombre').style.display = 'none';
+            document.getElementById('certificadoWrapper').style.display = 'block';
+
+            // Guardar en localStorage para futuras visitas
+            localStorage.setItem('nombreEstudiante', nombre);
+            localStorage.setItem('carnetEstudiante', carnet);
+            localStorage.setItem('numCertificado', numCert);
+            localStorage.setItem('fechaCertificado', fechaTexto);
+
+            document.getElementById('certificadoWrapper').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function imprimirCertificado() {
+            window.print();
+        }
+
+        function enviarPorCorreo() {
+            const nombre = document.getElementById('nombreCertificado').textContent;
+            const carnet = document.getElementById('carnetCertificado').textContent;
+            const numCert = document.getElementById('numeroCertificado').textContent;
+            const fecha = document.getElementById('fechaCertificado').textContent;
+
+            const asunto = encodeURIComponent('Certificado Curso Nivel 1 de Telecomunicaciones - Cruz Roja Bolívar');
+            const cuerpo = encodeURIComponent(
+                'Hola,\n\n' +
+                'Adjunto el certificado del Curso Nivel 1 de Telecomunicaciones - Radio Operador de Despacho.\n\n' +
+                'Datos del certificado:\n' +
+                '- Nombre: ' + nombre + '\n' +
+                '- Carnet: ' + carnet + '\n' +
+                '- ' + numCert + '\n' +
+                '- ' + fecha + '\n\n' +
+                'Recuerda: debes adjuntar manualmente el PDF que guardaste con el botón "Imprimir o Guardar en PDF".\n\n' +
+                'Atentamente,\n' +
+                'Cruz Roja Colombiana - Seccional Bolívar\n' +
+                'Área de Telemática'
+            );
+
+            window.location.href = 'mailto:?subject=' + asunto + '&body=' + cuerpo;
+        }
+
+        function editarDatos() {
+            document.getElementById('certificadoWrapper').style.display = 'none';
+            document.getElementById('panelNombre').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Precargar datos si ya existían
+        window.addEventListener('DOMContentLoaded', () => {
+            const nombreGuardado = localStorage.getItem('nombreEstudiante');
+            const carnetGuardado = localStorage.getItem('carnetEstudiante');
+            if (nombreGuardado) document.getElementById('nombreInput').value = nombreGuardado;
+            if (carnetGuardado) document.getElementById('carnetInput').value = carnetGuardado;
+        });
+    </script>
+</body>
+</html>

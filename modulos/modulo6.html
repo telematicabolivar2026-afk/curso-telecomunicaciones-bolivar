@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 6: Evaluación Final | Curso Telecomunicaciones</title>
+    <style>
+        :root { --rojo-cr: #b30000; --rojo-oscuro: #8a0000; --verde: #2e7d32; --verde-oscuro: #1b5e20; --gris-claro: #f4f6f8; --texto: #333; --blanco: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Times New Roman', Times, serif; background: var(--gris-claro); color: var(--texto); line-height: 1.7; }
+        header { background: var(--blanco); padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.1); flex-wrap: wrap; gap: 15px; }
+        .logo-izq, .logo-der { height: 60px; width: auto; }
+        .header-titulo { text-align: center; flex-grow: 1; }
+        .header-titulo h1 { color: var(--rojo-cr); font-size: 1.4rem; margin-bottom: 5px; }
+        .contenedor { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .boton-volver { display: inline-block; background: var(--rojo-cr); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-bottom: 20px; font-weight: bold; }
+        .boton-volver:hover { background: var(--rojo-oscuro); }
+        
+        .contenido-modulo {
+            background: var(--blanco);
+            padding: 50px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--rojo-cr);
+            text-align: center;
+        }
+        .trofeo {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: flotar 3s ease-in-out infinite;
+        }
+        @keyframes flotar {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .contenido-modulo h2 {
+            color: var(--rojo-cr);
+            margin-bottom: 25px;
+            font-size: 2rem;
+        }
+        .contenido-modulo p {
+            font-size: 1.15rem;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .mensaje-felicitacion {
+            background: linear-gradient(135deg, #fff3f3 0%, #ffffff 100%);
+            border-left: 5px solid var(--rojo-cr);
+            border-right: 5px solid var(--rojo-cr);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        .mensaje-felicitacion p {
+            font-size: 1.15rem;
+            font-style: italic;
+            color: #555;
+        }
+        .resumen-modulos {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        .resumen-modulos h3 {
+            color: var(--rojo-cr);
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+        .resumen-modulos ul {
+            list-style: none;
+            padding: 0;
+        }
+        .resumen-modulos li {
+            padding: 12px 15px;
+            margin-bottom: 10px;
+            background: white;
+            border-left: 4px solid var(--verde);
+            border-radius: 0 6px 6px 0;
+            font-size: 1.05rem;
+        }
+        .resumen-modulos li strong {
+            color: var(--verde);
+            margin-right: 10px;
+        }
+        .instrucciones-eval {
+            background: #fff8e1;
+            border: 2px dashed #f9a825;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        .instrucciones-eval h3 {
+            color: #b30000;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+        .instrucciones-eval ul {
+            margin-left: 20px;
+        }
+        .instrucciones-eval li {
+            margin-bottom: 8px;
+            font-size: 1.05rem;
+        }
+        .boton-evaluacion {
+            display: inline-block;
+            background: var(--rojo-cr);
+            color: white;
+            padding: 20px 60px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(179, 0, 0, 0.3);
+            font-family: 'Times New Roman', Times, serif;
+        }
+        .boton-evaluacion:hover {
+            background: var(--rojo-oscuro);
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(179, 0, 0, 0.5);
+        }
+        footer { background: #222; color: #ccc; text-align: center; padding: 25px; font-size: 0.9rem; margin-top: 50px; }
+        footer strong { color: var(--blanco); }
+    </style>
+</head>
+<body>
 
+    <header>
+        <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana" class="logo-izq">
+        <div class="header-titulo">
+            <h1>Módulo 6: Evaluación Final</h1>
+            <p>Curso Nivel 1 de Telecomunicaciones</p>
+        </div>
+        <img src="../img/logo-telematica.png" alt="Telemática Seccional Bolívar" class="logo-der">
+    </header>
+
+    <main class="contenedor">
+        <a href="../index.html" class="boton-volver">← Volver al Inicio</a>
+
+        <div class="contenido-modulo">
+            
+            <div class="trofeo">🏆</div>
+            
+            <h2>¡Felicidades por llegar hasta aquí!</h2>
+
+            <div class="mensaje-felicitacion">
+                <p>Has completado los 5 módulos de teoría del <strong>Curso Nivel 1 de Telecomunicaciones</strong>. Esto demuestra tu compromiso y dedicación con la formación como Radio Operador de Despacho de la Cruz Roja Colombiana.</p>
+                <p>Ahora es momento de poner a prueba todo lo aprendido.</p>
+            </div>
+
+            <div class="resumen-modulos">
+                <h3>📚 Módulos que has completado:</h3>
+                <ul>
+                    <li><strong>✓ Módulo 1:</strong> La Comunicación Humana</li>
+                    <li><strong>✓ Módulo 2:</strong> Equipos de Radio y Frecuencias</li>
+                    <li><strong>✓ Módulo 3:</strong> Subsistemas de Comunicación de Emergencia</li>
+                    <li><strong>✓ Módulo 4:</strong> Operación Básica de un Equipo de Radio</li>
+                    <li><strong>✓ Módulo 5:</strong> Códigos y Abreviaturas</li>
+                </ul>
+            </div>
+
+            <div class="instrucciones-eval">
+                <h3>📝 Instrucciones de la Evaluación Final</h3>
+                <ul>
+                    <li>La evaluación contiene <strong>15 preguntas</strong> (3 por cada módulo).</li>
+                    <li>Para aprobar necesitas un mínimo de <strong>12 respuestas correctas (80%)</strong>.</li>
+                    <li>Tienes <strong>intentos ilimitados</strong>. Si no apruebas, puedes volver a intentarlo.</li>
+                    <li>Al aprobar, recibirás un <strong>certificado virtual</strong> de finalización del curso.</li>
+                    <li>Recuerda leer cada pregunta con calma antes de responder.</li>
+                </ul>
+            </div>
+
+            <p style="font-size: 1.2rem; color: var(--rojo-cr); font-weight: bold; margin-top: 30px;">
+                ¿Estás listo para el reto final?
+            </p>
+
+            <a href="modulo6-evaluacion.html" class="boton-evaluacion">
+                📝 Comenzar la Evaluación Final →
+            </a>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 <strong>Cruz Roja Colombiana - Seccional Bolívar</strong> | Curso Nivel 1 de Telecomunicaciones</p>
+    </footer>
+
+</body>
+</html>

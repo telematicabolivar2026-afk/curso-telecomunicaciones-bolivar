@@ -43,14 +43,9 @@
         .resultado .mensaje { font-size: 1.1rem; color: #555; }
         .resultado.aprobado { background: #e8f5e9; border-color: var(--verde); }
         .resultado.aprobado h3, .resultado.aprobado .nota { color: var(--verde); }
-        .certificado { display: none; margin-top: 30px; padding: 30px; border: 4px double var(--verde); border-radius: 12px; background: linear-gradient(135deg, #f1f8e9 0%, #ffffff 100%); }
-        .certificado h2 { color: var(--verde-oscuro); font-size: 1.8rem; margin-bottom: 15px; }
-        .certificado .estrella { font-size: 3rem; }
-        .certificado p { font-size: 1.05rem; color: #333; margin-bottom: 10px; }
-        .certificado .nombre { font-size: 1.5rem; font-weight: bold; color: var(--rojo-cr); margin: 15px 0; }
-        .certificado .fecha { font-size: 0.95rem; color: #666; font-style: italic; margin-top: 15px; }
-        .boton-avanzar { display: inline-block; background: var(--verde); color: white; padding: 18px 50px; font-size: 1.2rem; font-weight: bold; text-decoration: none; border-radius: 8px; margin-top: 25px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3); }
-        .boton-avanzar:hover { background: var(--verde-oscuro); transform: scale(1.08); }
+        .boton-certificado { display: none; background: var(--verde); color: white; padding: 18px 50px; font-size: 1.2rem; font-weight: bold; text-decoration: none; border-radius: 8px; margin-top: 25px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3); animation: aparecer 0.8s ease; }
+        .boton-certificado:hover { background: var(--verde-oscuro); transform: scale(1.08); box-shadow: 0 6px 15px rgba(46, 125, 50, 0.5); }
+        @keyframes aparecer { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
         footer { background: #222; color: #ccc; text-align: center; padding: 25px; font-size: 0.9rem; margin-top: 50px; }
         footer strong { color: var(--blanco); }
     </style>
@@ -261,18 +256,11 @@
                 <h3 id="tituloResultado">Resultado Final</h3>
                 <div class="nota" id="notaFinal">0/15</div>
                 <p class="mensaje" id="mensajeFinal"></p>
-            </div>
 
-            <div class="certificado" id="certificado">
-                <div class="estrella">🏆</div>
-                <h2>¡FELICITACIONES!</h2>
-                <p>Has completado satisfactoriamente el</p>
-                <div class="nombre">Curso Nivel 1 de Telecomunicaciones</div>
-                <p>Radio Operador de Despacho</p>
-                <p><strong>Cruz Roja Colombiana – Seccional Bolívar</strong></p>
-                <p class="fecha" id="fechaCertificado"></p>
-                <br>
-                <a href="../index.html" class="boton-avanzar">🏠 Volver al Inicio del Curso</a>
+                <!-- 🎓 BOTÓN QUE APARECE AL APROBAR -->
+                <a href="certificado.html" class="boton-certificado" id="btnCertificado">
+                    🎓 Diligenciar mi Certificación →
+                </a>
             </div>
 
         </div>
@@ -337,7 +325,7 @@
             const nota = document.getElementById('notaFinal');
             const mensaje = document.getElementById('mensajeFinal');
             const titulo = document.getElementById('tituloResultado');
-            const certificado = document.getElementById('certificado');
+            const btnCertificado = document.getElementById('btnCertificado');
 
             nota.textContent = correctas + '/' + totalPreguntas;
             resultado.style.display = 'block';
@@ -348,16 +336,13 @@
             if (correctas >= 12) {
                 resultado.classList.add('aprobado');
                 titulo.textContent = '🎉 ¡Aprobado!';
-                mensaje.textContent = '¡Felicidades! Has aprobado la Evaluación Final con un ' + Math.round((correctas/totalPreguntas)*100) + '%.';
-                certificado.style.display = 'block';
-                const hoy = new Date();
-                const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
-                document.getElementById('fechaCertificado').textContent = 'Aprobado el ' + hoy.toLocaleDateString('es-CO', opciones);
+                mensaje.textContent = '¡Felicidades! Has aprobado la Evaluación Final con un ' + Math.round((correctas/totalPreguntas)*100) + '%. Ya puedes generar tu certificado.';
+                btnCertificado.style.display = 'inline-block';
             } else {
                 resultado.classList.remove('aprobado');
                 titulo.textContent = '📚 Sigue intentando';
                 mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/totalPreguntas)*100) + '%. Te recomendamos repasar la teoría y volver a intentarlo.';
-                certificado.style.display = 'none';
+                btnCertificado.style.display = 'none';
             }
 
             resultado.scrollIntoView({ behavior: 'smooth' });
@@ -380,7 +365,7 @@
 
             document.getElementById('resultado').style.display = 'none';
             document.getElementById('resultado').classList.remove('aprobado');
-            document.getElementById('certificado').style.display = 'none';
+            document.getElementById('btnCertificado').style.display = 'none';
 
             document.querySelector('.boton-calificar').style.display = 'inline-block';
             document.getElementById('btnReiniciar').style.display = 'none';

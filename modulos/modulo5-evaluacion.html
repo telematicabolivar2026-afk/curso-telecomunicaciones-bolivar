@@ -1,1 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Módulo 5 | Curso Telecomunicaciones</title>
+    <style>
+        :root { --rojo-cr: #b30000; --rojo-oscuro: #8a0000; --verde: #2e7d32; --verde-oscuro: #1b5e20; --gris-claro: #f4f6f8; --texto: #333; --blanco: #ffffff; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Times New Roman', Times, serif; background: var(--gris-claro); color: var(--texto); line-height: 1.7; }
+        header { background: var(--blanco); padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.1); flex-wrap: wrap; gap: 15px; }
+        .logo-izq, .logo-der { height: 60px; width: auto; }
+        .header-titulo { text-align: center; flex-grow: 1; }
+        .header-titulo h1 { color: var(--rojo-cr); font-size: 1.4rem; margin-bottom: 5px; }
+        .contenedor { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .boton-volver { display: inline-block; background: var(--rojo-cr); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-bottom: 20px; font-weight: bold; }
+        .boton-volver:hover { background: var(--rojo-oscuro); }
+        .contenido-quiz { background: var(--blanco); padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rojo-cr); }
+        .contenido-quiz h2 { color: var(--rojo-cr); margin-bottom: 10px; font-size: 1.8rem; text-align: center; }
+        .instrucciones { text-align: center; color: #666; margin-bottom: 30px; font-style: italic; }
+        .pregunta { background: #f9f9f9; border-left: 5px solid var(--rojo-cr); border-radius: 0 8px 8px 0; padding: 20px; margin-bottom: 25px; }
+        .pregunta h3 { color: #222; font-size: 1.15rem; margin-bottom: 15px; }
+        .opciones label { display: block; padding: 12px 15px; margin-bottom: 8px; background: white; border: 2px solid #ddd; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-size: 1rem; }
+        .opciones label:hover { border-color: var(--rojo-cr); background: #fff3f3; }
+        .opciones input[type="radio"] { margin-right: 10px; cursor: pointer; }
+        .pregunta.correcta { background: #e8f5e9; border-left-color: var(--verde); }
+        .pregunta.incorrecta { background: #ffebee; border-left-color: var(--rojo-cr); }
+        .pregunta.correcta label.seleccionada { background: #c8e6c9; border-color: var(--verde); }
+        .pregunta.incorrecta label.seleccionada { background: #ffcdd2; border-color: var(--rojo-cr); }
+        .retro { margin-top: 12px; padding: 12px; border-radius: 6px; font-size: 0.95rem; display: none; }
+        .retro.ok { background: #c8e6c9; color: #1b5e20; }
+        .retro.no { background: #ffcdd2; color: #b71c1c; }
+        .botones { text-align: center; margin-top: 30px; padding-top: 25px; border-top: 1px solid #eee; }
+        .boton { display: inline-block; padding: 14px 40px; font-size: 1.1rem; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; transition: all 0.3s; margin: 5px; font-family: 'Times New Roman', Times, serif; }
+        .boton-calificar { background: var(--rojo-cr); color: white; }
+        .boton-calificar:hover { background: var(--rojo-oscuro); transform: scale(1.03); }
+        .boton-reiniciar { background: #666; color: white; display: none; }
+        .boton-reiniciar:hover { background: #444; }
+        .resultado { display: none; text-align: center; margin-top: 30px; padding: 30px; border-radius: 12px; background: #fff3f3; border: 3px solid var(--rojo-cr); }
+        .resultado h3 { color: var(--rojo-cr); font-size: 1.6rem; margin-bottom: 15px; }
+        .resultado .nota { font-size: 3rem; font-weight: bold; color: var(--rojo-cr); margin: 10px 0; }
+        .resultado .mensaje { font-size: 1.1rem; color: #555; }
+        .resultado.aprobado { background: #e8f5e9; border-color: var(--verde); }
+        .resultado.aprobado h3, .resultado.aprobado .nota { color: var(--verde); }
+        .boton-avanzar { display: none; background: var(--verde); color: white; padding: 18px 50px; font-size: 1.2rem; font-weight: bold; text-decoration: none; border-radius: 8px; margin-top: 25px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3); animation: aparecer 0.8s ease; }
+        .boton-avanzar:hover { background: var(--verde-oscuro); transform: scale(1.08); }
+        @keyframes aparecer { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+        footer { background: #222; color: #ccc; text-align: center; padding: 25px; font-size: 0.9rem; margin-top: 50px; }
+        footer strong { color: var(--blanco); }
+    </style>
+</head>
+<body>
 
+    <header>
+        <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana" class="logo-izq">
+        <div class="header-titulo">
+            <h1>Evaluación - Módulo 5</h1>
+            <p>Códigos y Abreviaturas</p>
+        </div>
+        <img src="../img/logo-telematica.png" alt="Telemática Seccional Bolívar" class="logo-der">
+    </header>
+
+    <main class="contenedor">
+        <a href="modulo5.html" class="boton-volver">← Volver al Módulo 5</a>
+
+        <div class="contenido-quiz">
+            <h2>Quiz de Evaluación</h2>
+            <p class="instrucciones">Responde las 8 preguntas. Para aprobar necesitas un mínimo de 6 respuestas correctas (75%).</p>
+
+            <form id="quizForm">
+
+                <div class="pregunta" data-correcta="b">
+                    <h3>1. ¿Cuál es la palabra del código fonético ICAO para la letra "M"?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p1" value="a"> Montreal</label>
+                        <label><input type="radio" name="p1" value="b"> Mike</label>
+                        <label><input type="radio" name="p1" value="c"> México</label>
+                        <label><input type="radio" name="p1" value="d"> Madrid</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="pregunta" data-correcta="c">
+                    <h3>2. ¿Qué significa el código QRM?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p2" value="a"> ¿Está ocupado?</label>
+                        <label><input type="radio" name="p2" value="b"> ¿Cuál es su posición?</label>
+                        <label><input type="radio" name="p2" value="c"> ¿Está siendo interferido?</label>
+                        <label><input type="radio" name="p2" value="d"> ¿Está listo?</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="pregunta" data-correcta="a">
+                    <h3>3. ¿Qué significa el código QTH?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p3" value="a"> ¿Cuál es su posición en latitud y longitud?</label>
+                        <label><input type="radio" name="p3" value="b"> ¿Cuál es su nombre?</label>
+                        <label><input type="radio" name="p3" value="c"> ¿Cuál es el tiempo correcto?</label>
+                        <label><input type="radio" name="p3" value="d"> ¿Debo aumentar la potencia?</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="pregunta" data-correcta="d">
+                    <h3>4. ¿Qué significa el código QSL?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p4" value="a"> ¿Cuál es mi frecuencia exacta?</label>
+                        <label><input type="radio" name="p4" value="b"> ¿Debo transmitir más rápido?</label>
+                        <label><input type="radio" name="p4" value="c"> ¿Tiene ruidos atmosféricos?</label>
+                        <label><input type="radio" name="p4" value="d"> ¿Puede Ud. acusar recibo?</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="pregunta" data-correcta="b">
+                    <h3>5. ¿Para qué fue diseñado originalmente el Código "Q"?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p5" value="a"> Para la modalidad de fonía.</label>
+                        <label><input type="radio" name="p5" value="b"> Para ser transmitido en la modalidad de telegrafía.</label>
+                        <label><input type="radio" name="p5" value="c"> Para uso exclusivo de la Cruz Roja.</label>
+                        <label><input type="radio" name="p5" value="d"> Para el código Morse.</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="pregunta" data-correcta="c">
+                    <h3>6. ¿Cuál es la abreviatura que significa "Break"?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p6" value="a"> CQ</label>
+                        <label><input type="radio" name="p6" value="b"> CFM</label>
+                        <label><input type="radio" name="p6" value="c"> BK</label>
+                        <label><input type="radio" name="p6" value="d"> R</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="pregunta" data-correcta="a">
+                    <h3>7. ¿Cómo se deletrea la palabra "RADIO" usando el código fonético ICAO?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p7" value="a"> Romeo - Alfa - Delta - India - Oscar</label>
+                        <label><input type="radio" name="p7" value="b"> Radio - América - Dinamarca - Italia - Ontario</label>
+                        <label><input type="radio" name="p7" value="c"> Romeo - América - Delta - India - Oscar</label>
+                        <label><input type="radio" name="p7" value="d"> R - A - D - I - O</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="pregunta" data-correcta="d">
+                    <h3>8. ¿Cuál es la recomendación de la Cruz Roja Colombiana respecto al uso de códigos en sus comunicados?</h3>
+                    <div class="opciones">
+                        <label><input type="radio" name="p8" value="a"> Usar siempre el código Q en todos los mensajes.</label>
+                        <label><input type="radio" name="p8" value="b"> Usar solo el código Morse.</label>
+                        <label><input type="radio" name="p8" value="c"> Usar códigos solo en emergencias.</label>
+                        <label><input type="radio" name="p8" value="d"> Excluir los códigos de los comunicados, ya que se interpretan bajo apreciaciones personales.</label>
+                    </div>
+                    <div class="retro"></div>
+                </div>
+
+                <div class="botones">
+                    <button type="button" class="boton boton-calificar" onclick="calificar()">Calificar Quiz</button>
+                    <button type="button" class="boton boton-reiniciar" id="btnReiniciar" onclick="reiniciar()">Intentar de nuevo</button>
+                </div>
+
+            </form>
+
+            <div class="resultado" id="resultado">
+                <h3 id="tituloResultado">Resultado Final</h3>
+                <div class="nota" id="notaFinal">0/8</div>
+                <p class="mensaje" id="mensajeFinal"></p>
+                <a href="../modulos/modulo6.html" class="boton-avanzar" id="btnAvanzar">🎉 ¡Felicidades! Ir a la Evaluación Final →</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 <strong>Cruz Roja Colombiana - Seccional Bolívar</strong> | Curso Nivel 1 de Telecomunicaciones</p>
+    </footer>
+
+    <script>
+        const respuestasCorrectas = { p1: 'b', p2: 'c', p3: 'a', p4: 'd', p5: 'b', p6: 'c', p7: 'a', p8: 'd' };
+        const totalPreguntas = Object.keys(respuestasCorrectas).length;
+
+        function calificar() {
+            let correctas = 0, respondidas = 0;
+            document.querySelectorAll('.pregunta').forEach((pregunta) => {
+                const nombre = pregunta.querySelector('input').name;
+                const seleccionada = pregunta.querySelector('input:checked');
+                const retro = pregunta.querySelector('.retro');
+                pregunta.classList.remove('correcta', 'incorrecta');
+                retro.classList.remove('ok', 'no');
+                retro.style.display = 'none';
+                if (!seleccionada) return;
+                respondidas++;
+                pregunta.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
+                seleccionada.parentElement.classList.add('seleccionada');
+                if (seleccionada.value === respuestasCorrectas[nombre]) {
+                    correctas++;
+                    pregunta.classList.add('correcta');
+                    retro.classList.add('ok');
+                    retro.textContent = '✅ ¡Correcto!';
+                } else {
+                    pregunta.classList.add('incorrecta');
+                    retro.classList.add('no');
+                    retro.textContent = '❌ Incorrecto. La respuesta correcta está marcada en verde.';
+                    pregunta.querySelectorAll('input').forEach(inp => {
+                        if (inp.value === respuestasCorrectas[nombre]) {
+                            inp.parentElement.style.borderColor = '#2e7d32';
+                            inp.parentElement.style.background = '#e8f5e9';
+                        }
+                    });
+                }
+                retro.style.display = 'block';
+            });
+            if (respondidas === 0) { alert('Por favor responde al menos una pregunta antes de calificar.'); return; }
+            const resultado = document.getElementById('resultado');
+            const nota = document.getElementById('notaFinal');
+            const mensaje = document.getElementById('mensajeFinal');
+            const titulo = document.getElementById('tituloResultado');
+            const btnAvanzar = document.getElementById('btnAvanzar');
+            nota.textContent = correctas + '/' + totalPreguntas;
+            resultado.style.display = 'block';
+            document.querySelector('.boton-calificar').style.display = 'none';
+            document.getElementById('btnReiniciar').style.display = 'inline-block';
+            if (correctas >= 6) {
+                resultado.classList.add('aprobado');
+                titulo.textContent = '🎉 ¡Aprobado!';
+                mensaje.textContent = '¡Felicidades! Has aprobado el Módulo 5 con un ' + Math.round((correctas/totalPreguntas)*100) + '%.';
+                btnAvanzar.style.display = 'inline-block';
+            } else {
+                resultado.classList.remove('aprobado');
+                titulo.textContent = '📚 Sigue intentando';
+                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/totalPreguntas)*100) + '%. Te recomendamos repasar la teoría.';
+                btnAvanzar.style.display = 'none';
+            }
+            resultado.scrollIntoView({ behavior: 'smooth' });
+        }
+        function reiniciar() {
+            document.getElementById('quizForm').reset();
+            document.querySelectorAll('.pregunta').forEach(p => {
+                p.classList.remove('correcta', 'incorrecta');
+                p.querySelectorAll('label').forEach(l => { l.classList.remove('seleccionada'); l.style.borderColor = ''; l.style.background = ''; });
+                const retro = p.querySelector('.retro');
+                retro.style.display = 'none';
+                retro.classList.remove('ok', 'no');
+            });
+            document.getElementById('resultado').style.display = 'none';
+            document.getElementById('resultado').classList.remove('aprobado');
+            document.querySelector('.boton-calificar').style.display = 'inline-block';
+            document.getElementById('btnReiniciar').style.display = 'none';
+            document.getElementById('btnAvanzar').style.display = 'none';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

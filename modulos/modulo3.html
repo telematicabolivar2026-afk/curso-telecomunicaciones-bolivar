@@ -1,1 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 3: Subsistemas de Comunicación | Curso Telecomunicaciones</title>
+    <style>
+        :root {
+            --rojo-cr: #b30000; --rojo-oscuro: #8a0000; --verde: #2e7d32;
+            --gris-claro: #f4f6f8; --texto: #333; --blanco: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Times New Roman', Times, serif; background: var(--gris-claro); color: var(--texto); line-height: 1.7; }
+        header { background: var(--blanco); padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.1); flex-wrap: wrap; gap: 15px; }
+        .logo-izq, .logo-der { height: 60px; width: auto; }
+        .header-titulo { text-align: center; flex-grow: 1; }
+        .header-titulo h1 { color: var(--rojo-cr); font-size: 1.4rem; margin-bottom: 5px; }
+        .contenedor { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .boton-volver { display: inline-block; background: var(--rojo-cr); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-bottom: 20px; font-weight: bold; transition: background 0.3s; }
+        .boton-volver:hover { background: var(--rojo-oscuro); }
+        .contenido-modulo { background: var(--blanco); padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rojo-cr); }
+        .contenido-modulo h2 { color: var(--rojo-cr); margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .contenido-modulo h3 { color: #222; margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
+        .contenido-modulo h4 { color: var(--rojo-cr); margin-top: 20px; margin-bottom: 10px; font-size: 1.15rem; }
+        .contenido-modulo p { margin-bottom: 15px; text-align: justify; }
+        .contenido-modulo ul { margin-left: 20px; margin-bottom: 20px; }
+        .contenido-modulo li { margin-bottom: 8px; }
+        .destacado { background: #fff3f3; border-left: 5px solid var(--rojo-cr); padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0; }
+        .destacado h4 { color: var(--rojo-cr); margin-bottom: 10px; font-size: 1.2rem; margin-top: 0; }
+        .multimedia { text-align: center; margin: 30px 0; padding: 20px; background: #f9f9f9; border: 2px dashed #ccc; border-radius: 8px; }
+        .multimedia img { max-width: 100%; height: auto; border-radius: 8px; }
+        .multimedia p { color: #666; font-size: 0.9rem; font-style: italic; margin-top: 10px; text-align: center; }
+        .siguiente { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
+        .boton-siguiente { display: inline-block; background: var(--rojo-cr); color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; transition: background 0.3s, transform 0.2s; }
+        .boton-siguiente:hover { background: var(--rojo-oscuro); transform: scale(1.05); }
+        .boton-quiz { background: var(--verde) !important; }
+        .boton-quiz:hover { background: #1b5e20 !important; }
+        footer { background: #222; color: #ccc; text-align: center; padding: 25px; font-size: 0.9rem; margin-top: 50px; }
+        footer strong { color: var(--blanco); }
+    </style>
+</head>
+<body>
 
+    <header>
+        <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana" class="logo-izq">
+        <div class="header-titulo">
+            <h1>Módulo 3: Subsistemas de Comunicación</h1>
+            <p>Curso Nivel 1 de Telecomunicaciones</p>
+        </div>
+        <img src="../img/logo-telematica.png" alt="Telemática Seccional Bolívar" class="logo-der">
+    </header>
+
+    <main class="contenedor">
+        <a href="../index.html" class="boton-volver">← Volver al Inicio</a>
+
+        <article class="contenido-modulo">
+            <h2>3. Subsistemas de Comunicación de Emergencia en Colombia</h2>
+            
+            <p>En este módulo conoceremos cómo está organizado el sistema de comunicaciones para la atención de emergencias en Colombia, las redes de cada institución y las normas de operación que debemos respetar como radio operadores.</p>
+
+            <h3>3.1 Generalidades del Sistema en Colombia</h3>
+
+            <p>En nuestro país <strong>no existe un sistema unificado de comunicación</strong> que garantice la atención de emergencias. Cada organización o institución posee su propio sistema independiente y funciona de manera única y exclusiva.</p>
+
+            <p>Estos sistemas no garantizan una cobertura del territorio nacional en su totalidad, pero sí lo hacen con las ciudades capitales departamentales.</p>
+
+            <ul>
+                <li>El Socorro Nacional de la Cruz Roja Colombiana tiene estaciones en todas las capitales departamentales, pero esto no garantiza una cobertura total, porque hay estaciones que solo "salen al aire" por poco tiempo o lo hacen irregularmente.</li>
+                <li>La Oficina Nacional para la Prevención y Atención de Desastres solamente tiene instalado, en el área de influencia del Volcán Nevado del Ruiz, un sistema de alerta para la población, que se activa solo cuando hay un peligro inminente de alto riesgo.</li>
+                <li>La Defensa Civil Colombiana tiene su propia red que funciona de manera autónoma, con estaciones en las principales ciudades y algunas poblaciones vulnerables.</li>
+                <li>Los clubes de radioaficionados tienen excelentes normas escritas, pero a la hora de activarlas son un gran caos por no existir una cultura adecuada en el uso del medio en circunstancias especiales.</li>
+            </ul>
+
+            <p>Cada una de estas redes tiene su <strong>estación control</strong>. En nuestro país no existen frecuencias destinadas por el Ministerio de Comunicaciones para atender emergencias, solo las frecuencias asignadas a las instituciones y asociaciones.</p>
+
+            <div class="multimedia">
+                <img src="../img/mapa-redes-colombia.png" alt="Mapa de Redes de Emergencia en Colombia">
+                <p>Figura 1. Redes de comunicación de emergencia en Colombia (Espacio reservado para tu dibujo).</p>
+            </div>
+
+            <h3>3.2 Subsistema de la Cruz Roja Colombiana</h3>
+
+            <p>La Sociedad Nacional de la Cruz Roja Colombiana tiene asignadas frecuencias debidamente autorizadas por el Ministerio de Comunicaciones de Colombia.</p>
+
+            <ul>
+                <li><strong>HF - Banda de 40 metros:</strong> Red de comunicación nacional. La estación control es <strong>HJC-280 Bogotá</strong>.</li>
+                <li><strong>HF - Banda de 20 metros:</strong> Funciona la <strong>Red Panamericana</strong>. La estación control es <strong>HP CR 88</strong> en la ciudad de Panamá.</li>
+                <li><strong>VHF:</strong> Hay a lo largo y ancho del país varios circuitos de repetidores para cubrir áreas específicas, como municipios pequeños, enlazándolos con la ciudad capital departamental.</li>
+                <li><strong>UHF:</strong> Se está replanteando para enlazar solo las ciudades capitales departamentales y la Sede Nacional de la Sociedad de Cruz Roja en la oficina del Socorro Nacional.</li>
+            </ul>
+
+            <div class="destacado">
+                <h4>Normas de Operación Institucional</h4>
+                <ul>
+                    <li>El Socorro Nacional recomienda <strong>excluir de los comunicados los códigos</strong>, ya que estos son interpretados bajo apreciaciones personales que no corresponden a su interpretación.</li>
+                    <li>También se recomienda evitar la expresión <strong>"Compañero"</strong>, por existir niveles jerárquicos diferentes entre los usuarios del Subsistema.</li>
+                    <li>Cumplir con las restricciones que hace el Ministerio de Comunicación.</li>
+                    <li>Cuando se está haciendo un tráfico entre la zona de impacto y la estación central del Socorro Nacional, se debe permanecer solo a la escucha.</li>
+                </ul>
+            </div>
+
+            <h3>3.3 Subsistema del Cuerpo de Bomberos de Cartagena</h3>
+
+            <p>El Cuerpo de Bomberos de Cartagena es una entidad de índole Distrital, presta para atender emergencias en el perímetro del Distrito de Cartagena.</p>
+
+            <p>El sistema de comunicación de la estación central con las máquinas, oficiales y comandante se hace a través de un <strong>repetidor instalado en el Cerro de la Popa</strong>, el cual tiene un área de acción reducida, pero de exclusiva influencia sobre la ciudad.</p>
+
+            <p>El Cuerpo de Bomberos de Cartagena tiene fortalecido su sistema telefónico con el número de tres dígitos <strong>119</strong>, mediante el cual recibe todas las solicitudes de auxilio del Distrito. No hay enlace con ningún otro Cuerpo de Bomberos de otra ciudad por HF u otro subsistema.</p>
+
+            <div class="destacado">
+                <h4>Normas de Operación Institucionales</h4>
+                <ul>
+                    <li>El Cuerpo de Bomberos de Cartagena incluye en sus comunicados el <strong>código Nueve (9)</strong>.</li>
+                    <li>Cumplir con las restricciones que hace el Ministerio de Comunicación.</li>
+                    <li>Cuando se está haciendo un comunicado entre la zona de impacto y la estación central, se debe estar solamente a la escucha.</li>
+                </ul>
+            </div>
+
+            <h3>3.4 Subsistema de la Defensa Civil Colombiana</h3>
+
+            <p>La Defensa Civil Colombiana es un ente dependiente del Ministerio de Defensa Nacional. Para <strong>HF</strong> tiene establecida una red de comunicación en la banda de los 40 metros, con estación control en Bogotá.</p>
+
+            <p>En <strong>VHF</strong> tiene varios circuitos de repetidores para cubrir áreas específicas, como ciudades capitales y municipios pequeños, enlazados con la ciudad capital departamental.</p>
+
+            <div class="destacado">
+                <h4>Normas de Operación Institucional</h4>
+                <ul>
+                    <li>La Dirección General de la Defensa Civil Colombiana <strong>no hace reseña para la exclusión de los códigos</strong> en los comunicados; estos son usados, entre ellos el Código "Q" y otros.</li>
+                    <li>Cumplir con las restricciones que hace el Ministerio de Comunicación.</li>
+                    <li>Cuando se está haciendo un comunicado entre la zona de impacto y la estación central, se debe estar solamente a la escucha.</li>
+                </ul>
+            </div>
+
+            <h3>3.5 Subsistema del Ministerio de Salud - Red de Urgencias</h3>
+
+            <p>El Ministerio de Salud de Colombia tiene estaciones de radio comunicación en las capitales departamentales en <strong>HF</strong>. Este subsistema forma una red de comunicación en la banda de los 30 metros. También tienen otras estaciones en diferentes bandas y frecuencias.</p>
+
+            <p>En <strong>VHF</strong>, a lo largo y ancho del país hay varios circuitos de repetidores para cubrir áreas específicas, formando redes departamentales con la ciudad capital del departamento como estación control: el <strong>Centro Regulador de Urgencias y Emergencias (CRUE)</strong>.</p>
+
+            <div class="destacado">
+                <h4>Normas de Operación Institucional</h4>
+                <ul>
+                    <li>El Ministerio de Salud no hace recomendación alguna para la exclusión de los códigos, ya que estos son utilizados por las estaciones que conforman el sistema.</li>
+                    <li>Cumplir con las restricciones y recomendaciones que hace el Ministerio de Comunicación.</li>
+                    <li>Cuando se está haciendo un comunicado entre la zona de impacto y la estación central, se debe estar solamente a la escucha.</li>
+                </ul>
+            </div>
+
+            <h3>3.6 Subsistema de la Asociación de Radioaficionados</h3>
+
+            <p>Las normas impartidas por la Liga Colombiana de Radio Aficionados han organizado el funcionamiento de redes de emergencias a nivel Nacional, Regional y Local. Estas normas están basadas en el decreto que rige las comunicaciones en Colombia: <em>"Los Radioaficionados están obligados a colaborar con el gobierno en caso de perturbación del orden público o de emergencia, en la forma como lo determine el Ministerio de Comunicaciones."</em></p>
+
+            <p>La red se puede activar por los siguientes motivos:</p>
+            <ul>
+                <li>Por estado de emergencia Nacional, Regional o Local.</li>
+                <li>Por prevención de un estado de emergencia Nacional, Regional o Local.</li>
+                <li>Por entrenamiento.</li>
+            </ul>
+
+            <h4>Grados de Alerta</h4>
+            <ul>
+                <li><strong>ALERTA ROJA:</strong> Por estado de emergencia nacional, regional o local.</li>
+                <li><strong>ALERTA AMARILLA:</strong> Por prevención de un estado de emergencia.</li>
+                <li><strong>ALERTA BLANCA:</strong> Por entrenamiento.</li>
+            </ul>
+
+            <h4>Frecuencias en HF</h4>
+            <ul>
+                <li><strong>40 mts:</strong> 7.085 ± 20 KHz (Red internacional donde funciona la cadena HK)</li>
+                <li><strong>20 mts:</strong> 14.185 ± 20 KHz (Alterna)</li>
+                <li><strong>15 mts:</strong> 21.235 ± 20 KHz (Alterna)</li>
+            </ul>
+            <p>En VHF se usará la frecuencia que esté asignada a la región.</p>
+
+            <div class="destacado">
+                <h4>Normas de Operación</h4>
+                <ul>
+                    <li>Cuando se activa la Red y se escuchen las expresiones <strong>"emergencia"</strong> o <strong>"tráfico de socorro"</strong>, DEJE DE TRANSMITIR Y ESCUCHE.</li>
+                    <li>Si se escucha un tráfico, manténgase en ESCUCHA, ATENCIÓN y ANOTE TODO LO QUE OIGA.</li>
+                    <li>Su mayor aporte será ESCUCHAR, ESCUCHAR y ESCUCHAR, y no transmitir.</li>
+                    <li>Obedezca las instrucciones de la estación control del tráfico radial.</li>
+                    <li>Haga los tráficos breves, no transmita información inútil.</li>
+                    <li>Absténgase de dar consejos y planificar ayuda a personas o instituciones encargadas de las labores de Asistencia en las Emergencias.</li>
+                    <li>Los mensajes deben ser dictados en estilo cablegráfico.</li>
+                </ul>
+            </div>
+
+            <div class="multimedia">
+                <img src="../img/estructura-subsistemas.png" alt="Estructura de los Subsistemas">
+                <p>Figura 2. Organización de los subsistemas de comunicación en Colombia (Espacio reservado para tu dibujo).</p>
+            </div>
+
+            <!-- 🎧 AUDIO DEL MÓDULO 3 -->
+            <div style="margin: 30px 0; padding: 20px; background: #fff3f3; border-left: 5px solid #b30000; border-radius: 0 8px 8px 0;">
+                <p style="margin-bottom: 10px; font-weight: bold; color: #b30000; font-size: 1.1rem;">🎧 Escucha la teoría completa del módulo:</p>
+                <audio controls style="width: 100%;">
+                    <source src="../audio/modulo3-teoria.mp3" type="audio/mpeg">
+                    Tu navegador no soporta la etiqueta de audio.
+                </audio>
+                <p style="font-size: 0.85rem; color: #777; margin-top: 8px; font-style: italic;">(Audio en proceso de grabación)</p>
+            </div>
+
+            <!-- 🎥 VIDEO DEL MÓDULO 3 -->
+            <div class="multimedia">
+                <video controls>
+                    <source src="../video/intro-subsistemas.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Video 1. Introducción a los subsistemas de comunicación (Espacio reservado).</p>
+            </div>
+
+            <div class="siguiente">
+                <p>¡Has completado la teoría del Módulo 3!</p>
+                <br>
+                <a href="modulo3-evaluacion.html" class="boton-siguiente boton-quiz" style="margin-bottom: 15px;">📝 Presentar Evaluación del Módulo 3</a>
+                <br>
+                <a href="modulo4.html" class="boton-siguiente">Ir al Módulo 4 →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 <strong>Cruz Roja Colombiana - Seccional Bolívar</strong> | Curso Nivel 1 de Telecomunicaciones</p>
+    </footer>
+</body>
+</html>

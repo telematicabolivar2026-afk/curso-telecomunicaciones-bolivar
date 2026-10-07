@@ -151,7 +151,6 @@
             pointer-events: none;
         }
 
-        /* ✅ LOGOS A LOS EXTREMOS Y MÁS GRANDES */
         .certificado-logos {
             display: flex;
             justify-content: space-between;
@@ -350,143 +349,151 @@
 
         footer strong { color: var(--blanco); }
 
-        /* ============ IMPRIMIR - TAMAÑO 24x19 cm ============ */
+        /* ============ IMPRIMIR - 24cm ANCHO × 19cm ALTO (HORIZONTAL) ============ */
         @media print {
             @page {
-                size: 24cm 19cm;
+                size: 24cm 19cm landscape;
                 margin: 0;
             }
 
             html, body {
-                width: 24cm;
-                height: 19cm;
+                width: 24cm !important;
+                height: 19cm !important;
                 margin: 0 !important;
                 padding: 0 !important;
                 background: white !important;
-                overflow: hidden;
+                overflow: hidden !important;
             }
 
+            /* Ocultar todo lo que no es el certificado */
             header, footer, .boton-volver, .panel-nombre, .acciones, .nota-correo {
                 display: none !important;
             }
 
             .contenedor {
-                max-width: 100% !important;
+                max-width: none !important;
                 width: 24cm !important;
+                height: 19cm !important;
                 margin: 0 !important;
                 padding: 0 !important;
+                display: block !important;
             }
 
             .certificado-wrapper {
                 display: block !important;
                 width: 24cm !important;
                 height: 19cm !important;
+                margin: 0 !important;
+                padding: 0 !important;
             }
 
             .certificado {
                 width: 24cm !important;
                 height: 19cm !important;
                 box-sizing: border-box !important;
-                padding: 15px 25px !important;
+                padding: 12px 20px !important;
                 border: 6px double var(--rojo-cr) !important;
                 outline: 2px solid var(--dorado) !important;
                 outline-offset: 4px;
                 box-shadow: none !important;
-                page-break-inside: avoid;
-                page-break-after: avoid;
-                overflow: hidden;
+                margin: 0 !important;
+                page-break-inside: avoid !important;
+                page-break-after: avoid !important;
+                page-break-before: avoid !important;
+                overflow: hidden !important;
             }
 
             .certificado-logos {
-                margin-bottom: 10px !important;
+                margin-bottom: 8px !important;
                 padding: 0 !important;
             }
 
             .certificado-logos img {
-                height: 70px !important;
+                height: 65px !important;
                 max-width: 40% !important;
             }
 
             .certificado h1 {
                 font-size: 1.5rem !important;
                 letter-spacing: 3px !important;
-                margin-bottom: 3px !important;
+                margin-bottom: 2px !important;
             }
 
             .certificado .subtitulo-cert {
-                font-size: 0.75rem !important;
+                font-size: 0.7rem !important;
                 letter-spacing: 4px !important;
-                margin-bottom: 8px !important;
+                margin-bottom: 6px !important;
             }
 
             .certificado .linea-deco {
                 width: 60px !important;
-                margin: 8px auto !important;
+                height: 2px !important;
+                margin: 6px auto !important;
             }
 
             .certificado .otorgado {
-                font-size: 0.85rem !important;
-                margin-bottom: 5px !important;
+                font-size: 0.8rem !important;
+                margin-bottom: 4px !important;
             }
 
             .certificado .nombre-estudiante {
-                font-size: 1.7rem !important;
-                padding: 0 20px 6px 20px !important;
-                margin: 8px 0 8px 0 !important;
-                min-width: 300px !important;
+                font-size: 1.6rem !important;
+                padding: 0 20px 5px 20px !important;
+                margin: 5px 0 5px 0 !important;
+                min-width: 280px !important;
             }
 
             .certificado .carnet-estudiante {
-                font-size: 0.85rem !important;
-                margin: 5px 0 12px 0 !important;
+                font-size: 0.8rem !important;
+                margin: 4px 0 10px 0 !important;
             }
 
             .certificado .carnet-estudiante span {
-                font-size: 0.95rem !important;
+                font-size: 0.9rem !important;
             }
 
             .certificado .texto-cert {
-                font-size: 0.9rem !important;
-                margin-bottom: 8px !important;
-                line-height: 1.4 !important;
+                font-size: 0.85rem !important;
+                margin-bottom: 6px !important;
+                line-height: 1.3 !important;
             }
 
             .certificado .curso-nombre {
-                font-size: 1.05rem !important;
-                margin: 10px 0 !important;
-            }
-
-            .certificado .institucion {
-                font-size: 0.95rem !important;
+                font-size: 1rem !important;
                 margin: 8px 0 !important;
             }
 
+            .certificado .institucion {
+                font-size: 0.9rem !important;
+                margin: 6px 0 !important;
+            }
+
             .certificado .fecha {
-                font-size: 0.8rem !important;
-                margin: 12px 0 15px 0 !important;
+                font-size: 0.75rem !important;
+                margin: 10px 0 12px 0 !important;
             }
 
             .firmas {
-                margin-top: 15px !important;
+                margin-top: 10px !important;
                 gap: 20px !important;
             }
 
             .firma .linea-firma {
-                margin-top: 25px !important;
+                margin-top: 22px !important;
             }
 
             .firma .nombre-firma {
-                font-size: 0.85rem !important;
+                font-size: 0.8rem !important;
             }
 
             .firma .cargo-firma {
-                font-size: 0.75rem !important;
+                font-size: 0.7rem !important;
             }
 
             .numero-cert {
-                font-size: 0.7rem !important;
-                bottom: 8px !important;
-                right: 15px !important;
+                font-size: 0.65rem !important;
+                bottom: 6px !important;
+                right: 12px !important;
             }
         }
     </style>
@@ -622,18 +629,15 @@
                 return;
             }
 
-            // Colocar los datos en el certificado
             document.getElementById('nombreCertificado').textContent = nombre;
             document.getElementById('carnetCertificado').textContent = carnet;
 
-            // Fecha actual
             const hoy = new Date();
             const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
             const fechaTexto = hoy.toLocaleDateString('es-CO', opciones);
             document.getElementById('fechaCertificado').textContent =
                 'Expedido en Cartagena de Indias, Colombia, el ' + fechaTexto;
 
-            // Número único de certificado
             const año = hoy.getFullYear();
             const mes = String(hoy.getMonth() + 1).padStart(2, '0');
             const dia = String(hoy.getDate()).padStart(2, '0');
@@ -642,11 +646,9 @@
             document.getElementById('numeroCertificado').textContent =
                 'N° de Certificado: ' + numCert;
 
-            // Ocultar el panel de datos y mostrar el certificado
             document.getElementById('panelNombre').style.display = 'none';
             document.getElementById('certificadoWrapper').style.display = 'block';
 
-            // Guardar en localStorage para futuras visitas
             localStorage.setItem('nombreEstudiante', nombre);
             localStorage.setItem('carnetEstudiante', carnet);
             localStorage.setItem('numCertificado', numCert);
@@ -689,7 +691,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Precargar datos si ya existían
         window.addEventListener('DOMContentLoaded', () => {
             const nombreGuardado = localStorage.getItem('nombreEstudiante');
             const carnetGuardado = localStorage.getItem('carnetEstudiante');

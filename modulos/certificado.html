@@ -151,15 +151,20 @@
             pointer-events: none;
         }
 
+        /* ✅ LOGOS A LOS EXTREMOS Y MÁS GRANDES */
         .certificado-logos {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            gap: 30px;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            padding: 0 10px;
         }
 
-        .certificado-logos img { height: 80px; width: auto; }
+        .certificado-logos img {
+            height: 110px;
+            width: auto;
+            max-width: 45%;
+        }
 
         .certificado h1 {
             font-size: 2.2rem;
@@ -371,7 +376,7 @@
             .certificado h1 { font-size: 1.8rem !important; }
             .certificado .nombre-estudiante { font-size: 2rem !important; }
             .certificado .curso-nombre { font-size: 1.2rem !important; }
-            .certificado-logos img { height: 60px !important; }
+            .certificado-logos img { height: 90px !important; }
             .firma .linea-firma { margin-top: 30px !important; }
         }
     </style>

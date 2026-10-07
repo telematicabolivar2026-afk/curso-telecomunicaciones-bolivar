@@ -9,6 +9,7 @@
             --rojo-cr: #b30000;
             --rojo-oscuro: #8a0000;
             --verde: #2e7d32;
+            --verde-oscuro: #1b5e20;
             --gris-claro: #f4f6f8;
             --texto: #333;
             --blanco: #ffffff;
@@ -223,6 +224,33 @@
         .resultado.aprobado { background: #e8f5e9; border-color: var(--verde); }
         .resultado.aprobado h3, .resultado.aprobado .nota { color: var(--verde); }
 
+        /* --- Botón que aparece SOLO al aprobar --- */
+        .boton-avanzar {
+            display: none;
+            background: var(--verde);
+            color: white;
+            padding: 18px 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 25px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+            animation: aparecer 0.8s ease;
+        }
+
+        .boton-avanzar:hover {
+            background: var(--verde-oscuro);
+            transform: scale(1.08);
+            box-shadow: 0 6px 15px rgba(46, 125, 50, 0.5);
+        }
+
+        @keyframes aparecer {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
         footer {
             background: #222;
             color: #ccc;
@@ -351,9 +379,14 @@
             </form>
 
             <div class="resultado" id="resultado">
-                <h3>Resultado Final</h3>
+                <h3 id="tituloResultado">Resultado Final</h3>
                 <div class="nota" id="notaFinal">0/8</div>
                 <p class="mensaje" id="mensajeFinal"></p>
+                
+                <!-- 🎉 BOTÓN QUE APARECE SOLO AL APROBAR -->
+                <a href="../modulos/modulo2.html" class="boton-avanzar" id="btnAvanzar">
+                    🎉 ¡Felicidades! Ir al Módulo 2 →
+                </a>
             </div>
 
         </div>
@@ -423,6 +456,8 @@
             const resultado = document.getElementById('resultado');
             const nota = document.getElementById('notaFinal');
             const mensaje = document.getElementById('mensajeFinal');
+            const titulo = document.getElementById('tituloResultado');
+            const btnAvanzar = document.getElementById('btnAvanzar');
 
             nota.textContent = correctas + '/' + totalPreguntas;
             resultado.style.display = 'block';
@@ -430,12 +465,17 @@
             document.querySelector('.boton-calificar').style.display = 'none';
             document.getElementById('btnReiniciar').style.display = 'inline-block';
 
+            // 🎉 Lógica: Si aprueba, muestra el botón verde
             if (correctas >= 6) {
                 resultado.classList.add('aprobado');
-                mensaje.textContent = '🎉 ¡Felicidades! Has aprobado el Módulo 1 con un ' + Math.round((correctas/totalPreguntas)*100) + '%.';
+                titulo.textContent = '🎉 ¡Aprobado!';
+                mensaje.textContent = '¡Felicidades! Has aprobado el Módulo 1 con un ' + Math.round((correctas/totalPreguntas)*100) + '%.';
+                btnAvanzar.style.display = 'inline-block'; // 👈 Aparece el botón
             } else {
                 resultado.classList.remove('aprobado');
-                mensaje.textContent = '📚 No has aprobado. Obtuviste un ' + Math.round((correctas/totalPreguntas)*100) + '%. Te recomendamos repasar la teoría y volver a intentarlo.';
+                titulo.textContent = '📚 Sigue intentando';
+                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/totalPreguntas)*100) + '%. Te recomendamos repasar la teoría y volver a intentarlo.';
+                btnAvanzar.style.display = 'none'; // 👈 No aparece el botón
             }
 
             resultado.scrollIntoView({ behavior: 'smooth' });
@@ -461,6 +501,7 @@
 
             document.querySelector('.boton-calificar').style.display = 'inline-block';
             document.getElementById('btnReiniciar').style.display = 'none';
+            document.getElementById('btnAvanzar').style.display = 'none';
 
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }

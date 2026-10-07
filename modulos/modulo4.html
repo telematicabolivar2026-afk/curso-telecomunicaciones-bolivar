@@ -1,1 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 4: Operación Básica | Curso Telecomunicaciones</title>
+    <style>
+        :root {
+            --rojo-cr: #b30000; --rojo-oscuro: #8a0000; --verde: #2e7d32;
+            --gris-claro: #f4f6f8; --texto: #333; --blanco: #ffffff;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Times New Roman', Times, serif; background: var(--gris-claro); color: var(--texto); line-height: 1.7; }
+        header { background: var(--blanco); padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.1); flex-wrap: wrap; gap: 15px; }
+        .logo-izq, .logo-der { height: 60px; width: auto; }
+        .header-titulo { text-align: center; flex-grow: 1; }
+        .header-titulo h1 { color: var(--rojo-cr); font-size: 1.4rem; margin-bottom: 5px; }
+        .contenedor { max-width: 900px; margin: 40px auto; padding: 0 20px; }
+        .boton-volver { display: inline-block; background: var(--rojo-cr); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-bottom: 20px; font-weight: bold; transition: background 0.3s; }
+        .boton-volver:hover { background: var(--rojo-oscuro); }
+        .contenido-modulo { background: var(--blanco); padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rojo-cr); }
+        .contenido-modulo h2 { color: var(--rojo-cr); margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #eee; padding-bottom: 10px; }
+        .contenido-modulo h3 { color: #222; margin-top: 30px; margin-bottom: 15px; font-size: 1.4rem; }
+        .contenido-modulo h4 { color: var(--rojo-cr); margin-top: 20px; margin-bottom: 10px; font-size: 1.15rem; }
+        .contenido-modulo p { margin-bottom: 15px; text-align: justify; }
+        .contenido-modulo ul { margin-left: 20px; margin-bottom: 20px; }
+        .contenido-modulo li { margin-bottom: 8px; }
+        .contenido-modulo ol { margin-left: 25px; margin-bottom: 20px; }
+        .contenido-modulo ol li { margin-bottom: 10px; }
+        .destacado { background: #fff3f3; border-left: 5px solid var(--rojo-cr); padding: 20px; margin: 25px 0; border-radius: 0 8px 8px 0; }
+        .destacado h4 { color: var(--rojo-cr); margin-bottom: 10px; font-size: 1.2rem; margin-top: 0; }
+        .multimedia { text-align: center; margin: 30px 0; padding: 20px; background: #f9f9f9; border: 2px dashed #ccc; border-radius: 8px; }
+        .multimedia img { max-width: 100%; height: auto; border-radius: 8px; }
+        .multimedia p { color: #666; font-size: 0.9rem; font-style: italic; margin-top: 10px; text-align: center; }
+        .siguiente { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
+        .boton-siguiente { display: inline-block; background: var(--rojo-cr); color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; transition: background 0.3s, transform 0.2s; }
+        .boton-siguiente:hover { background: var(--rojo-oscuro); transform: scale(1.05); }
+        .boton-quiz { background: var(--verde) !important; }
+        .boton-quiz:hover { background: #1b5e20 !important; }
+        footer { background: #222; color: #ccc; text-align: center; padding: 25px; font-size: 0.9rem; margin-top: 50px; }
+        footer strong { color: var(--blanco); }
+    </style>
+</head>
+<body>
 
+    <header>
+        <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana" class="logo-izq">
+        <div class="header-titulo">
+            <h1>Módulo 4: Operación Básica de un Equipo de Radio</h1>
+            <p>Curso Nivel 1 de Telecomunicaciones</p>
+        </div>
+        <img src="../img/logo-telematica.png" alt="Telemática Seccional Bolívar" class="logo-der">
+    </header>
+
+    <main class="contenedor">
+        <a href="../index.html" class="boton-volver">← Volver al Inicio</a>
+
+        <article class="contenido-modulo">
+            <h2>4. Operación Básica de un Equipo de Radio</h2>
+            
+            <p>En este módulo aprenderemos las normas generales para operar un equipo de radio, cómo hacer los llamados correctamente y cuál es el procedimiento para emitir y acusar recibo de una llamada de socorro.</p>
+
+            <h3>4.1 Usos de los Subsistemas y Normas Generales</h3>
+
+            <p>La operación de las redes debe ser en <strong>lenguaje claro y preciso</strong>, utilizando el idioma español. Hay temas que están PROHIBIDOS o tienen RESTRICCIONES, las cuales encontraremos en los decretos dictados por el Ministerio de Comunicaciones.</p>
+
+            <p>Antes de hacer uso del canal, <strong>escuche primero</strong> para no hacerlo cuando otra estación está haciendo uso del mismo. Es recomendable revisar el control de volumen antes de llamar, para estar seguro de que se está escuchando bien.</p>
+
+            <h4>El uso del BREAK o PERMISO</h4>
+            <ul>
+                <li>En caso de estar ocupado el canal, se puede solicitar entrada emitiendo la palabra <strong>"BREAK"</strong> o <strong>"PERMISO"</strong> con voz clara y fuerte, en el momento en que una estación le ceda el cambio a la otra.</li>
+                <li>Si se necesita enviar un mensaje <strong>con urgencia</strong>, se puede solicitar la entrada emitiendo <strong>dos break seguidos</strong>: "BREAK, BREAK".</li>
+                <li>Si el mensaje es de <strong>estado de emergencia</strong>, se deben emitir <strong>tres break</strong>: "BREAK, BREAK, BREAK". Las estaciones que escuchen esta transmisión deberán dejar de transmitir y dar prioridad a la estación que los emite.</li>
+            </ul>
+
+            <div class="destacado">
+                <h4>Importante</h4>
+                <p>Al llamar a una estación en particular, debe primero solicitar información a la estación control si la estación solicitada se encuentra en frecuencia. En caso contrario, debe repetirse el llamado una o dos veces y esperar un tiempo prudencial para dar oportunidad a que conteste.</p>
+                <p><strong>LLAMANDO CON INSISTENCIA, SOLAMENTE SE LOGRARÁ MOLESTAR A LAS ESTACIONES QUE ESTÁN EN LA FRECUENCIA.</strong></p>
+            </div>
+
+            <h3>4.2 Operación de Equipos - Uso del PTT</h3>
+
+            <p>Para emitir comunicados, hay que tener en cuenta que los equipos de radio trabajan en un sentido: "una vía", a la Escucha o Transmitiendo. Todos los equipos usados en telecomunicaciones podrán transmitir y recibir; ello se logrará gracias al botón que hace el cambio y que se le denomina <strong>P.T.T. (Push to Talk, es decir: pulse para hablar)</strong>.</p>
+
+            <h4>Procedimiento para operar un equipo:</h4>
+            <ol>
+                <li>Verifique que las conexiones estén bien: la antena y las conexiones eléctricas u otras conexiones.</li>
+                <li>Energice el equipo.</li>
+                <li>Seleccione el nivel de audio frecuencia (Volumen) deseado.</li>
+                <li>Seleccione el canal o frecuencia.</li>
+                <li>Para hablar, oprima el P.T.T. décimas de segundos antes de hablar; al hacerlo, hable en lenguaje claro.</li>
+            </ol>
+
+            <div class="destacado">
+                <h4>Recomendaciones al usar repetidor</h4>
+                <ul>
+                    <li>Deje que el repetidor cumpla su trabajo, activando y desactivando el sistema.</li>
+                    <li>Los cambios deben ser lo más cortos posible.</li>
+                    <li>No utilice la frecuencia del repetidor innecesariamente.</li>
+                    <li>Tenga mucha precaución en la manera de hablar y en el contenido de los mensajes, puesto que no solamente están las estaciones de la red, sino también la estación monitora del Ministerio de Comunicaciones.</li>
+                    <li>En canales de enlace nacionales, espere a que "golpeen" los repetidores que hacen parte del circuito de enlace.</li>
+                    <li>Para probar y ajustar equipos, se debe utilizar frecuencias en simple y no olvidar identificarse, en caso de no disponer de carga fantasma.</li>
+                </ul>
+                <p>Cada operador debe velar por el buen uso de las frecuencias y equipos asignados. Si se detectan irregularidades, se deben registrar todos los datos posibles sobre el origen de la irregularidad y consignarlo en el libro de operaciones.</p>
+            </div>
+
+            <div class="multimedia">
+                <img src="../img/boton-ptt.png" alt="Botón PTT de un equipo de radio">
+                <p>Figura 1. Ubicación del botón P.T.T. en un equipo de radio (Espacio reservado para tu dibujo).</p>
+            </div>
+
+            <h3>4.3 Tipos de Llamadas en Fonía</h3>
+
+            <p>Las llamadas en fonía se clasifican en <strong>LLAMADA GENERAL</strong> y <strong>LLAMADA ESPECÍFICA</strong>. En el grupo de llamada general podemos incluir las señales de alarma, urgencia y seguridad, que son emitidas a cualquier estación que la escuche. El segundo grupo de llamadas son dirigidas a estaciones específicas.</p>
+
+            <h4>Llamada General</h4>
+            <p>La llamada general en fonía comprenderá:</p>
+            <ul>
+                <li>Llamada general a todas las estaciones <strong>CQ (Charlie Quebec)</strong>, no más de tres veces.</li>
+                <li>La palabra <strong>"AQUÍ"</strong>.</li>
+                <li>Luego la identificación precisa de la estación que solicita el contacto, no más de tres veces.</li>
+            </ul>
+            <p>La llamada total podrá repetirse <strong>TRES VECES como máximo</strong>, con intervalos prudenciales de tiempo.</p>
+
+            <h4>Señal de Alarma, Urgencia y Seguridad</h4>
+            <ul>
+                <li>La llamada y el mensaje de socorro solo podrán transmitirse por orden de la persona responsable de la estación.</li>
+                <li>La llamada debe ser lenta, separando las palabras y pronunciando clara y perfectamente cada una de ellas, a fin de facilitar su transcripción.</li>
+                <li>La señal de socorro en fonía comprende la palabra <strong>MAYDAY</strong> (pronunciándola "Meidei"). Esta palabra significa que la estación está en peligro grave e inminente y solicita auxilio inmediato.</li>
+            </ul>
+
+            <h4>Prioridad de la Llamada de Socorro</h4>
+            <p>La llamada de socorro tendrá <strong>prioridad ABSOLUTA</strong> sobre todas las comunicaciones. Toda estación que escuche una llamada de socorro deberá cesar cualquier tráfico que se esté cursando, para dar prioridad a la estación que solicita el auxilio.</p>
+
+            <h4>Estructura de la Llamada de Socorro</h4>
+            <ol>
+                <li>La señal de socorro <strong>"MAYDAY"</strong> (tres veces).</li>
+                <li>La palabra <strong>"AQUÍ"</strong>.</li>
+                <li>El indicativo de llamada de la estación en peligro.</li>
+                <li>Indicaciones relativas a su ubicación.</li>
+                <li>Naturaleza del peligro y género del auxilio solicitado.</li>
+                <li>Cualquier otra información que pueda facilitar el socorro.</li>
+            </ol>
+
+            <h4>Para acusar recibo de una llamada de socorro:</h4>
+            <ol>
+                <li>Distintivo de la estación que produce la llamada (tres veces).</li>
+                <li>La palabra <strong>"AQUÍ"</strong>.</li>
+                <li>El distintivo de la estación que acusa recibo (tres veces).</li>
+                <li>La palabra <strong>"RECIBIDO"</strong> o <strong>"R" (Romeo)</strong>, tres veces.</li>
+                <li>La señal de socorro <strong>MAYDAY</strong>.</li>
+            </ol>
+
+            <div class="destacado">
+                <h4>Esquema-patrón sugerido por la F.C.C. para emitir una llamada de socorro:</h4>
+                <ol>
+                    <li>Esté seguro que su equipo está energizado.</li>
+                    <li>Seleccione el subsistema apropiado (VHF o HF).</li>
+                    <li>Presione el botón del micrófono y diga: <strong>MAYDAY, MAYDAY, MAYDAY</strong>.</li>
+                    <li>Diga <strong>AQUÍ</strong>, su indicativo de llamada TRES VECES.</li>
+                    <li>Diga: <strong>MAYDAY ESTA ES, ESTACIÓN...</strong></li>
+                    <li>Diga su ubicación (solo para estaciones portátiles o móviles).</li>
+                    <li>Naturaleza y estado del desastre.</li>
+                    <li>Proporcione el número de personas implicadas, heridas y las condiciones.</li>
+                    <li>Describa brevemente una orientación que pueda ayudar a rescatarle.</li>
+                    <li>Diga: <strong>estaré a la escucha en la frecuencia...</strong></li>
+                    <li>El fin del mensaje será: <strong>ESTA ES... CAMBIO</strong> (indicativo).</li>
+                    <li>Suelte el botón del micrófono y escuche alguna posible contestación.</li>
+                    <li>Si no obtiene respuesta, repita el llamado empezando desde el ítem 3 en adelante.</li>
+                </ol>
+                <p><strong>HABLE: LENTAMENTE, CLARAMENTE, CALMADAMENTE.</strong></p>
+            </div>
+
+            <div class="multimedia">
+                <img src="../img/llamada-mayday.png" alt="Estructura de una llamada MAYDAY">
+                <p>Figura 2. Estructura de una llamada de socorro MAYDAY (Espacio reservado para tu dibujo).</p>
+            </div>
+
+            <!-- 🎧 AUDIO DEL MÓDULO 4 -->
+            <div style="margin: 30px 0; padding: 20px; background: #fff3f3; border-left: 5px solid #b30000; border-radius: 0 8px 8px 0;">
+                <p style="margin-bottom: 10px; font-weight: bold; color: #b30000; font-size: 1.1rem;">🎧 Escucha la teoría completa del módulo:</p>
+                <audio controls style="width: 100%;">
+                    <source src="../audio/modulo4-teoria.mp3" type="audio/mpeg">
+                    Tu navegador no soporta la etiqueta de audio.
+                </audio>
+                <p style="font-size: 0.85rem; color: #777; margin-top: 8px; font-style: italic;">(Audio en proceso de grabación)</p>
+            </div>
+
+            <!-- 🎥 VIDEO DEL MÓDULO 4 -->
+            <div class="multimedia">
+                <video controls>
+                    <source src="../video/intro-operacion.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+                <p>Video 1. Demostración de operación básica de un equipo de radio (Espacio reservado).</p>
+            </div>
+
+            <div class="siguiente">
+                <p>¡Has completado la teoría del Módulo 4!</p>
+                <br>
+                <a href="modulo4-evaluacion.html" class="boton-siguiente boton-quiz" style="margin-bottom: 15px;">📝 Presentar Evaluación del Módulo 4</a>
+                <br>
+                <a href="modulo5.html" class="boton-siguiente">Ir al Módulo 5 →</a>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 <strong>Cruz Roja Colombiana - Seccional Bolívar</strong> | Curso Nivel 1 de Telecomunicaciones</p>
+    </footer>
+</body>
+</html>

@@ -49,6 +49,7 @@
         footer { background: #222; color: #ccc; text-align: center; padding: 25px; font-size: 0.9rem; margin-top: 50px; }
         footer strong { color: var(--blanco); }
     </style>
+    <script src="../js/firebase-progress.js"></script>
     <script data-goatcounter="https://telematicabolivar.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -320,6 +321,7 @@
                 titulo.textContent = '🎉 ¡Aprobado!';
                 mensaje.textContent = '¡Felicidades! Has aprobado la Evaluación Final con un ' + Math.round((correctas/totalPreguntas)*100) + '%. Ya puedes generar tu certificado.';
                 btnCertificado.style.display = 'inline-block';
+                guardarProgresoModulo(6);
             } else {
                 resultado.classList.remove('aprobado');
                 titulo.textContent = '📚 Sigue intentando';

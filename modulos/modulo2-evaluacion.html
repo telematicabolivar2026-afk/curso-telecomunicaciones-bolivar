@@ -17,7 +17,8 @@
         .boton-volver:hover { background: var(--rojo-oscuro); }
         .contenido-quiz { background: var(--blanco); padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rojo-cr); }
         .contenido-quiz h2 { color: var(--rojo-cr); margin-bottom: 10px; font-size: 1.8rem; text-align: center; }
-        .instrucciones { text-align: center; color: #666; margin-bottom: 30px; font-style: italic; }
+        .instrucciones { text-align: center; color: #666; margin-bottom: 10px; font-style: italic; }
+        .aviso-cuestionario { text-align: center; color: #888; margin-bottom: 30px; font-size: 0.85rem; font-style: italic; }
         .pregunta { background: #f9f9f9; border-left: 5px solid var(--rojo-cr); border-radius: 0 8px 8px 0; padding: 20px; margin-bottom: 25px; }
         .pregunta h3 { color: #222; font-size: 1.15rem; margin-bottom: 15px; }
         .opciones label { display: block; padding: 12px 15px; margin-bottom: 8px; background: white; border: 2px solid #ddd; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-size: 1rem; }
@@ -69,103 +70,14 @@
         <div class="contenido-quiz">
             <h2>Quiz de Evaluación</h2>
             <p class="instrucciones">Responde las 8 preguntas. Para aprobar necesitas un mínimo de 6 respuestas correctas (75%).</p>
+            <p class="aviso-cuestionario">📝 Cada intento presenta un cuestionario diferente (A, B o C) seleccionado al azar.</p>
 
-            <form id="quizForm">
+            <form id="quizForm"></form>
 
-                <div class="pregunta" data-correcta="b">
-                    <h3>1. ¿En qué consiste el transmisor más sencillo?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p1" value="a"> En un micrófono conectado directamente a la antena.</label>
-                        <label><input type="radio" name="p1" value="b"> En un oscilador que genera una señal de alta frecuencia conectado a una antena.</label>
-                        <label><input type="radio" name="p1" value="c"> En un amplificador de audio conectado a un parlante.</label>
-                        <label><input type="radio" name="p1" value="d"> En un receptor superheterodino de alta potencia.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="c">
-                    <h3>2. ¿Cómo se llama el receptor más desarrollado que se usa actualmente?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p2" value="a"> Detector de cristal</label>
-                        <label><input type="radio" name="p2" value="b"> Receptor Marconi</label>
-                        <label><input type="radio" name="p2" value="c"> Receptor Superheterodino</label>
-                        <label><input type="radio" name="p2" value="d"> Receptor Hertz</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="a">
-                    <h3>3. ¿Cómo se caracteriza un equipo portátil?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p3" value="a"> El equipo y su antena están unidos en un solo cuerpo, fácil de transportar.</label>
-                        <label><input type="radio" name="p3" value="b"> El equipo va instalado permanentemente en un vehículo.</label>
-                        <label><input type="radio" name="p3" value="c"> El equipo está en una consola fija de gran tamaño.</label>
-                        <label><input type="radio" name="p3" value="d"> El equipo solo funciona con corriente alterna de 110V.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="d">
-                    <h3>4. ¿Cuál es la función del control SQUELCH?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p4" value="a"> Aumentar la potencia de transmisión.</label>
-                        <label><input type="radio" name="p4" value="b"> Seleccionar el canal o frecuencia.</label>
-                        <label><input type="radio" name="p4" value="c"> Encender y apagar el equipo.</label>
-                        <label><input type="radio" name="p4" value="d"> Evitar el sonido de ruido cuando no hay señal por encima del nivel ajustado.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="b">
-                    <h3>5. ¿Cuál es la velocidad de propagación de las ondas electromagnéticas?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p5" value="a"> 30.000 Km/segundo</label>
-                        <label><input type="radio" name="p5" value="b"> 300.000 Km/segundo</label>
-                        <label><input type="radio" name="p5" value="c"> 3.000 Km/segundo</label>
-                        <label><input type="radio" name="p5" value="d"> 300 Km/segundo</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="c">
-                    <h3>6. La banda de frecuencia entre 30 y 300 MHz se denomina:</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p6" value="a"> HF - Frecuencia Alta</label>
-                        <label><input type="radio" name="p6" value="b"> UHF - Frecuencia Ultra Alta</label>
-                        <label><input type="radio" name="p6" value="c"> VHF - Frecuencia Muy Alta</label>
-                        <label><input type="radio" name="p6" value="d"> LF - Frecuencia Baja</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="a">
-                    <h3>7. ¿Cuál es la principal diferencia entre la antena Marconi y la antena Hertz?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p7" value="a"> La Marconi funciona conectada a tierra y la Hertz funciona sin conexión a tierra.</label>
-                        <label><input type="radio" name="p7" value="b"> La Marconi solo funciona en VHF y la Hertz en UHF.</label>
-                        <label><input type="radio" name="p7" value="c"> La Marconi es portátil y la Hertz es móvil.</label>
-                        <label><input type="radio" name="p7" value="d"> No hay diferencia, son iguales.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="b">
-                    <h3>8. ¿Qué tipo de equipo se usa en la consola y es de difícil traslado?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p8" value="a"> Equipo portátil</label>
-                        <label><input type="radio" name="p8" value="b"> Equipo fijo</label>
-                        <label><input type="radio" name="p8" value="c"> Equipo móvil</label>
-                        <label><input type="radio" name="p8" value="d"> Equipo de mano</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="botones">
-                    <button type="button" class="boton boton-calificar" onclick="calificar()">Calificar Quiz</button>
-                    <button type="button" class="boton boton-reiniciar" id="btnReiniciar" onclick="reiniciar()">Intentar de nuevo</button>
-                </div>
-
-            </form>
+            <div class="botones">
+                <button type="button" class="boton boton-calificar" onclick="calificar()">Calificar Quiz</button>
+                <button type="button" class="boton boton-reiniciar" id="btnReiniciar" onclick="reiniciar()">Intentar de nuevo</button>
+            </div>
 
             <div class="resultado" id="resultado">
                 <h3 id="tituloResultado">Resultado Final</h3>
@@ -181,32 +93,106 @@
     </footer>
 
     <script>
-        const respuestasCorrectas = { p1: 'b', p2: 'c', p3: 'a', p4: 'd', p5: 'b', p6: 'c', p7: 'a', p8: 'b' };
-        const totalPreguntas = Object.keys(respuestasCorrectas).length;
+        // ============================================
+        // BANCO DE PREGUNTAS - 3 CUESTIONARIOS MÓDULO 2
+        // ============================================
+        const cuestionarios = {
+            A: [
+                { p: "¿En qué consiste el transmisor más sencillo?", o: { a: "En un micrófono conectado directamente a la antena.", b: "En un oscilador que genera una señal de alta frecuencia conectado a una antena.", c: "En un amplificador de audio conectado a un parlante.", d: "En un receptor superheterodino de alta potencia." }, c: "b" },
+                { p: "¿Cómo se llama el receptor más desarrollado que se usa actualmente?", o: { a: "Detector de cristal", b: "Receptor Marconi", c: "Receptor Superheterodino", d: "Receptor Hertz" }, c: "c" },
+                { p: "¿Cómo se caracteriza un equipo portátil?", o: { a: "El equipo y su antena están unidos en un solo cuerpo, fácil de transportar.", b: "El equipo va instalado permanentemente en un vehículo.", c: "El equipo está en una consola fija de gran tamaño.", d: "El equipo solo funciona con corriente alterna de 110V." }, c: "a" },
+                { p: "¿Cuál es la función del control SQUELCH?", o: { a: "Aumentar la potencia de transmisión.", b: "Seleccionar el canal o frecuencia.", c: "Encender y apagar el equipo.", d: "Evitar el sonido de ruido cuando no hay señal por encima del nivel ajustado." }, c: "d" },
+                { p: "¿Cuál es la velocidad de propagación de las ondas electromagnéticas?", o: { a: "30.000 Km/segundo", b: "300.000 Km/segundo", c: "3.000 Km/segundo", d: "300 Km/segundo" }, c: "b" },
+                { p: "La banda de frecuencia entre 30 y 300 MHz se denomina:", o: { a: "HF - Frecuencia Alta", b: "UHF - Frecuencia Ultra Alta", c: "VHF - Frecuencia Muy Alta", d: "LF - Frecuencia Baja" }, c: "c" },
+                { p: "¿Cuál es la principal diferencia entre la antena Marconi y la antena Hertz?", o: { a: "La Marconi funciona conectada a tierra y la Hertz funciona sin conexión a tierra.", b: "La Marconi solo funciona en VHF y la Hertz en UHF.", c: "La Marconi es portátil y la Hertz es móvil.", d: "No hay diferencia, son iguales." }, c: "a" },
+                { p: "¿Qué tipo de equipo se usa en la consola y es de difícil traslado?", o: { a: "Equipo portátil", b: "Equipo fijo", c: "Equipo móvil", d: "Equipo de mano" }, c: "b" }
+            ],
+            B: [
+                { p: "¿Qué genera el oscilador en el transmisor más sencillo?", o: { a: "Una señal de baja frecuencia.", b: "Una señal de audio.", c: "Una señal de video.", d: "Una señal de alta frecuencia." }, c: "d" },
+                { p: "¿Cuál es la función del control de 'Volumen' en un equipo de radio?", o: { a: "Encender el equipo.", b: "Seleccionar la frecuencia.", c: "Ajustar el nivel de sonido a un punto agradable.", d: "Bloquear las señales débiles." }, c: "c" },
+                { p: "¿Qué tipo de equipo de radio se instala en un vehículo en movimiento?", o: { a: "Portátil.", b: "Móvil.", c: "Fijo.", d: "Base." }, c: "b" },
+                { p: "¿Cuál es la velocidad de propagación de las ondas electromagnéticas?", o: { a: "300.000 Km/segundo.", b: "30.000 Km/segundo.", c: "3.000 Km/segundo.", d: "300 Km/segundo." }, c: "a" },
+                { p: "¿Cómo se llama la antena que funciona conectada a tierra?", o: { a: "Hertz.", b: "Direccional.", c: "Yagi.", d: "Marconi." }, c: "d" },
+                { p: "La banda entre 300 y 3.000 MHz se denomina:", o: { a: "HF.", b: "VHF.", c: "UHF.", d: "SHF." }, c: "c" },
+                { p: "¿Qué significa que un equipo sea 'fijo' según el manual?", o: { a: "Que se puede llevar en la mano.", b: "Que por su tamaño y antena es de difícil traslado.", c: "Que va instalado en un vehículo.", d: "Que solo funciona en VHF." }, c: "b" },
+                { p: "¿Qué mide la 'Longitud de Onda' en una señal de radio?", o: { a: "La potencia de la señal.", b: "El número de oscilaciones por segundo.", c: "La altura de la antena.", d: "La distancia recorrida en cada oscilación." }, c: "d" }
+            ],
+            C: [
+                { p: "¿Cuál es la función del control 'Squelch' en un equipo de radio?", o: { a: "Encender y apagar el equipo.", b: "Silenciar las señales débiles que están por debajo del nivel ajustado.", c: "Aumentar la potencia de transmisión.", d: "Cambiar de canal." }, c: "b" },
+                { p: "¿Cuál es la función principal de una antena?", o: { a: "Amplificar el audio.", b: "Generar la señal de alta frecuencia.", c: "Cambiar de canal.", d: "Irradiar la energía de RF y convertirla en ondas electromagnéticas." }, c: "d" },
+                { p: "¿Cuál de los siguientes es un equipo portátil?", o: { a: "Un equipo que se puede llevar en la mano porque su antena está integrada.", b: "Un equipo instalado en una torre.", c: "Un equipo en un vehículo.", d: "Un equipo de consola de gran tamaño." }, c: "a" },
+                { p: "¿A qué rango de frecuencias corresponde la banda VHF?", o: { a: "3 a 30 MHz.", b: "300 a 3.000 MHz.", c: "30 a 300 MHz.", d: "3 a 30 GHz." }, c: "c" },
+                { p: "¿Qué tipo de antena funciona SIN conexión a tierra?", o: { a: "Marconi.", b: "Dipolo.", c: "Reflector.", d: "Hertz." }, c: "d" },
+                { p: "¿Qué es una 'onda electromagnética'?", o: { a: "Una onda que necesita un medio material para propagarse.", b: "Una onda sonora.", c: "Una onda que no necesita medio material para propagarse, por lo que puede hacerlo en el vacío.", d: "Una onda que solo se propaga en el agua." }, c: "c" },
+                { p: "¿Qué significa la sigla UHF?", o: { a: "Very High Frequency.", b: "Low Frequency.", c: "Super High Frequency.", d: "Ultra High Frequency (Frecuencia Ultra Alta)." }, c: "d" },
+                { p: "¿Cuál es la función del 'Dial' (selector de canales) en un equipo de radio?", o: { a: "Encender el equipo.", b: "Seleccionar la frecuencia o canal a utilizar.", c: "Ajustar el volumen.", d: "Bloquear las señales débiles." }, c: "b" }
+            ]
+        };
+
+        // ============================================
+        // SELECCIÓN ALEATORIA DEL CUESTIONARIO
+        // ============================================
+        const claves = Object.keys(cuestionarios);
+        const claveElegida = claves[Math.floor(Math.random() * claves.length)];
+        const preguntasActuales = cuestionarios[claveElegida];
+
+        console.log('📋 Cuestionario seleccionado:', claveElegida);
+
+        // ============================================
+        // RENDERIZAR LAS PREGUNTAS
+        // ============================================
+        function renderizarPreguntas() {
+            const form = document.getElementById('quizForm');
+            form.innerHTML = '';
+            preguntasActuales.forEach((preg, index) => {
+                const div = document.createElement('div');
+                div.className = 'pregunta';
+                div.dataset.correcta = preg.c;
+                let html = '<h3>' + (index + 1) + '. ' + preg.p + '</h3><div class="opciones">';
+                ['a', 'b', 'c', 'd'].forEach(letra => {
+                    html += '<label><input type="radio" name="p' + (index + 1) + '" value="' + letra + '"> ' + preg.o[letra] + '</label>';
+                });
+                html += '</div><div class="retro"></div>';
+                div.innerHTML = html;
+                form.appendChild(div);
+            });
+        }
+
+        renderizarPreguntas();
+
+        // ============================================
+        // CALIFICAR
+        // ============================================
         function calificar() {
             let correctas = 0, respondidas = 0;
-            document.querySelectorAll('.pregunta').forEach((pregunta) => {
-                const nombre = pregunta.querySelector('input').name;
-                const seleccionada = pregunta.querySelector('input:checked');
-                const retro = pregunta.querySelector('.retro');
-                pregunta.classList.remove('correcta', 'incorrecta');
+            const preguntasDOM = document.querySelectorAll('.pregunta');
+
+            preguntasDOM.forEach((preguntaDOM, index) => {
+                const seleccionada = preguntaDOM.querySelector('input:checked');
+                const retro = preguntaDOM.querySelector('.retro');
+                const correcta = preguntasActuales[index].c;
+
+                preguntaDOM.classList.remove('correcta', 'incorrecta');
                 retro.classList.remove('ok', 'no');
                 retro.style.display = 'none';
+
                 if (!seleccionada) return;
                 respondidas++;
-                pregunta.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
+
+                preguntaDOM.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
                 seleccionada.parentElement.classList.add('seleccionada');
-                if (seleccionada.value === respuestasCorrectas[nombre]) {
+
+                if (seleccionada.value === correcta) {
                     correctas++;
-                    pregunta.classList.add('correcta');
+                    preguntaDOM.classList.add('correcta');
                     retro.classList.add('ok');
                     retro.textContent = '✅ ¡Correcto!';
                 } else {
-                    pregunta.classList.add('incorrecta');
+                    preguntaDOM.classList.add('incorrecta');
                     retro.classList.add('no');
                     retro.textContent = '❌ Incorrecto. La respuesta correcta está marcada en verde.';
-                    pregunta.querySelectorAll('input').forEach(inp => {
-                        if (inp.value === respuestasCorrectas[nombre]) {
+                    preguntaDOM.querySelectorAll('input').forEach(inp => {
+                        if (inp.value === correcta) {
                             inp.parentElement.style.borderColor = '#2e7d32';
                             inp.parentElement.style.background = '#e8f5e9';
                         }
@@ -214,44 +200,64 @@
                 }
                 retro.style.display = 'block';
             });
-            if (respondidas === 0) { alert('Por favor responde al menos una pregunta antes de calificar.'); return; }
+
+            if (respondidas === 0) {
+                alert('Por favor responde al menos una pregunta antes de calificar.');
+                return;
+            }
+
             const resultado = document.getElementById('resultado');
             const nota = document.getElementById('notaFinal');
             const mensaje = document.getElementById('mensajeFinal');
             const titulo = document.getElementById('tituloResultado');
             const btnAvanzar = document.getElementById('btnAvanzar');
-            nota.textContent = correctas + '/' + totalPreguntas;
+
+            nota.textContent = correctas + '/8';
             resultado.style.display = 'block';
+
             document.querySelector('.boton-calificar').style.display = 'none';
             document.getElementById('btnReiniciar').style.display = 'inline-block';
+
             if (correctas >= 6) {
                 resultado.classList.add('aprobado');
                 titulo.textContent = '🎉 ¡Aprobado!';
-                mensaje.textContent = '¡Felicidades! Has aprobado el Módulo 2 con un ' + Math.round((correctas/totalPreguntas)*100) + '%.';
+                mensaje.textContent = '¡Felicidades! Has aprobado el Módulo 2 con un ' + Math.round((correctas/8)*100) + '%.';
                 btnAvanzar.style.display = 'inline-block';
                 guardarProgresoModulo(2);
             } else {
                 resultado.classList.remove('aprobado');
                 titulo.textContent = '📚 Sigue intentando';
-                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/totalPreguntas)*100) + '%. Te recomendamos repasar la teoría.';
+                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/8)*100) + '%. Te recomendamos repasar la teoría.';
                 btnAvanzar.style.display = 'none';
             }
+
             resultado.scrollIntoView({ behavior: 'smooth' });
         }
+
+        // ============================================
+        // REINICIAR
+        // ============================================
         function reiniciar() {
             document.getElementById('quizForm').reset();
+
             document.querySelectorAll('.pregunta').forEach(p => {
                 p.classList.remove('correcta', 'incorrecta');
-                p.querySelectorAll('label').forEach(l => { l.classList.remove('seleccionada'); l.style.borderColor = ''; l.style.background = ''; });
+                p.querySelectorAll('label').forEach(l => {
+                    l.classList.remove('seleccionada');
+                    l.style.borderColor = '';
+                    l.style.background = '';
+                });
                 const retro = p.querySelector('.retro');
                 retro.style.display = 'none';
                 retro.classList.remove('ok', 'no');
             });
+
             document.getElementById('resultado').style.display = 'none';
             document.getElementById('resultado').classList.remove('aprobado');
             document.querySelector('.boton-calificar').style.display = 'inline-block';
             document.getElementById('btnReiniciar').style.display = 'none';
             document.getElementById('btnAvanzar').style.display = 'none';
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>

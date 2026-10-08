@@ -17,8 +17,8 @@
         .boton-volver:hover { background: var(--rojo-oscuro); }
         .contenido-quiz { background: var(--blanco); padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rojo-cr); }
         .contenido-quiz h2 { color: var(--rojo-cr); margin-bottom: 10px; font-size: 1.8rem; text-align: center; }
-        .instrucciones { text-align: center; color: #666; margin-bottom: 30px; font-style: italic; }
-        .seccion-titulo { background: var(--rojo-cr); color: white; padding: 10px 20px; border-radius: 6px; margin: 30px 0 20px 0; font-size: 1.1rem; font-weight: bold; }
+        .instrucciones { text-align: center; color: #666; margin-bottom: 10px; font-style: italic; }
+        .aviso-cuestionario { text-align: center; color: #888; margin-bottom: 30px; font-size: 0.85rem; font-style: italic; }
         .pregunta { background: #f9f9f9; border-left: 5px solid var(--rojo-cr); border-radius: 0 8px 8px 0; padding: 20px; margin-bottom: 25px; }
         .pregunta h3 { color: #222; font-size: 1.15rem; margin-bottom: 15px; }
         .opciones label { display: block; padding: 12px 15px; margin-bottom: 8px; background: white; border: 2px solid #ddd; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-size: 1rem; }
@@ -70,190 +70,14 @@
         <div class="contenido-quiz">
             <h2>Evaluación Final del Curso</h2>
             <p class="instrucciones">Esta evaluación abarca los 5 módulos del curso. Son 15 preguntas. Para aprobar necesitas un mínimo de 12 respuestas correctas (80%).</p>
+            <p class="aviso-cuestionario">📝 Cada intento presenta un cuestionario diferente (A, B o C) seleccionado al azar.</p>
 
-            <form id="quizForm">
+            <form id="quizForm"></form>
 
-                <div class="seccion-titulo">📘 Módulo 1: La Comunicación Humana</div>
-
-                <div class="pregunta" data-correcta="b">
-                    <h3>1. ¿Qué es la comunicación?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p1" value="a"> El acto de hablar por radio únicamente.</label>
-                        <label><input type="radio" name="p1" value="b"> El acto mediante el cual establecemos relaciones con los demás e influimos sobre ellos.</label>
-                        <label><input type="radio" name="p1" value="c"> El proceso de transmitir información técnica.</label>
-                        <label><input type="radio" name="p1" value="d"> La capacidad de escribir mensajes.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="c">
-                    <h3>2. ¿Cuál es la función principal de la retroalimentación?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p2" value="a"> Aumentar la potencia de la señal.</label>
-                        <label><input type="radio" name="p2" value="b"> Seleccionar la frecuencia.</label>
-                        <label><input type="radio" name="p2" value="c"> Garantizar la comprensión del mensaje emitido.</label>
-                        <label><input type="radio" name="p2" value="d"> Amplificar el audio del equipo.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="b">
-                    <h3>3. ¿Cuáles son los requisitos que debe cumplir todo mensaje?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p3" value="a"> Ser largo, técnico y complejo.</label>
-                        <label><input type="radio" name="p3" value="b"> Credibilidad, utilidad y claridad.</label>
-                        <label><input type="radio" name="p3" value="c"> Usar palabras rebuscadas.</label>
-                        <label><input type="radio" name="p3" value="d"> Ser transmitido solo en Morse.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="seccion-titulo">📻 Módulo 2: Equipos de Radio y Frecuencias</div>
-
-                <div class="pregunta" data-correcta="b">
-                    <h3>4. ¿En qué consiste el transmisor más sencillo?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p4" value="a"> En un micrófono conectado a la antena.</label>
-                        <label><input type="radio" name="p4" value="b"> En un oscilador que genera una señal de alta frecuencia conectado a una antena.</label>
-                        <label><input type="radio" name="p4" value="c"> En un amplificador de audio.</label>
-                        <label><input type="radio" name="p4" value="d"> En un receptor superheterodino.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="c">
-                    <h3>5. La banda de frecuencia entre 30 y 300 MHz se denomina:</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p5" value="a"> HF</label>
-                        <label><input type="radio" name="p5" value="b"> UHF</label>
-                        <label><input type="radio" name="p5" value="c"> VHF</label>
-                        <label><input type="radio" name="p5" value="d"> LF</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="a">
-                    <h3>6. ¿Cuál es la principal diferencia entre la antena Marconi y la Hertz?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p6" value="a"> La Marconi funciona conectada a tierra y la Hertz funciona sin conexión a tierra.</label>
-                        <label><input type="radio" name="p6" value="b"> La Marconi solo funciona en VHF.</label>
-                        <label><input type="radio" name="p6" value="c"> La Marconi es portátil y la Hertz es móvil.</label>
-                        <label><input type="radio" name="p6" value="d"> No hay diferencia.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="seccion-titulo">🌐 Módulo 3: Subsistemas de Comunicación</div>
-
-                <div class="pregunta" data-correcta="b">
-                    <h3>7. ¿Cómo está organizado el sistema de comunicaciones de emergencia en Colombia?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p7" value="a"> Existe un sistema unificado.</label>
-                        <label><input type="radio" name="p7" value="b"> Cada institución posee su propio sistema independiente.</label>
-                        <label><input type="radio" name="p7" value="c"> Solo la Cruz Roja tiene red nacional.</label>
-                        <label><input type="radio" name="p7" value="d"> Todas comparten la misma frecuencia.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="c">
-                    <h3>8. ¿Cuál es la estación control de la Cruz Roja Colombiana en 40 metros?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p8" value="a"> HP CR 88</label>
-                        <label><input type="radio" name="p8" value="b"> HJC-555 Cartagena</label>
-                        <label><input type="radio" name="p8" value="c"> HJC-280 Bogotá</label>
-                        <label><input type="radio" name="p8" value="d"> HJW-830 Armenia</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="a">
-                    <h3>9. ¿Cuáles son los grados de alerta de la red de radioaficionados?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p9" value="a"> Alerta Roja, Amarilla y Blanca</label>
-                        <label><input type="radio" name="p9" value="b"> Alerta Verde, Azul y Negra</label>
-                        <label><input type="radio" name="p9" value="c"> Alerta Alta, Media y Baja</label>
-                        <label><input type="radio" name="p9" value="d"> Alerta 1, 2 y 3</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="seccion-titulo">🎙️ Módulo 4: Operación Básica</div>
-
-                <div class="pregunta" data-correcta="b">
-                    <h3>10. ¿Qué significa la sigla P.T.T.?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p10" value="a"> Power To Transmit</label>
-                        <label><input type="radio" name="p10" value="b"> Push To Talk (pulse para hablar)</label>
-                        <label><input type="radio" name="p10" value="c"> Press The Telephone</label>
-                        <label><input type="radio" name="p10" value="d"> Public Transmission Time</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="a">
-                    <h3>11. ¿Cuál es la palabra que se usa como señal de socorro en fonía?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p11" value="a"> MAYDAY (Meidei)</label>
-                        <label><input type="radio" name="p11" value="b"> SOS</label>
-                        <label><input type="radio" name="p11" value="c"> CQ</label>
-                        <label><input type="radio" name="p11" value="d"> BREAK</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="c">
-                    <h3>12. ¿Cómo se debe hablar al usar el P.T.T.?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p12" value="a"> Muy rápido para ahorrar tiempo.</label>
-                        <label><input type="radio" name="p12" value="b"> Gritando para que llegue lejos.</label>
-                        <label><input type="radio" name="p12" value="c"> Claro, lento y calmado, presionando el botón décimas de segundo antes de hablar.</label>
-                        <label><input type="radio" name="p12" value="d"> Susurrando.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="seccion-titulo">🔤 Módulo 5: Códigos y Abreviaturas</div>
-
-                <div class="pregunta" data-correcta="b">
-                    <h3>13. ¿Cuál es la palabra del código fonético ICAO para la letra "M"?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p13" value="a"> Montreal</label>
-                        <label><input type="radio" name="p13" value="b"> Mike</label>
-                        <label><input type="radio" name="p13" value="c"> México</label>
-                        <label><input type="radio" name="p13" value="d"> Madrid</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="a">
-                    <h3>14. ¿Qué significa el código QTH?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p14" value="a"> ¿Cuál es su posición en latitud y longitud?</label>
-                        <label><input type="radio" name="p14" value="b"> ¿Cuál es su nombre?</label>
-                        <label><input type="radio" name="p14" value="c"> ¿Cuál es el tiempo correcto?</label>
-                        <label><input type="radio" name="p14" value="d"> ¿Debo aumentar la potencia?</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="d">
-                    <h3>15. ¿Cuál es la recomendación de la Cruz Roja Colombiana respecto al uso de códigos en sus comunicados?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p15" value="a"> Usar siempre el código Q.</label>
-                        <label><input type="radio" name="p15" value="b"> Usar solo el código Morse.</label>
-                        <label><input type="radio" name="p15" value="c"> Usar códigos solo en emergencias.</label>
-                        <label><input type="radio" name="p15" value="d"> Excluir los códigos de los comunicados, ya que se interpretan bajo apreciaciones personales.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="botones">
-                    <button type="button" class="boton boton-calificar" onclick="calificar()">Calificar Evaluación Final</button>
-                    <button type="button" class="boton boton-reiniciar" id="btnReiniciar" onclick="reiniciar()">Intentar de nuevo</button>
-                </div>
-
-            </form>
+            <div class="botones">
+                <button type="button" class="boton boton-calificar" onclick="calificar()">Calificar Evaluación Final</button>
+                <button type="button" class="boton boton-reiniciar" id="btnReiniciar" onclick="reiniciar()">Intentar de nuevo</button>
+            </div>
 
             <div class="resultado" id="resultado">
                 <h3 id="tituloResultado">Resultado Final</h3>
@@ -269,36 +93,127 @@
     </footer>
 
     <script>
-        const respuestasCorrectas = {
-            p1: 'b', p2: 'c', p3: 'b', p4: 'b', p5: 'c',
-            p6: 'a', p7: 'b', p8: 'c', p9: 'a', p10: 'b',
-            p11: 'a', p12: 'c', p13: 'b', p14: 'a', p15: 'd'
+        // ============================================
+        // BANCO DE PREGUNTAS - 3 CUESTIONARIOS MÓDULO 6 (FINAL)
+        // ============================================
+        const cuestionarios = {
+            A: [
+                { p: "¿Qué es la comunicación?", o: { a: "El acto de hablar por radio únicamente.", b: "El acto mediante el cual establecemos relaciones con los demás e influimos sobre ellos.", c: "El proceso de transmitir información técnica.", d: "La capacidad de escribir mensajes." }, c: "b" },
+                { p: "¿Cuál es la función principal de la retroalimentación?", o: { a: "Aumentar la potencia de la señal.", b: "Seleccionar la frecuencia.", c: "Garantizar la comprensión del mensaje emitido.", d: "Amplificar el audio del equipo." }, c: "c" },
+                { p: "¿Cuáles son los requisitos que debe cumplir todo mensaje?", o: { a: "Ser largo, técnico y complejo.", b: "Credibilidad, utilidad y claridad.", c: "Usar palabras rebuscadas.", d: "Ser transmitido solo en Morse." }, c: "b" },
+                { p: "¿En qué consiste el transmisor más sencillo?", o: { a: "En un micrófono conectado a la antena.", b: "En un oscilador que genera una señal de alta frecuencia conectado a una antena.", c: "En un amplificador de audio.", d: "En un receptor superheterodino." }, c: "b" },
+                { p: "La banda de frecuencia entre 30 y 300 MHz se denomina:", o: { a: "HF", b: "UHF", c: "VHF", d: "LF" }, c: "c" },
+                { p: "¿Cuál es la principal diferencia entre la antena Marconi y la Hertz?", o: { a: "La Marconi funciona conectada a tierra y la Hertz funciona sin conexión a tierra.", b: "La Marconi solo funciona en VHF.", c: "La Marconi es portátil y la Hertz es móvil.", d: "No hay diferencia." }, c: "a" },
+                { p: "¿Cómo está organizado el sistema de comunicaciones de emergencia en Colombia?", o: { a: "Existe un sistema unificado.", b: "Cada institución posee su propio sistema independiente.", c: "Solo la Cruz Roja tiene red nacional.", d: "Todas comparten la misma frecuencia." }, c: "b" },
+                { p: "¿Cuál es la estación control de la Cruz Roja Colombiana en 40 metros?", o: { a: "HP CR 88", b: "HJC-555 Cartagena", c: "HJC-280 Bogotá", d: "HJW-830 Armenia" }, c: "c" },
+                { p: "¿Cuáles son los grados de alerta de la red de radioaficionados?", o: { a: "Alerta Roja, Amarilla y Blanca", b: "Alerta Verde, Azul y Negra", c: "Alerta Alta, Media y Baja", d: "Alerta 1, 2 y 3" }, c: "a" },
+                { p: "¿Qué significa la sigla P.T.T.?", o: { a: "Power To Transmit", b: "Push To Talk (pulse para hablar)", c: "Press The Telephone", d: "Public Transmission Time" }, c: "b" },
+                { p: "¿Cuál es la palabra que se usa como señal de socorro en fonía?", o: { a: "MAYDAY (Meidei)", b: "SOS", c: "CQ", d: "BREAK" }, c: "a" },
+                { p: "¿Cómo se debe hablar al usar el P.T.T.?", o: { a: "Muy rápido para ahorrar tiempo.", b: "Gritando para que llegue lejos.", c: "Claro, lento y calmado, presionando el botón décimas de segundo antes de hablar.", d: "Susurrando." }, c: "c" },
+                { p: "¿Cuál es la palabra del código fonético ICAO para la letra \"M\"?", o: { a: "Montreal", b: "Mike", c: "México", d: "Madrid" }, c: "b" },
+                { p: "¿Qué significa el código QTH?", o: { a: "¿Cuál es su posición en latitud y longitud?", b: "¿Cuál es su nombre?", c: "¿Cuál es el tiempo correcto?", d: "¿Debo aumentar la potencia?" }, c: "a" },
+                { p: "¿Cuál es la recomendación de la Cruz Roja Colombiana respecto al uso de códigos en sus comunicados?", o: { a: "Usar siempre el código Q.", b: "Usar solo el código Morse.", c: "Usar códigos solo en emergencias.", d: "Excluir los códigos de los comunicados, ya que se interpretan bajo apreciaciones personales." }, c: "d" }
+            ],
+            B: [
+                { p: "Según el manual, ¿qué es la comunicación?", o: { a: "El acto de hablar por radio.", b: "El acto mediante el cual establecemos relaciones con los demás e influimos sobre ellos.", c: "La capacidad de escribir.", d: "La transmisión de datos técnicos." }, c: "b" },
+                { p: "¿Cuál de los siguientes NO es un requisito del mensaje?", o: { a: "Credibilidad.", b: "Utilidad.", c: "Ambigüedad.", d: "Claridad." }, c: "c" },
+                { p: "¿Cuál de las siguientes es una barrera en el RECEPTOR?", o: { a: "Ruido en el canal.", b: "No saber escuchar.", c: "Mal funcionamiento del equipo.", d: "Estado emocional del emisor." }, c: "b" },
+                { p: "¿Qué elemento del proceso de comunicación convierte las ideas en señal transmisible?", o: { a: "Fuente.", b: "Canal.", c: "Emisor.", d: "Receptor." }, c: "c" },
+                { p: "¿Qué es lo que caracteriza al ser humano respecto a la comunicación?", o: { a: "Que solo se comunica con palabras.", b: "Que puede convertir en comunicación todo lo que le rodea.", c: "Que solo se comunica por radio.", d: "Que no necesita comunicarse." }, c: "b" },
+                { p: "¿Cómo se llama el receptor más desarrollado que se usa actualmente?", o: { a: "Detector de cristal.", b: "Receptor Marconi.", c: "Receptor Hertz.", d: "Receptor Superheterodino." }, c: "d" },
+                { p: "¿Cuál es la función del control SQUELCH?", o: { a: "Encender y apagar el equipo.", b: "Evitar el sonido de ruido cuando no hay señal por encima del nivel ajustado.", c: "Seleccionar la frecuencia.", d: "Aumentar la potencia." }, c: "b" },
+                { p: "¿Cuál es la velocidad de propagación de las ondas electromagnéticas?", o: { a: "30.000 Km/segundo.", b: "3.000 Km/segundo.", c: "300.000 Km/segundo.", d: "300 Km/segundo." }, c: "c" },
+                { p: "¿Cuál es la principal diferencia entre la antena Marconi y la Hertz?", o: { a: "La Marconi funciona conectada a tierra y la Hertz sin conexión a tierra.", b: "La Marconi solo funciona en VHF.", c: "La Marconi es portátil y la Hertz móvil.", d: "No hay diferencia." }, c: "a" },
+                { p: "¿Cómo está organizado el sistema de comunicaciones de emergencia en Colombia?", o: { a: "Existe un sistema unificado.", b: "Solo la Cruz Roja tiene red nacional.", c: "Cada institución posee su propio sistema independiente.", d: "Todas comparten la misma frecuencia." }, c: "c" },
+                { p: "¿Cuál es el nombre de la red internacional de la Cruz Roja cuya estación control está en Panamá?", o: { a: "Red Panamericana.", b: "Red Nacional.", c: "Red Internacional.", d: "Red del Socorro Nacional." }, c: "a" },
+                { p: "¿Qué significa el CRUE?", o: { a: "Centro Regional de Unidades de Emergencia.", b: "Centro Regulador de Urgencias y Emergencias.", c: "Central de Radio y Urgencias Estatales.", d: "Coordinación Regional de Unidades Especiales." }, c: "b" },
+                { p: "¿Qué significa la sigla P.T.T.?", o: { a: "Push To Talk (pulse para hablar).", b: "Power To Transmit.", c: "Public Transmission Time.", d: "Press The Telephone." }, c: "a" },
+                { p: "¿Cuál es la palabra que se usa como señal de socorro en fonía?", o: { a: "SOS.", b: "CQ.", c: "BREAK.", d: "MAYDAY (Meidei)." }, c: "d" },
+                { p: "¿Cuál es la recomendación de la Cruz Roja Colombiana respecto al uso de códigos en sus comunicados?", o: { a: "Usar siempre el código Q.", b: "Usar solo el código Morse.", c: "Usar códigos solo en emergencias.", d: "Excluir los códigos porque se interpretan bajo apreciaciones personales." }, c: "d" }
+            ],
+            C: [
+                { p: "¿Cuál es la función de la retroalimentación en la comunicación?", o: { a: "Garantizar la comprensión del mensaje emitido.", b: "Aumentar la potencia de la señal.", c: "Seleccionar la frecuencia.", d: "Amplificar el audio." }, c: "a" },
+                { p: "¿Cuál de las siguientes es una cualidad de una buena comunicación oral?", o: { a: "Hablar rápido.", b: "Tener seguridad en el mensaje que se transmite.", c: "Usar palabras rebuscadas.", d: "Gritar." }, c: "b" },
+                { p: "¿Qué tipo de equipo de radio se instala en un vehículo en movimiento?", o: { a: "Portátil.", b: "Fijo.", c: "Móvil.", d: "Base." }, c: "c" },
+                { p: "La banda entre 30 y 300 MHz se denomina:", o: { a: "HF.", b: "UHF.", c: "VHF.", d: "LF." }, c: "c" },
+                { p: "¿Qué tipo de antena funciona SIN conexión a tierra?", o: { a: "Marconi.", b: "Hertz.", c: "Yagi.", d: "Reflector." }, c: "b" },
+                { p: "¿Cuál de las siguientes entidades es la encargada de atender emergencias en el perímetro del Distrito de Cartagena?", o: { a: "La Cruz Roja.", b: "La Defensa Civil.", c: "El Cuerpo de Bomberos de Cartagena.", d: "El Ministerio de Salud." }, c: "c" },
+                { p: "¿Cuáles son los tres grados de alerta de la red de radioaficionados?", o: { a: "Alerta Verde, Azul y Negra.", b: "Alerta Alta, Media y Baja.", c: "Alerta 1, 2 y 3.", d: "Alerta Roja, Amarilla y Blanca." }, c: "d" },
+                { p: "Según el manual, ¿por qué el Socorro Nacional de la Cruz Roja recomienda excluir los códigos?", o: { a: "Porque son muy largos.", b: "Porque se interpretan bajo apreciaciones personales.", c: "Porque no se entienden.", d: "Porque son obsoletos." }, c: "b" },
+                { p: "¿Cuál es el principal aporte de un radioaficionado durante un tráfico de emergencia?", o: { a: "Dar consejos.", b: "Transmitir toda la información.", c: "Escuchar, escuchar y escuchar, sin transmitir.", d: "Cambiar de frecuencia." }, c: "c" },
+                { p: "¿Qué significa la sigla CRUE?", o: { a: "Centro Regional de Unidades de Emergencia.", b: "Centro Regulador de Urgencias y Emergencias.", c: "Central de Radio y Urgencias Estatales.", d: "Coordinación Regional de Unidades Especiales." }, c: "b" },
+                { p: "¿Cuántos \"BREAK\" se emiten cuando el mensaje es de estado de emergencia?", o: { a: "Uno.", b: "Dos.", c: "Tres.", d: "Cinco." }, c: "c" },
+                { p: "¿Cómo se debe hablar al usar el P.T.T.?", o: { a: "Muy rápido.", b: "Gritando.", c: "Susurrando.", d: "Claro, lento y calmado." }, c: "d" },
+                { p: "¿Cuál es la palabra del código fonético ICAO para la letra \"K\"?", o: { a: "Kenia.", b: "Kansas.", c: "Kappa.", d: "Kilo." }, c: "d" },
+                { p: "¿Qué significa el código \"QRM\"?", o: { a: "¿Está ocupado?", b: "¿Está siendo interferido?", c: "¿Cuál es su posición?", d: "¿Está listo?" }, c: "b" },
+                { p: "¿Cuál es la abreviatura que significa \"Break\"?", o: { a: "CQ.", b: "R.", c: "CFM.", d: "BK." }, c: "d" }
+            ]
         };
-        const totalPreguntas = Object.keys(respuestasCorrectas).length;
+
+        // ============================================
+        // SELECCIÓN ALEATORIA DEL CUESTIONARIO
+        // ============================================
+        const claves = Object.keys(cuestionarios);
+        const claveElegida = claves[Math.floor(Math.random() * claves.length)];
+        const preguntasActuales = cuestionarios[claveElegida];
+
+        console.log('📋 Cuestionario FINAL seleccionado:', claveElegida);
+
+        // ============================================
+        // RENDERIZAR LAS PREGUNTAS
+        // ============================================
+        function renderizarPreguntas() {
+            const form = document.getElementById('quizForm');
+            form.innerHTML = '';
+            preguntasActuales.forEach((preg, index) => {
+                const div = document.createElement('div');
+                div.className = 'pregunta';
+                div.dataset.correcta = preg.c;
+                let html = '<h3>' + (index + 1) + '. ' + preg.p + '</h3><div class="opciones">';
+                ['a', 'b', 'c', 'd'].forEach(letra => {
+                    html += '<label><input type="radio" name="p' + (index + 1) + '" value="' + letra + '"> ' + preg.o[letra] + '</label>';
+                });
+                html += '</div><div class="retro"></div>';
+                div.innerHTML = html;
+                form.appendChild(div);
+            });
+        }
+
+        renderizarPreguntas();
+
+        // ============================================
+        // CALIFICAR
+        // ============================================
         function calificar() {
             let correctas = 0, respondidas = 0;
-            document.querySelectorAll('.pregunta').forEach((pregunta) => {
-                const nombre = pregunta.querySelector('input').name;
-                const seleccionada = pregunta.querySelector('input:checked');
-                const retro = pregunta.querySelector('.retro');
-                pregunta.classList.remove('correcta', 'incorrecta');
+            const preguntasDOM = document.querySelectorAll('.pregunta');
+
+            preguntasDOM.forEach((preguntaDOM, index) => {
+                const seleccionada = preguntaDOM.querySelector('input:checked');
+                const retro = preguntaDOM.querySelector('.retro');
+                const correcta = preguntasActuales[index].c;
+
+                preguntaDOM.classList.remove('correcta', 'incorrecta');
                 retro.classList.remove('ok', 'no');
                 retro.style.display = 'none';
+
                 if (!seleccionada) return;
                 respondidas++;
-                pregunta.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
+
+                preguntaDOM.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
                 seleccionada.parentElement.classList.add('seleccionada');
-                if (seleccionada.value === respuestasCorrectas[nombre]) {
+
+                if (seleccionada.value === correcta) {
                     correctas++;
-                    pregunta.classList.add('correcta');
+                    preguntaDOM.classList.add('correcta');
                     retro.classList.add('ok');
                     retro.textContent = '✅ ¡Correcto!';
                 } else {
-                    pregunta.classList.add('incorrecta');
+                    preguntaDOM.classList.add('incorrecta');
                     retro.classList.add('no');
                     retro.textContent = '❌ Incorrecto. La respuesta correcta está marcada en verde.';
-                    pregunta.querySelectorAll('input').forEach(inp => {
-                        if (inp.value === respuestasCorrectas[nombre]) {
+                    preguntaDOM.querySelectorAll('input').forEach(inp => {
+                        if (inp.value === correcta) {
                             inp.parentElement.style.borderColor = '#2e7d32';
                             inp.parentElement.style.background = '#e8f5e9';
                         }
@@ -306,44 +221,64 @@
                 }
                 retro.style.display = 'block';
             });
-            if (respondidas === 0) { alert('Por favor responde al menos una pregunta antes de calificar.'); return; }
+
+            if (respondidas === 0) {
+                alert('Por favor responde al menos una pregunta antes de calificar.');
+                return;
+            }
+
             const resultado = document.getElementById('resultado');
             const nota = document.getElementById('notaFinal');
             const mensaje = document.getElementById('mensajeFinal');
             const titulo = document.getElementById('tituloResultado');
             const btnCertificado = document.getElementById('btnCertificado');
-            nota.textContent = correctas + '/' + totalPreguntas;
+
+            nota.textContent = correctas + '/15';
             resultado.style.display = 'block';
+
             document.querySelector('.boton-calificar').style.display = 'none';
             document.getElementById('btnReiniciar').style.display = 'inline-block';
+
             if (correctas >= 12) {
                 resultado.classList.add('aprobado');
                 titulo.textContent = '🎉 ¡Aprobado!';
-                mensaje.textContent = '¡Felicidades! Has aprobado la Evaluación Final con un ' + Math.round((correctas/totalPreguntas)*100) + '%. Ya puedes generar tu certificado.';
+                mensaje.textContent = '¡Felicidades! Has aprobado la Evaluación Final con un ' + Math.round((correctas/15)*100) + '%. Ya puedes generar tu certificado.';
                 btnCertificado.style.display = 'inline-block';
                 guardarProgresoModulo(6);
             } else {
                 resultado.classList.remove('aprobado');
                 titulo.textContent = '📚 Sigue intentando';
-                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/totalPreguntas)*100) + '%. Te recomendamos repasar la teoría.';
+                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/15)*100) + '%. Te recomendamos repasar la teoría.';
                 btnCertificado.style.display = 'none';
             }
+
             resultado.scrollIntoView({ behavior: 'smooth' });
         }
+
+        // ============================================
+        // REINICIAR
+        // ============================================
         function reiniciar() {
             document.getElementById('quizForm').reset();
+
             document.querySelectorAll('.pregunta').forEach(p => {
                 p.classList.remove('correcta', 'incorrecta');
-                p.querySelectorAll('label').forEach(l => { l.classList.remove('seleccionada'); l.style.borderColor = ''; l.style.background = ''; });
+                p.querySelectorAll('label').forEach(l => {
+                    l.classList.remove('seleccionada');
+                    l.style.borderColor = '';
+                    l.style.background = '';
+                });
                 const retro = p.querySelector('.retro');
                 retro.style.display = 'none';
                 retro.classList.remove('ok', 'no');
             });
+
             document.getElementById('resultado').style.display = 'none';
             document.getElementById('resultado').classList.remove('aprobado');
             document.getElementById('btnCertificado').style.display = 'none';
             document.querySelector('.boton-calificar').style.display = 'inline-block';
             document.getElementById('btnReiniciar').style.display = 'none';
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>

@@ -17,7 +17,8 @@
         .boton-volver:hover { background: var(--rojo-oscuro); }
         .contenido-quiz { background: var(--blanco); padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rojo-cr); }
         .contenido-quiz h2 { color: var(--rojo-cr); margin-bottom: 10px; font-size: 1.8rem; text-align: center; }
-        .instrucciones { text-align: center; color: #666; margin-bottom: 30px; font-style: italic; }
+        .instrucciones { text-align: center; color: #666; margin-bottom: 10px; font-style: italic; }
+        .aviso-cuestionario { text-align: center; color: #888; margin-bottom: 30px; font-size: 0.85rem; font-style: italic; }
         .pregunta { background: #f9f9f9; border-left: 5px solid var(--rojo-cr); border-radius: 0 8px 8px 0; padding: 20px; margin-bottom: 25px; }
         .pregunta h3 { color: #222; font-size: 1.15rem; margin-bottom: 15px; }
         .opciones label { display: block; padding: 12px 15px; margin-bottom: 8px; background: white; border: 2px solid #ddd; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-size: 1rem; }
@@ -69,103 +70,14 @@
         <div class="contenido-quiz">
             <h2>Quiz de Evaluación</h2>
             <p class="instrucciones">Responde las 8 preguntas. Para aprobar necesitas un mínimo de 6 respuestas correctas (75%).</p>
+            <p class="aviso-cuestionario">📝 Cada intento presenta un cuestionario diferente (A, B o C) seleccionado al azar.</p>
 
-            <form id="quizForm">
+            <form id="quizForm"></form>
 
-                <div class="pregunta" data-correcta="b">
-                    <h3>1. ¿Qué significa la sigla P.T.T.?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p1" value="a"> Power To Transmit</label>
-                        <label><input type="radio" name="p1" value="b"> Push To Talk (pulse para hablar)</label>
-                        <label><input type="radio" name="p1" value="c"> Press The Telephone</label>
-                        <label><input type="radio" name="p1" value="d"> Public Transmission Time</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="c">
-                    <h3>2. ¿Cuántos "BREAK" se emiten cuando el mensaje es de estado de emergencia?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p2" value="a"> Uno solo</label>
-                        <label><input type="radio" name="p2" value="b"> Dos break seguidos</label>
-                        <label><input type="radio" name="p2" value="c"> Tres break seguidos</label>
-                        <label><input type="radio" name="p2" value="d"> Cinco break seguidos</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="a">
-                    <h3>3. ¿Cuál es la palabra que se usa como señal de socorro en fonía?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p3" value="a"> MAYDAY (Meidei)</label>
-                        <label><input type="radio" name="p3" value="b"> SOS</label>
-                        <label><input type="radio" name="p3" value="c"> CQ</label>
-                        <label><input type="radio" name="p3" value="d"> BREAK</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="d">
-                    <h3>4. ¿Cuál es la prioridad de una llamada de socorro?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p4" value="a"> La misma que las demás llamadas.</label>
-                        <label><input type="radio" name="p4" value="b"> Menor que las llamadas generales.</label>
-                        <label><input type="radio" name="p4" value="c"> Depende de la hora del día.</label>
-                        <label><input type="radio" name="p4" value="d"> Prioridad ABSOLUTA sobre todas las comunicaciones.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="b">
-                    <h3>5. ¿Cómo comienza una llamada general en fonía?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p5" value="a"> MAYDAY, MAYDAY, MAYDAY</label>
-                        <label><input type="radio" name="p5" value="b"> CQ, CQ, CQ (no más de tres veces)</label>
-                        <label><input type="radio" name="p5" value="c"> BREAK, BREAK, BREAK</label>
-                        <label><input type="radio" name="p5" value="d"> SOS, SOS, SOS</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="a">
-                    <h3>6. ¿Qué se debe hacer ANTES de usar un canal de radio?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p6" value="a"> Escuchar primero para no interrumpir a otra estación.</label>
-                        <label><input type="radio" name="p6" value="b"> Transmitir inmediatamente para ganar tiempo.</label>
-                        <label><input type="radio" name="p6" value="c"> Apagar el equipo y volverlo a encender.</label>
-                        <label><input type="radio" name="p6" value="d"> Cambiar la antena.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="c">
-                    <h3>7. ¿Cómo se debe hablar al usar el P.T.T.?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p7" value="a"> Muy rápido para ahorrar tiempo en la frecuencia.</label>
-                        <label><input type="radio" name="p7" value="b"> Gritando para que llegue lejos la señal.</label>
-                        <label><input type="radio" name="p7" value="c"> Claro, lento y calmado, presionando el botón décimas de segundo antes de hablar.</label>
-                        <label><input type="radio" name="p7" value="d"> Susurrando para no molestar.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="d">
-                    <h3>8. ¿Qué se debe hacer al terminar de transmitir un mensaje de socorro?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p8" value="a"> Apagar el equipo inmediatamente.</label>
-                        <label><input type="radio" name="p8" value="b"> Cambiar de frecuencia.</label>
-                        <label><input type="radio" name="p8" value="c"> Repetir todo el mensaje 10 veces.</label>
-                        <label><input type="radio" name="p8" value="d"> Soltar el P.T.T. y quedarse a la escucha de una posible respuesta.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="botones">
-                    <button type="button" class="boton boton-calificar" onclick="calificar()">Calificar Quiz</button>
-                    <button type="button" class="boton boton-reiniciar" id="btnReiniciar" onclick="reiniciar()">Intentar de nuevo</button>
-                </div>
-
-            </form>
+            <div class="botones">
+                <button type="button" class="boton boton-calificar" onclick="calificar()">Calificar Quiz</button>
+                <button type="button" class="boton boton-reiniciar" id="btnReiniciar" onclick="reiniciar()">Intentar de nuevo</button>
+            </div>
 
             <div class="resultado" id="resultado">
                 <h3 id="tituloResultado">Resultado Final</h3>
@@ -181,32 +93,106 @@
     </footer>
 
     <script>
-        const respuestasCorrectas = { p1: 'b', p2: 'c', p3: 'a', p4: 'd', p5: 'b', p6: 'a', p7: 'c', p8: 'd' };
-        const totalPreguntas = Object.keys(respuestasCorrectas).length;
+        // ============================================
+        // BANCO DE PREGUNTAS - 3 CUESTIONARIOS MÓDULO 4
+        // ============================================
+        const cuestionarios = {
+            A: [
+                { p: "¿Qué significa la sigla P.T.T.?", o: { a: "Power To Transmit", b: "Push To Talk (pulse para hablar)", c: "Press The Telephone", d: "Public Transmission Time" }, c: "b" },
+                { p: "¿Cuántos 'BREAK' se emiten cuando el mensaje es de estado de emergencia?", o: { a: "Uno solo", b: "Dos break seguidos", c: "Tres break seguidos", d: "Cinco break seguidos" }, c: "c" },
+                { p: "¿Cuál es la palabra que se usa como señal de socorro en fonía?", o: { a: "MAYDAY (Meidei)", b: "SOS", c: "CQ", d: "BREAK" }, c: "a" },
+                { p: "¿Cuál es la prioridad de una llamada de socorro?", o: { a: "La misma que las demás llamadas.", b: "Menor que las llamadas generales.", c: "Depende de la hora del día.", d: "Prioridad ABSOLUTA sobre todas las comunicaciones." }, c: "d" },
+                { p: "¿Cómo comienza una llamada general en fonía?", o: { a: "MAYDAY, MAYDAY, MAYDAY", b: "CQ, CQ, CQ (no más de tres veces)", c: "BREAK, BREAK, BREAK", d: "SOS, SOS, SOS" }, c: "b" },
+                { p: "¿Qué se debe hacer ANTES de usar un canal de radio?", o: { a: "Escuchar primero para no interrumpir a otra estación.", b: "Transmitir inmediatamente para ganar tiempo.", c: "Apagar el equipo y volverlo a encender.", d: "Cambiar la antena." }, c: "a" },
+                { p: "¿Cómo se debe hablar al usar el P.T.T.?", o: { a: "Muy rápido para ahorrar tiempo en la frecuencia.", b: "Gritando para que llegue lejos la señal.", c: "Claro, lento y calmado, presionando el botón décimas de segundo antes de hablar.", d: "Susurrando para no molestar." }, c: "c" },
+                { p: "¿Qué se debe hacer al terminar de transmitir un mensaje de socorro?", o: { a: "Apagar el equipo inmediatamente.", b: "Cambiar de frecuencia.", c: "Repetir todo el mensaje 10 veces.", d: "Soltar el P.T.T. y quedarse a la escucha de una posible respuesta." }, c: "d" }
+            ],
+            B: [
+                { p: "¿Qué significa la sigla P.T.T. en un equipo de radio?", o: { a: "Power To Transmit.", b: "Public Transmission Time.", c: "Push To Talk (pulse para hablar).", d: "Press The Telephone." }, c: "c" },
+                { p: "¿Cuántos 'BREAK' se deben emitir cuando el mensaje es de estado de emergencia?", o: { a: "Uno solo.", b: "Dos break seguidos.", c: "Cinco break seguidos.", d: "Tres break seguidos." }, c: "d" },
+                { p: "¿Cuál es la palabra que se usa como señal de socorro en fonía?", o: { a: "MAYDAY (Meidei).", b: "SOS.", c: "CQ.", d: "BREAK." }, c: "a" },
+                { p: "¿Qué se debe hacer ANTES de usar un canal de radio?", o: { a: "Escuchar primero para no interrumpir a otra estación.", b: "Transmitir inmediatamente para ganar tiempo.", c: "Apagar el equipo y volverlo a encender.", d: "Cambiar la antena." }, c: "a" },
+                { p: "¿Cómo se debe hablar al usar el P.T.T.?", o: { a: "Muy rápido para ahorrar tiempo en la frecuencia.", b: "Gritando para que llegue lejos la señal.", c: "Claro, lento y calmado, presionando el botón décimas de segundo antes de hablar.", d: "Susurrando para no molestar." }, c: "c" },
+                { p: "¿Cuál es la prioridad de una llamada de socorro?", o: { a: "La misma que las demás llamadas.", b: "Prioridad ABSOLUTA sobre todas las comunicaciones.", c: "Menor que las llamadas generales.", d: "Depende de la hora del día." }, c: "b" },
+                { p: "¿Cómo comienza una llamada general en fonía?", o: { a: "MAYDAY, MAYDAY, MAYDAY.", b: "BREAK, BREAK, BREAK.", c: "SOS, SOS, SOS.", d: "CQ, CQ, CQ (no más de tres veces)." }, c: "d" },
+                { p: "¿Qué se debe hacer al terminar de transmitir un mensaje de socorro?", o: { a: "Apagar el equipo inmediatamente.", b: "Cambiar de frecuencia.", c: "Repetir todo el mensaje 10 veces.", d: "Soltar el P.T.T. y quedarse a la escucha de una posible respuesta." }, c: "d" }
+            ],
+            C: [
+                { p: "¿Cuál es el procedimiento correcto para encender y usar un equipo de radio?", o: { a: "Encender y hablar de inmediato.", b: "Solo oprimir el P.T.T.", c: "Verificar conexiones, energizar, ajustar volumen y seleccionar frecuencia.", d: "Encender, cambiar la antena y hablar." }, c: "c" },
+                { p: "Cuando el canal está ocupado, ¿qué palabra se puede emitir para solicitar entrada?", o: { a: "MAYDAY.", b: "SOS.", c: "CQ.", d: "BREAK o PERMISO." }, c: "d" },
+                { p: "¿Cómo se deletrea la palabra 'MAYDAY' al pronunciarla en fonía?", o: { a: "\"Maydai\".", b: "\"Meidei\".", c: "\"Maidai\".", d: "\"Maday\"." }, c: "b" },
+                { p: "¿Cuál es el orden correcto de una llamada de socorro en fonía?", o: { a: "MAYDAY - AQUÍ - Indicativo de la estación en peligro.", b: "AQUÍ - MAYDAY - Indicativo.", c: "Indicativo - AQUÍ - MAYDAY.", d: "SOS - AQUÍ - Indicativo." }, c: "a" },
+                { p: "¿Qué se debe hacer si, tras una llamada de socorro, no se recibe respuesta?", o: { a: "Cambiar de frecuencia.", b: "Apagar el equipo.", c: "Repetir el llamado con intervalos prudenciales.", d: "Llamar a la estación control por teléfono." }, c: "c" },
+                { p: "Según el manual, ¿por qué no se debe llamar con insistencia a una estación?", o: { a: "Porque se gasta la batería del equipo.", b: "Porque solo se logra molestar a las estaciones que están en la frecuencia.", c: "Porque daña la antena.", d: "Porque se pierde la señal." }, c: "b" },
+                { p: "¿Cuál es la velocidad y el tono recomendado al hablar por radio?", o: { a: "Rápido y con voz fuerte.", b: "Susurrando y despacio.", c: "Lento, claro y calmado.", d: "Normal, sin importar el tono." }, c: "c" },
+                { p: "¿Qué se debe hacer al recibir una llamada de socorro mientras se está transmitiendo?", o: { a: "Continuar la transmisión.", b: "Cambiar de canal para no interferir.", c: "Apagar el equipo.", d: "Ceder la frecuencia y quedarse a la escucha." }, c: "d" }
+            ]
+        };
+
+        // ============================================
+        // SELECCIÓN ALEATORIA DEL CUESTIONARIO
+        // ============================================
+        const claves = Object.keys(cuestionarios);
+        const claveElegida = claves[Math.floor(Math.random() * claves.length)];
+        const preguntasActuales = cuestionarios[claveElegida];
+
+        console.log('📋 Cuestionario seleccionado:', claveElegida);
+
+        // ============================================
+        // RENDERIZAR LAS PREGUNTAS
+        // ============================================
+        function renderizarPreguntas() {
+            const form = document.getElementById('quizForm');
+            form.innerHTML = '';
+            preguntasActuales.forEach((preg, index) => {
+                const div = document.createElement('div');
+                div.className = 'pregunta';
+                div.dataset.correcta = preg.c;
+                let html = '<h3>' + (index + 1) + '. ' + preg.p + '</h3><div class="opciones">';
+                ['a', 'b', 'c', 'd'].forEach(letra => {
+                    html += '<label><input type="radio" name="p' + (index + 1) + '" value="' + letra + '"> ' + preg.o[letra] + '</label>';
+                });
+                html += '</div><div class="retro"></div>';
+                div.innerHTML = html;
+                form.appendChild(div);
+            });
+        }
+
+        renderizarPreguntas();
+
+        // ============================================
+        // CALIFICAR
+        // ============================================
         function calificar() {
             let correctas = 0, respondidas = 0;
-            document.querySelectorAll('.pregunta').forEach((pregunta) => {
-                const nombre = pregunta.querySelector('input').name;
-                const seleccionada = pregunta.querySelector('input:checked');
-                const retro = pregunta.querySelector('.retro');
-                pregunta.classList.remove('correcta', 'incorrecta');
+            const preguntasDOM = document.querySelectorAll('.pregunta');
+
+            preguntasDOM.forEach((preguntaDOM, index) => {
+                const seleccionada = preguntaDOM.querySelector('input:checked');
+                const retro = preguntaDOM.querySelector('.retro');
+                const correcta = preguntasActuales[index].c;
+
+                preguntaDOM.classList.remove('correcta', 'incorrecta');
                 retro.classList.remove('ok', 'no');
                 retro.style.display = 'none';
+
                 if (!seleccionada) return;
                 respondidas++;
-                pregunta.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
+
+                preguntaDOM.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
                 seleccionada.parentElement.classList.add('seleccionada');
-                if (seleccionada.value === respuestasCorrectas[nombre]) {
+
+                if (seleccionada.value === correcta) {
                     correctas++;
-                    pregunta.classList.add('correcta');
+                    preguntaDOM.classList.add('correcta');
                     retro.classList.add('ok');
                     retro.textContent = '✅ ¡Correcto!';
                 } else {
-                    pregunta.classList.add('incorrecta');
+                    preguntaDOM.classList.add('incorrecta');
                     retro.classList.add('no');
                     retro.textContent = '❌ Incorrecto. La respuesta correcta está marcada en verde.';
-                    pregunta.querySelectorAll('input').forEach(inp => {
-                        if (inp.value === respuestasCorrectas[nombre]) {
+                    preguntaDOM.querySelectorAll('input').forEach(inp => {
+                        if (inp.value === correcta) {
                             inp.parentElement.style.borderColor = '#2e7d32';
                             inp.parentElement.style.background = '#e8f5e9';
                         }
@@ -214,44 +200,64 @@
                 }
                 retro.style.display = 'block';
             });
-            if (respondidas === 0) { alert('Por favor responde al menos una pregunta antes de calificar.'); return; }
+
+            if (respondidas === 0) {
+                alert('Por favor responde al menos una pregunta antes de calificar.');
+                return;
+            }
+
             const resultado = document.getElementById('resultado');
             const nota = document.getElementById('notaFinal');
             const mensaje = document.getElementById('mensajeFinal');
             const titulo = document.getElementById('tituloResultado');
             const btnAvanzar = document.getElementById('btnAvanzar');
-            nota.textContent = correctas + '/' + totalPreguntas;
+
+            nota.textContent = correctas + '/8';
             resultado.style.display = 'block';
+
             document.querySelector('.boton-calificar').style.display = 'none';
             document.getElementById('btnReiniciar').style.display = 'inline-block';
+
             if (correctas >= 6) {
                 resultado.classList.add('aprobado');
                 titulo.textContent = '🎉 ¡Aprobado!';
-                mensaje.textContent = '¡Felicidades! Has aprobado el Módulo 4 con un ' + Math.round((correctas/totalPreguntas)*100) + '%.';
+                mensaje.textContent = '¡Felicidades! Has aprobado el Módulo 4 con un ' + Math.round((correctas/8)*100) + '%.';
                 btnAvanzar.style.display = 'inline-block';
                 guardarProgresoModulo(4);
             } else {
                 resultado.classList.remove('aprobado');
                 titulo.textContent = '📚 Sigue intentando';
-                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/totalPreguntas)*100) + '%. Te recomendamos repasar la teoría.';
+                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/8)*100) + '%. Te recomendamos repasar la teoría.';
                 btnAvanzar.style.display = 'none';
             }
+
             resultado.scrollIntoView({ behavior: 'smooth' });
         }
+
+        // ============================================
+        // REINICIAR
+        // ============================================
         function reiniciar() {
             document.getElementById('quizForm').reset();
+
             document.querySelectorAll('.pregunta').forEach(p => {
                 p.classList.remove('correcta', 'incorrecta');
-                p.querySelectorAll('label').forEach(l => { l.classList.remove('seleccionada'); l.style.borderColor = ''; l.style.background = ''; });
+                p.querySelectorAll('label').forEach(l => {
+                    l.classList.remove('seleccionada');
+                    l.style.borderColor = '';
+                    l.style.background = '';
+                });
                 const retro = p.querySelector('.retro');
                 retro.style.display = 'none';
                 retro.classList.remove('ok', 'no');
             });
+
             document.getElementById('resultado').style.display = 'none';
             document.getElementById('resultado').classList.remove('aprobado');
             document.querySelector('.boton-calificar').style.display = 'inline-block';
             document.getElementById('btnReiniciar').style.display = 'none';
             document.getElementById('btnAvanzar').style.display = 'none';
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>

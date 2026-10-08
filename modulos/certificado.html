@@ -41,7 +41,7 @@
         .header-titulo { text-align: center; flex-grow: 1; }
         .header-titulo h1 { color: var(--rojo-cr); font-size: 1.2rem; }
 
-        .contenedor { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+        .contenedor { max-width: 1200px; margin: 40px auto; padding: 0 20px; }
 
         .boton-volver {
             display: inline-block;
@@ -64,6 +64,9 @@
             border-top: 5px solid var(--rojo-cr);
             text-align: center;
             margin-bottom: 30px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .panel-nombre h2 {
@@ -128,70 +131,86 @@
             transform: scale(1.03);
         }
 
-        /* --- Certificado --- */
+        /* ═══════════════════════════════════════════
+           CERTIFICADO - CARTA HORIZONTAL
+           27.94 cm × 21.59 cm
+           ═══════════════════════════════════════════ */
         .certificado-wrapper { display: none; }
 
         .certificado {
+            width: 27.94cm;
+            height: 21.59cm;
+            margin: 0 auto;
             background: var(--blanco);
-            padding: 30px 45px;
+            padding: 18px 40px;
             border: 10px double var(--rojo-cr);
-            outline: 2px solid var(--dorado);
+            outline: 3px solid var(--dorado);
             outline-offset: 6px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.15);
             position: relative;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        /* ═══════════════════════════════════════════
-           HEADER DEL CERTIFICADO: LOGOS + FRANJA
-           ═══════════════════════════════════════════ */
+        /* ═══ HEADER: LOGOS SEPARADOS CON TÍTULO AL CENTRO ═══ */
         .cert-header {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            gap: 60px;
-            margin-bottom: 12px;
-            padding-bottom: 12px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
             border-bottom: 2px solid var(--dorado);
             position: relative;
+            gap: 20px;
         }
 
         .cert-header::after {
             content: "◆";
             position: absolute;
-            bottom: -11px;
+            bottom: -12px;
             left: 50%;
             transform: translateX(-50%);
             background: var(--blanco);
             color: var(--dorado);
-            padding: 0 10px;
+            padding: 0 12px;
             font-size: 0.9rem;
         }
 
-        .cert-header img {
-            height: 90px;
+        .cert-header .logo-lado {
+            height: 100px;
             width: auto;
+            flex-shrink: 0;
         }
 
-        /* ═══════════════════════════════════════════
-           TÍTULO
-           ═══════════════════════════════════════════ */
-        .certificado h1 {
-            font-size: 2.4rem;
+        .cert-header .titulo-header {
+            flex-grow: 1;
+            text-align: center;
+            padding: 0 10px;
+        }
+
+        .cert-header .titulo-header h1 {
+            font-size: 2rem;
             color: var(--rojo-cr);
-            letter-spacing: 8px;
-            margin-top: 18px;
-            margin-bottom: 2px;
+            letter-spacing: 7px;
+            margin: 0 0 3px 0;
             font-weight: bold;
-            text-shadow: 1px 1px 0 rgba(201, 162, 39, 0.3);
         }
 
-        .certificado .subtitulo-cert {
-            font-size: 0.85rem;
+        .cert-header .titulo-header .subtitulo-cert {
+            font-size: 0.8rem;
             color: #666;
-            letter-spacing: 10px;
-            margin-bottom: 15px;
+            letter-spacing: 8px;
             font-weight: bold;
+        }
+
+        /* Cuerpo */
+        .cert-body {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .linea-deco {
@@ -199,100 +218,96 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            margin: 8px 0 18px 0;
+            margin: 6px 0 12px 0;
         }
 
         .linea-deco::before,
         .linea-deco::after {
             content: "";
             height: 1px;
-            width: 80px;
+            width: 70px;
             background: var(--dorado);
         }
 
         .linea-deco .rombo {
             color: var(--dorado);
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
-        /* ═══════════════════════════════════════════
-           CUERPO
-           ═══════════════════════════════════════════ */
         .certificado .otorgado {
-            font-size: 1.05rem;
+            font-size: 1rem;
             color: #333;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-style: italic;
         }
 
         .certificado .nombre-estudiante {
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             color: var(--rojo-cr);
             font-style: italic;
             font-weight: bold;
             display: inline-block;
-            padding: 0 40px 6px 40px;
-            margin: 8px 0 10px 0;
+            padding: 0 40px 4px 40px;
+            margin: 6px 0 8px 0;
             border-bottom: 2px solid var(--dorado);
             min-width: 400px;
             line-height: 1.2;
         }
 
         .certificado .carnet-estudiante {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #333;
-            margin-bottom: 18px;
+            margin-bottom: 14px;
             letter-spacing: 1px;
         }
 
         .certificado .carnet-estudiante span {
             color: var(--rojo-cr);
             font-family: 'Courier New', monospace;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             font-weight: bold;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
 
         .certificado .texto-cert {
-            font-size: 1.05rem;
-            max-width: 620px;
-            margin: 0 auto 12px auto;
+            font-size: 1rem;
+            max-width: 650px;
+            margin: 0 auto 10px auto;
             color: #444;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .certificado .curso-nombre {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             color: var(--rojo-cr);
             font-weight: bold;
-            margin: 12px 0 8px 0;
+            margin: 10px 0 6px 0;
             letter-spacing: 1px;
+            line-height: 1.35;
         }
 
         .certificado .institucion {
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             color: #333;
-            margin: 10px 0;
+            margin: 6px 0;
             font-weight: bold;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .certificado .fecha {
-            font-size: 0.9rem;
+            font-size: 0.82rem;
             color: #777;
             font-style: italic;
-            margin: 18px 0 22px 0;
+            margin: 12px 0 12px 0;
         }
 
-        /* ═══════════════════════════════════════════
-           FIRMAS
-           ═══════════════════════════════════════════ */
+        /* Firmas */
         .firmas {
             display: flex;
             justify-content: center;
-            gap: 90px;
-            margin-top: 20px;
-            flex-wrap: wrap;
+            gap: 100px;
+            margin-top: 8px;
+            flex-wrap: nowrap;
         }
 
         .firma {
@@ -303,26 +318,26 @@
         .firma .linea-firma {
             border-top: 1.5px solid #333;
             margin-bottom: 6px;
-            margin-top: 40px;
+            margin-top: 35px;
         }
 
         .firma .nombre-firma {
             font-weight: bold;
             color: #333;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .firma .cargo-firma {
-            font-size: 0.82rem;
+            font-size: 0.78rem;
             color: #666;
             font-style: italic;
         }
 
         .numero-cert {
             position: absolute;
-            bottom: 15px;
-            right: 25px;
-            font-size: 0.75rem;
+            bottom: 10px;
+            right: 20px;
+            font-size: 0.7rem;
             color: #999;
             font-family: 'Courier New', monospace;
         }
@@ -335,6 +350,9 @@
             background: var(--blanco);
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .acciones h3 {
@@ -387,16 +405,16 @@
 
         footer strong { color: var(--blanco); }
 
-        /* ============ IMPRIMIR - 24cm × 19cm HORIZONTAL ============ */
+        /* ============ IMPRIMIR - CARTA HORIZONTAL ============ */
         @media print {
             @page {
-                size: 24cm 19cm;
+                size: 27.94cm 21.59cm;
                 margin: 0;
             }
 
             html, body {
-                width: 24cm !important;
-                height: 19cm !important;
+                width: 27.94cm !important;
+                height: 21.59cm !important;
                 margin: 0 !important;
                 padding: 0 !important;
                 background: #ffffff !important;
@@ -408,9 +426,9 @@
             }
 
             .contenedor {
-                max-width: 24cm !important;
-                width: 24cm !important;
-                height: 19cm !important;
+                max-width: 27.94cm !important;
+                width: 27.94cm !important;
+                height: 21.59cm !important;
                 margin: 0 !important;
                 padding: 0 !important;
                 overflow: hidden !important;
@@ -418,20 +436,20 @@
 
             .certificado-wrapper {
                 display: block !important;
-                width: 24cm !important;
-                height: 19cm !important;
+                width: 27.94cm !important;
+                height: 21.59cm !important;
                 margin: 0 !important;
                 padding: 0 !important;
             }
 
             .certificado {
-                width: 24cm !important;
-                height: 19cm !important;
+                width: 27.94cm !important;
+                height: 21.59cm !important;
                 box-sizing: border-box !important;
-                padding: 12px 30px !important;
-                border: 6px double #b30000 !important;
-                outline: 1.5px solid #c9a227 !important;
-                outline-offset: 4px;
+                padding: 15px 35px !important;
+                border: 8px double #b30000 !important;
+                outline: 2px solid #c9a227 !important;
+                outline-offset: 5px;
                 box-shadow: none !important;
                 background: #ffffff !important;
                 margin: 0 !important;
@@ -439,43 +457,41 @@
                 page-break-after: avoid !important;
                 page-break-before: avoid !important;
                 overflow: hidden !important;
+                display: flex !important;
+                flex-direction: column !important;
+                justify-content: space-between !important;
             }
 
             .cert-header {
-                gap: 45px !important;
                 margin-bottom: 8px !important;
                 padding-bottom: 8px !important;
-                border-bottom: 1px solid #c9a227 !important;
+                border-bottom: 1.5px solid #c9a227 !important;
+                gap: 15px !important;
             }
 
             .cert-header::after {
-                bottom: -8px !important;
-                font-size: 0.7rem !important;
-                padding: 0 8px !important;
+                bottom: -10px !important;
+                font-size: 0.75rem !important;
+                padding: 0 10px !important;
             }
 
-            .cert-header img {
-                height: 60px !important;
-            }
+            .cert-header .logo-lado { height: 80px !important; }
 
-            .certificado h1 {
-                font-size: 20pt !important;
-                letter-spacing: 6px !important;
-                margin-top: 10px !important;
-                margin-bottom: 1px !important;
-                text-shadow: none !important;
+            .cert-header .titulo-header h1 {
+                font-size: 17pt !important;
+                letter-spacing: 5px !important;
                 color: #b30000 !important;
+                margin-bottom: 2px !important;
             }
 
-            .certificado .subtitulo-cert {
+            .cert-header .titulo-header .subtitulo-cert {
                 font-size: 7pt !important;
-                letter-spacing: 7px !important;
-                margin-bottom: 8px !important;
+                letter-spacing: 6px !important;
                 color: #666666 !important;
             }
 
             .linea-deco {
-                margin: 5px 0 10px 0 !important;
+                margin: 4px 0 8px 0 !important;
                 gap: 8px !important;
             }
 
@@ -491,59 +507,60 @@
             }
 
             .certificado .otorgado {
-                font-size: 8.5pt !important;
+                font-size: 9pt !important;
                 margin-bottom: 4px !important;
                 color: #333333 !important;
             }
 
             .certificado .nombre-estudiante {
-                font-size: 19pt !important;
+                font-size: 20pt !important;
                 padding: 0 30px 4px 30px !important;
-                margin: 4px 0 5px 0 !important;
-                min-width: 300px !important;
+                margin: 4px 0 6px 0 !important;
+                min-width: 320px !important;
                 border-bottom: 1.5px solid #c9a227 !important;
                 color: #b30000 !important;
             }
 
             .certificado .carnet-estudiante {
-                font-size: 8pt !important;
-                margin-bottom: 8px !important;
+                font-size: 8.5pt !important;
+                margin-bottom: 10px !important;
                 color: #333333 !important;
             }
 
             .certificado .carnet-estudiante span {
-                font-size: 9pt !important;
+                font-size: 9.5pt !important;
                 color: #b30000 !important;
             }
 
             .certificado .texto-cert {
-                font-size: 8.5pt !important;
+                font-size: 9pt !important;
                 margin-bottom: 6px !important;
-                line-height: 1.3 !important;
+                line-height: 1.4 !important;
                 color: #444444 !important;
             }
 
             .certificado .curso-nombre {
                 font-size: 11pt !important;
-                margin: 6px 0 4px 0 !important;
+                margin: 8px 0 4px 0 !important;
                 color: #b30000 !important;
+                line-height: 1.3 !important;
             }
 
             .certificado .institucion {
                 font-size: 9.5pt !important;
-                margin: 5px 0 !important;
+                margin: 4px 0 !important;
                 color: #333333 !important;
             }
 
             .certificado .fecha {
                 font-size: 7.5pt !important;
-                margin: 8px 0 10px 0 !important;
+                margin: 8px 0 8px 0 !important;
                 color: #777777 !important;
             }
 
             .firmas {
-                gap: 70px !important;
-                margin-top: 10px !important;
+                gap: 90px !important;
+                margin-top: 4px !important;
             }
 
             .firma {
@@ -551,7 +568,7 @@
             }
 
             .firma .linea-firma {
-                margin-top: 30px !important;
+                margin-top: 25px !important;
                 border-top: 1px solid #333333 !important;
             }
 
@@ -566,9 +583,9 @@
             }
 
             .numero-cert {
-                font-size: 6.5pt !important;
+                font-size: 6pt !important;
                 bottom: 6px !important;
-                right: 15px !important;
+                right: 12px !important;
                 color: #999999 !important;
             }
         }
@@ -608,40 +625,45 @@
         <div class="certificado-wrapper" id="certificadoWrapper">
             <div class="certificado">
 
-                <!-- HEADER: LOGOS CENTRADOS CON LÍNEA DECORATIVA -->
+                <!-- HEADER: LOGO IZQUIERDA | TÍTULO CENTRO | LOGO DERECHA -->
                 <div class="cert-header">
-                    <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana">
-                    <img src="../img/logo-telematica.png" alt="Telemática Seccional Bolívar">
+                    <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana" class="logo-lado">
+                    
+                    <div class="titulo-header">
+                        <h1>CERTIFICADO</h1>
+                        <div class="subtitulo-cert">DE FINALIZACIÓN</div>
+                    </div>
+                    
+                    <img src="../img/logo-telematica.png" alt="Telemática Seccional Bolívar" class="logo-lado">
                 </div>
 
-                <h1>CERTIFICADO</h1>
-                <div class="subtitulo-cert">DE FINALIZACIÓN</div>
+                <div class="cert-body">
+                    <div class="linea-deco">
+                        <span class="rombo">◆</span>
+                    </div>
 
-                <div class="linea-deco">
-                    <span class="rombo">◆</span>
+                    <p class="otorgado">Se otorga el presente certificado a:</p>
+                    <div class="nombre-estudiante" id="nombreCertificado">Nombre del Estudiante</div>
+
+                    <div class="carnet-estudiante">
+                        Número de Carnet: <span id="carnetCertificado">000-000</span>
+                    </div>
+
+                    <p class="texto-cert">
+                        Por haber completado satisfactoriamente todas las etapas del
+                    </p>
+
+                    <div class="curso-nombre">
+                        Curso Nivel 1 de Telecomunicaciones<br>
+                        Radio Operador de Despacho
+                    </div>
+
+                    <p class="institucion">
+                        Cruz Roja Colombiana – Seccional Bolívar
+                    </p>
+
+                    <p class="fecha" id="fechaCertificado"></p>
                 </div>
-
-                <p class="otorgado">Se otorga el presente certificado a:</p>
-                <div class="nombre-estudiante" id="nombreCertificado">Nombre del Estudiante</div>
-
-                <div class="carnet-estudiante">
-                    Número de Carnet: <span id="carnetCertificado">000-000</span>
-                </div>
-
-                <p class="texto-cert">
-                    Por haber completado satisfactoriamente todas las etapas del
-                </p>
-
-                <div class="curso-nombre">
-                    Curso Nivel 1 de Telecomunicaciones<br>
-                    Radio Operador de Despacho
-                </div>
-
-                <p class="institucion">
-                    Cruz Roja Colombiana – Seccional Bolívar
-                </p>
-
-                <p class="fecha" id="fechaCertificado"></p>
 
                 <div class="firmas">
                     <div class="firma">

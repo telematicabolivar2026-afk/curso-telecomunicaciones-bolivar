@@ -42,12 +42,14 @@
         .resultado .mensaje { font-size: 1.1rem; color: #555; }
         .resultado.aprobado { background: #e8f5e9; border-color: var(--verde); }
         .resultado.aprobado h3, .resultado.aprobado .nota { color: var(--verde); }
-        .boton-avanzar { display: none; background: var(--verde); color: white; padding: 18px 50px; font-size: 1.2rem; font-weight: bold; text-decoration: none; border-radius: 8px; margin-top: 25px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3); animation: aparecer 0.8s ease; }
-        .boton-avanzar:hover { background: var(--verde-oscuro); transform: scale(1.08); }
+        .boton-certificado { display: none; background: var(--verde); color: white; padding: 18px 50px; font-size: 1.2rem; font-weight: bold; text-decoration: none; border-radius: 8px; margin-top: 25px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3); animation: aparecer 0.8s ease; }
+        .boton-certificado:hover { background: var(--verde-oscuro); transform: scale(1.08); box-shadow: 0 6px 15px rgba(46, 125, 50, 0.5); }
         @keyframes aparecer { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
         footer { background: #222; color: #ccc; text-align: center; padding: 25px; font-size: 0.9rem; margin-top: 50px; }
         footer strong { color: var(--blanco); }
     </style>
+    <script data-goatcounter="https://telematicabolivar.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -105,9 +107,9 @@
                 <div class="pregunta" data-correcta="d">
                     <h3>4. ¿En qué cerro está instalado el repetidor del Cuerpo de Bomberos de Cartagena?</h3>
                     <div class="opciones">
-                        <label><input type="radio" name="p4" value="a"> Cerro de la Popa</label>
-                        <label><input type="radio" name="p4" value="b"> Cerro Nutibara</label>
-                        <label><input type="radio" name="p4" value="c"> Cerro Monserrate</label>
+                        <label><input type="radio" name="p4" value="a"> Cerro Nutibara</label>
+                        <label><input type="radio" name="p4" value="b"> Cerro Monserrate</label>
+                        <label><input type="radio" name="p4" value="c"> Cerro de la Popa</label>
                         <label><input type="radio" name="p4" value="d"> Cerro de la Popa de Cartagena</label>
                     </div>
                     <div class="retro"></div>
@@ -168,9 +170,8 @@
                 <h3 id="tituloResultado">Resultado Final</h3>
                 <div class="nota" id="notaFinal">0/8</div>
                 <p class="mensaje" id="mensajeFinal"></p>
-                <a href="../modulos/modulo4.html" class="boton-avanzar" id="btnAvanzar">🎉 ¡Felicidades! Ir al Módulo 4 →</a>
+                <a href="../modulos/modulo4.html" class="boton-certificado" id="btnAvanzar">🎉 ¡Felicidades! Ir al Módulo 4 →</a>
             </div>
-
         </div>
     </main>
 
@@ -181,7 +182,6 @@
     <script>
         const respuestasCorrectas = { p1: 'b', p2: 'c', p3: 'a', p4: 'd', p5: 'c', p6: 'b', p7: 'a', p8: 'c' };
         const totalPreguntas = Object.keys(respuestasCorrectas).length;
-
         function calificar() {
             let correctas = 0, respondidas = 0;
             document.querySelectorAll('.pregunta').forEach((pregunta) => {

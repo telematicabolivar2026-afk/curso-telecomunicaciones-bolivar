@@ -49,6 +49,8 @@
         footer { background: #222; color: #ccc; text-align: center; padding: 25px; font-size: 0.9rem; margin-top: 50px; }
         footer strong { color: var(--blanco); }
     </style>
+    <script data-goatcounter="https://telematicabolivar.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -256,13 +258,8 @@
                 <h3 id="tituloResultado">Resultado Final</h3>
                 <div class="nota" id="notaFinal">0/15</div>
                 <p class="mensaje" id="mensajeFinal"></p>
-
-                <!-- 🎓 BOTÓN QUE APARECE AL APROBAR -->
-                <a href="certificado.html" class="boton-certificado" id="btnCertificado">
-                    🎓 Diligenciar mi Certificación →
-                </a>
+                <a href="certificado.html" class="boton-certificado" id="btnCertificado">🎓 Diligenciar mi Certificación →</a>
             </div>
-
         </div>
     </main>
 
@@ -276,27 +273,20 @@
             p6: 'a', p7: 'b', p8: 'c', p9: 'a', p10: 'b',
             p11: 'a', p12: 'c', p13: 'b', p14: 'a', p15: 'd'
         };
-
         const totalPreguntas = Object.keys(respuestasCorrectas).length;
-
         function calificar() {
             let correctas = 0, respondidas = 0;
-
             document.querySelectorAll('.pregunta').forEach((pregunta) => {
                 const nombre = pregunta.querySelector('input').name;
                 const seleccionada = pregunta.querySelector('input:checked');
                 const retro = pregunta.querySelector('.retro');
-
                 pregunta.classList.remove('correcta', 'incorrecta');
                 retro.classList.remove('ok', 'no');
                 retro.style.display = 'none';
-
                 if (!seleccionada) return;
                 respondidas++;
-
                 pregunta.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
                 seleccionada.parentElement.classList.add('seleccionada');
-
                 if (seleccionada.value === respuestasCorrectas[nombre]) {
                     correctas++;
                     pregunta.classList.add('correcta');
@@ -315,24 +305,16 @@
                 }
                 retro.style.display = 'block';
             });
-
-            if (respondidas === 0) {
-                alert('Por favor responde al menos una pregunta antes de calificar.');
-                return;
-            }
-
+            if (respondidas === 0) { alert('Por favor responde al menos una pregunta antes de calificar.'); return; }
             const resultado = document.getElementById('resultado');
             const nota = document.getElementById('notaFinal');
             const mensaje = document.getElementById('mensajeFinal');
             const titulo = document.getElementById('tituloResultado');
             const btnCertificado = document.getElementById('btnCertificado');
-
             nota.textContent = correctas + '/' + totalPreguntas;
             resultado.style.display = 'block';
-
             document.querySelector('.boton-calificar').style.display = 'none';
             document.getElementById('btnReiniciar').style.display = 'inline-block';
-
             if (correctas >= 12) {
                 resultado.classList.add('aprobado');
                 titulo.textContent = '🎉 ¡Aprobado!';
@@ -341,35 +323,25 @@
             } else {
                 resultado.classList.remove('aprobado');
                 titulo.textContent = '📚 Sigue intentando';
-                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/totalPreguntas)*100) + '%. Te recomendamos repasar la teoría y volver a intentarlo.';
+                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/totalPreguntas)*100) + '%. Te recomendamos repasar la teoría.';
                 btnCertificado.style.display = 'none';
             }
-
             resultado.scrollIntoView({ behavior: 'smooth' });
         }
-
         function reiniciar() {
             document.getElementById('quizForm').reset();
-
             document.querySelectorAll('.pregunta').forEach(p => {
                 p.classList.remove('correcta', 'incorrecta');
-                p.querySelectorAll('label').forEach(l => {
-                    l.classList.remove('seleccionada');
-                    l.style.borderColor = '';
-                    l.style.background = '';
-                });
+                p.querySelectorAll('label').forEach(l => { l.classList.remove('seleccionada'); l.style.borderColor = ''; l.style.background = ''; });
                 const retro = p.querySelector('.retro');
                 retro.style.display = 'none';
                 retro.classList.remove('ok', 'no');
             });
-
             document.getElementById('resultado').style.display = 'none';
             document.getElementById('resultado').classList.remove('aprobado');
             document.getElementById('btnCertificado').style.display = 'none';
-
             document.querySelector('.boton-calificar').style.display = 'inline-block';
             document.getElementById('btnReiniciar').style.display = 'none';
-
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>

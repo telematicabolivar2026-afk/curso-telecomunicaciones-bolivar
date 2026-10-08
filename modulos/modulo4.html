@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulo 4: Operación Básica | Curso Telecomunicaciones</title>
     <style>
-        :root {
-            --rojo-cr: #b30000; --rojo-oscuro: #8a0000; --verde: #2e7d32;
-            --gris-claro: #f4f6f8; --texto: #333; --blanco: #ffffff;
-        }
+        :root { --rojo-cr: #b30000; --rojo-oscuro: #8a0000; --verde: #2e7d32; --gris-claro: #f4f6f8; --texto: #333; --blanco: #ffffff; }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'Times New Roman', Times, serif; background: var(--gris-claro); color: var(--texto); line-height: 1.7; }
         header { background: var(--blanco); padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.1); flex-wrap: wrap; gap: 15px; }
@@ -16,7 +13,7 @@
         .header-titulo { text-align: center; flex-grow: 1; }
         .header-titulo h1 { color: var(--rojo-cr); font-size: 1.4rem; margin-bottom: 5px; }
         .contenedor { max-width: 900px; margin: 40px auto; padding: 0 20px; }
-        .boton-volver { display: inline-block; background: var(--rojo-cr); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-bottom: 20px; font-weight: bold; transition: background 0.3s; }
+        .boton-volver { display: inline-block; background: var(--rojo-cr); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-bottom: 20px; font-weight: bold; }
         .boton-volver:hover { background: var(--rojo-oscuro); }
         .contenido-modulo { background: var(--blanco); padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rojo-cr); }
         .contenido-modulo h2 { color: var(--rojo-cr); margin-bottom: 20px; font-size: 1.8rem; border-bottom: 2px solid #eee; padding-bottom: 10px; }
@@ -33,13 +30,15 @@
         .multimedia img { max-width: 100%; height: auto; border-radius: 8px; }
         .multimedia p { color: #666; font-size: 0.9rem; font-style: italic; margin-top: 10px; text-align: center; }
         .siguiente { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
-        .boton-siguiente { display: inline-block; background: var(--rojo-cr); color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; transition: background 0.3s, transform 0.2s; }
+        .boton-siguiente { display: inline-block; background: var(--rojo-cr); color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; }
         .boton-siguiente:hover { background: var(--rojo-oscuro); transform: scale(1.05); }
         .boton-quiz { background: var(--verde) !important; }
         .boton-quiz:hover { background: #1b5e20 !important; }
         footer { background: #222; color: #ccc; text-align: center; padding: 25px; font-size: 0.9rem; margin-top: 50px; }
         footer strong { color: var(--blanco); }
     </style>
+    <script data-goatcounter="https://telematicabolivar.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -177,7 +176,6 @@
                 <p>Figura 2. Estructura de una llamada de socorro MAYDAY (Espacio reservado para tu dibujo).</p>
             </div>
 
-            <!-- 🎧 AUDIO DEL MÓDULO 4 -->
             <div style="margin: 30px 0; padding: 20px; background: #fff3f3; border-left: 5px solid #b30000; border-radius: 0 8px 8px 0;">
                 <p style="margin-bottom: 10px; font-weight: bold; color: #b30000; font-size: 1.1rem;">🎧 Escucha la teoría completa del módulo:</p>
                 <audio controls style="width: 100%;">
@@ -187,7 +185,6 @@
                 <p style="font-size: 0.85rem; color: #777; margin-top: 8px; font-style: italic;">(Audio en proceso de grabación)</p>
             </div>
 
-            <!-- 🎥 VIDEO DEL MÓDULO 4 -->
             <div class="multimedia">
                 <video controls>
                     <source src="../video/intro-operacion.mp4" type="video/mp4">

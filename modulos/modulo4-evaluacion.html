@@ -48,6 +48,7 @@
         footer { background: #222; color: #ccc; text-align: center; padding: 25px; font-size: 0.9rem; margin-top: 50px; }
         footer strong { color: var(--blanco); }
     </style>
+    <script src="../js/firebase-progress.js"></script>
     <script data-goatcounter="https://telematicabolivar.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
 </head>
@@ -155,103 +156,4 @@
                         <label><input type="radio" name="p8" value="b"> Cambiar de frecuencia.</label>
                         <label><input type="radio" name="p8" value="c"> Repetir todo el mensaje 10 veces.</label>
                         <label><input type="radio" name="p8" value="d"> Soltar el P.T.T. y quedarse a la escucha de una posible respuesta.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="botones">
-                    <button type="button" class="boton boton-calificar" onclick="calificar()">Calificar Quiz</button>
-                    <button type="button" class="boton boton-reiniciar" id="btnReiniciar" onclick="reiniciar()">Intentar de nuevo</button>
-                </div>
-
-            </form>
-
-            <div class="resultado" id="resultado">
-                <h3 id="tituloResultado">Resultado Final</h3>
-                <div class="nota" id="notaFinal">0/8</div>
-                <p class="mensaje" id="mensajeFinal"></p>
-                <a href="../modulos/modulo5.html" class="boton-certificado" id="btnAvanzar">🎉 ¡Felicidades! Ir al Módulo 5 →</a>
-            </div>
-        </div>
-    </main>
-
-    <footer>
-        <p>&copy; 2026 <strong>Cruz Roja Colombiana - Seccional Bolívar</strong> | Curso Nivel 1 de Telecomunicaciones</p>
-    </footer>
-
-    <script>
-        const respuestasCorrectas = { p1: 'b', p2: 'c', p3: 'a', p4: 'd', p5: 'b', p6: 'a', p7: 'c', p8: 'd' };
-        const totalPreguntas = Object.keys(respuestasCorrectas).length;
-        function calificar() {
-            let correctas = 0, respondidas = 0;
-            document.querySelectorAll('.pregunta').forEach((pregunta) => {
-                const nombre = pregunta.querySelector('input').name;
-                const seleccionada = pregunta.querySelector('input:checked');
-                const retro = pregunta.querySelector('.retro');
-                pregunta.classList.remove('correcta', 'incorrecta');
-                retro.classList.remove('ok', 'no');
-                retro.style.display = 'none';
-                if (!seleccionada) return;
-                respondidas++;
-                pregunta.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
-                seleccionada.parentElement.classList.add('seleccionada');
-                if (seleccionada.value === respuestasCorrectas[nombre]) {
-                    correctas++;
-                    pregunta.classList.add('correcta');
-                    retro.classList.add('ok');
-                    retro.textContent = '✅ ¡Correcto!';
-                } else {
-                    pregunta.classList.add('incorrecta');
-                    retro.classList.add('no');
-                    retro.textContent = '❌ Incorrecto. La respuesta correcta está marcada en verde.';
-                    pregunta.querySelectorAll('input').forEach(inp => {
-                        if (inp.value === respuestasCorrectas[nombre]) {
-                            inp.parentElement.style.borderColor = '#2e7d32';
-                            inp.parentElement.style.background = '#e8f5e9';
-                        }
-                    });
-                }
-                retro.style.display = 'block';
-            });
-            if (respondidas === 0) { alert('Por favor responde al menos una pregunta antes de calificar.'); return; }
-            const resultado = document.getElementById('resultado');
-            const nota = document.getElementById('notaFinal');
-            const mensaje = document.getElementById('mensajeFinal');
-            const titulo = document.getElementById('tituloResultado');
-            const btnAvanzar = document.getElementById('btnAvanzar');
-            nota.textContent = correctas + '/' + totalPreguntas;
-            resultado.style.display = 'block';
-            document.querySelector('.boton-calificar').style.display = 'none';
-            document.getElementById('btnReiniciar').style.display = 'inline-block';
-            if (correctas >= 6) {
-                resultado.classList.add('aprobado');
-                titulo.textContent = '🎉 ¡Aprobado!';
-                mensaje.textContent = '¡Felicidades! Has aprobado el Módulo 4 con un ' + Math.round((correctas/totalPreguntas)*100) + '%.';
-                btnAvanzar.style.display = 'inline-block';
-            } else {
-                resultado.classList.remove('aprobado');
-                titulo.textContent = '📚 Sigue intentando';
-                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/totalPreguntas)*100) + '%. Te recomendamos repasar la teoría.';
-                btnAvanzar.style.display = 'none';
-            }
-            resultado.scrollIntoView({ behavior: 'smooth' });
-        }
-        function reiniciar() {
-            document.getElementById('quizForm').reset();
-            document.querySelectorAll('.pregunta').forEach(p => {
-                p.classList.remove('correcta', 'incorrecta');
-                p.querySelectorAll('label').forEach(l => { l.classList.remove('seleccionada'); l.style.borderColor = ''; l.style.background = ''; });
-                const retro = p.querySelector('.retro');
-                retro.style.display = 'none';
-                retro.classList.remove('ok', 'no');
-            });
-            document.getElementById('resultado').style.display = 'none';
-            document.getElementById('resultado').classList.remove('aprobado');
-            document.querySelector('.boton-calificar').style.display = 'inline-block';
-            document.getElementById('btnReiniciar').style.display = 'none';
-            document.getElementById('btnAvanzar').style.display = 'none';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-    </script>
-</body>
-</html>
+                    </

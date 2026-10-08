@@ -24,7 +24,6 @@
             line-height: 1.6;
         }
 
-        /* --- Encabezado del sitio --- */
         header {
             background: var(--blanco);
             padding: 15px 40px;
@@ -55,7 +54,6 @@
         }
         .boton-volver:hover { background: var(--rojo-oscuro); }
 
-        /* --- Panel de datos del estudiante --- */
         .panel-nombre {
             background: var(--blanco);
             padding: 35px;
@@ -133,7 +131,6 @@
 
         /* ═══════════════════════════════════════════
            CERTIFICADO - CARTA HORIZONTAL
-           27.94 cm × 21.59 cm
            ═══════════════════════════════════════════ */
         .certificado-wrapper { display: none; }
 
@@ -155,10 +152,12 @@
         }
 
         /* ═══ HEADER: LOGOS SEPARADOS CON TÍTULO AL CENTRO ═══ */
+        /* ✅ LOGOS BAJADOS: margin-top empuja el header hacia abajo */
         .cert-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-top: 30px;
             margin-bottom: 10px;
             padding-bottom: 10px;
             border-bottom: 2px solid var(--dorado);
@@ -205,7 +204,6 @@
             font-weight: bold;
         }
 
-        /* Cuerpo */
         .cert-body {
             flex-grow: 1;
             display: flex;
@@ -301,7 +299,6 @@
             margin: 12px 0 12px 0;
         }
 
-        /* Firmas */
         .firmas {
             display: flex;
             justify-content: center;
@@ -342,7 +339,6 @@
             font-family: 'Courier New', monospace;
         }
 
-        /* --- Botones de acción --- */
         .acciones {
             text-align: center;
             margin-top: 30px;
@@ -462,7 +458,9 @@
                 justify-content: space-between !important;
             }
 
+            /* ✅ LOGOS BAJADOS EN IMPRESIÓN */
             .cert-header {
+                margin-top: 25px !important;
                 margin-bottom: 8px !important;
                 padding-bottom: 8px !important;
                 border-bottom: 1.5px solid #c9a227 !important;
@@ -625,7 +623,6 @@
         <div class="certificado-wrapper" id="certificadoWrapper">
             <div class="certificado">
 
-                <!-- HEADER: LOGO IZQUIERDA | TÍTULO CENTRO | LOGO DERECHA -->
                 <div class="cert-header">
                     <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana" class="logo-lado">
                     

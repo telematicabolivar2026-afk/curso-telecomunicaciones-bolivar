@@ -17,7 +17,8 @@
         .boton-volver:hover { background: var(--rojo-oscuro); }
         .contenido-quiz { background: var(--blanco); padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rojo-cr); }
         .contenido-quiz h2 { color: var(--rojo-cr); margin-bottom: 10px; font-size: 1.8rem; text-align: center; }
-        .instrucciones { text-align: center; color: #666; margin-bottom: 30px; font-style: italic; }
+        .instrucciones { text-align: center; color: #666; margin-bottom: 10px; font-style: italic; }
+        .aviso-cuestionario { text-align: center; color: #888; margin-bottom: 30px; font-size: 0.85rem; font-style: italic; }
         .pregunta { background: #f9f9f9; border-left: 5px solid var(--rojo-cr); border-radius: 0 8px 8px 0; padding: 20px; margin-bottom: 25px; }
         .pregunta h3 { color: #222; font-size: 1.15rem; margin-bottom: 15px; }
         .opciones label { display: block; padding: 12px 15px; margin-bottom: 8px; background: white; border: 2px solid #ddd; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-size: 1rem; }
@@ -69,103 +70,14 @@
         <div class="contenido-quiz">
             <h2>Quiz de Evaluación</h2>
             <p class="instrucciones">Responde las 8 preguntas. Para aprobar necesitas un mínimo de 6 respuestas correctas (75%).</p>
+            <p class="aviso-cuestionario">📝 Cada intento presenta un cuestionario diferente (A, B o C) seleccionado al azar.</p>
 
-            <form id="quizForm">
+            <form id="quizForm"></form>
 
-                <div class="pregunta" data-correcta="b">
-                    <h3>1. ¿Cómo está organizado el sistema de comunicaciones de emergencia en Colombia?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p1" value="a"> Existe un sistema unificado manejado por el Ministerio de Comunicaciones.</label>
-                        <label><input type="radio" name="p1" value="b"> Cada institución posee su propio sistema independiente y funciona de manera única y exclusiva.</label>
-                        <label><input type="radio" name="p1" value="c"> Solo la Cruz Roja tiene red nacional.</label>
-                        <label><input type="radio" name="p1" value="d"> Todas las entidades comparten la misma frecuencia.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="c">
-                    <h3>2. ¿Cuál es la estación control de la Cruz Roja Colombiana en la banda de 40 metros?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p2" value="a"> HP CR 88</label>
-                        <label><input type="radio" name="p2" value="b"> HJC-555 Cartagena</label>
-                        <label><input type="radio" name="p2" value="c"> HJC-280 Bogotá</label>
-                        <label><input type="radio" name="p2" value="d"> HJW-830 Armenia</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="a">
-                    <h3>3. ¿Qué es la Red Panamericana y quién es su estación control?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p3" value="a"> Es una red en 20 metros cuya estación control es HP CR 88 en Panamá.</label>
-                        <label><input type="radio" name="p3" value="b"> Es una red en 40 metros con estación control en Bogotá.</label>
-                        <label><input type="radio" name="p3" value="c"> Es una red en VHF con control en Cartagena.</label>
-                        <label><input type="radio" name="p3" value="d"> Es una red exclusiva del Cuerpo de Bomberos.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="d">
-                    <h3>4. ¿En qué cerro está instalado el repetidor del Cuerpo de Bomberos de Cartagena?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p4" value="a"> Cerro Nutibara</label>
-                        <label><input type="radio" name="p4" value="b"> Cerro Monserrate</label>
-                        <label><input type="radio" name="p4" value="c"> Cerro de la Popa</label>
-                        <label><input type="radio" name="p4" value="d"> Cerro de la Popa de Cartagena</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="c">
-                    <h3>5. ¿Qué código usa el Cuerpo de Bomberos de Cartagena en sus comunicados?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p5" value="a"> Código "Q"</label>
-                        <label><input type="radio" name="p5" value="b"> Código Morse</label>
-                        <label><input type="radio" name="p5" value="c"> Código Nueve (9)</label>
-                        <label><input type="radio" name="p5" value="d"> Código Fonético ICAO</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="b">
-                    <h3>6. ¿Qué entidad NO hace recomendación para excluir los códigos en sus comunicados?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p6" value="a"> La Cruz Roja Colombiana</label>
-                        <label><input type="radio" name="p6" value="b"> La Defensa Civil Colombiana</label>
-                        <label><input type="radio" name="p6" value="c"> El Socorro Nacional</label>
-                        <label><input type="radio" name="p6" value="d"> Ninguna institución</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="a">
-                    <h3>7. ¿Cuáles son los grados de alerta de la red de radioaficionados?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p7" value="a"> Alerta Roja, Amarilla y Blanca</label>
-                        <label><input type="radio" name="p7" value="b"> Alerta Verde, Azul y Negra</label>
-                        <label><input type="radio" name="p7" value="c"> Alerta Alta, Media y Baja</label>
-                        <label><input type="radio" name="p7" value="d"> Alerta 1, 2 y 3</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="c">
-                    <h3>8. ¿Qué significa el Centro Regulador de Urgencias y Emergencias (CRUE)?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p8" value="a"> Es la estación control de la Cruz Roja en VHF.</label>
-                        <label><input type="radio" name="p8" value="b"> Es la estación control del Cuerpo de Bomberos.</label>
-                        <label><input type="radio" name="p8" value="c"> Es la estación control de las redes departamentales del Ministerio de Salud.</label>
-                        <label><input type="radio" name="p8" value="d"> Es la red exclusiva de la Defensa Civil.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="botones">
-                    <button type="button" class="boton boton-calificar" onclick="calificar()">Calificar Quiz</button>
-                    <button type="button" class="boton boton-reiniciar" id="btnReiniciar" onclick="reiniciar()">Intentar de nuevo</button>
-                </div>
-
-            </form>
+            <div class="botones">
+                <button type="button" class="boton boton-calificar" onclick="calificar()">Calificar Quiz</button>
+                <button type="button" class="boton boton-reiniciar" id="btnReiniciar" onclick="reiniciar()">Intentar de nuevo</button>
+            </div>
 
             <div class="resultado" id="resultado">
                 <h3 id="tituloResultado">Resultado Final</h3>
@@ -181,32 +93,106 @@
     </footer>
 
     <script>
-        const respuestasCorrectas = { p1: 'b', p2: 'c', p3: 'a', p4: 'd', p5: 'c', p6: 'b', p7: 'a', p8: 'c' };
-        const totalPreguntas = Object.keys(respuestasCorrectas).length;
+        // ============================================
+        // BANCO DE PREGUNTAS - 3 CUESTIONARIOS MÓDULO 3
+        // ============================================
+        const cuestionarios = {
+            A: [
+                { p: "¿Cómo está organizado el sistema de comunicaciones de emergencia en Colombia?", o: { a: "Existe un sistema unificado.", b: "Solo la Cruz Roja tiene red nacional.", c: "Todas comparten la misma frecuencia.", d: "Cada institución posee su propio sistema independiente y funciona de manera única y exclusiva." }, c: "d" },
+                { p: "¿Cuál es la estación control de la Cruz Roja Colombiana a nivel nacional?", o: { a: "HJC-280 Bogotá.", b: "HJC-555 Cartagena.", c: "HP CR 88 Panamá.", d: "HJW-830 Armenia." }, c: "a" },
+                { p: "¿Qué es la Red Panamericana y quién es su estación control?", o: { a: "Es una red en 40 metros con estación control en Bogotá.", b: "Es una red en 20 metros cuya estación control es HP CR 88 en Panamá.", c: "Es una red en VHF con control en Cartagena.", d: "Es una red exclusiva del Cuerpo de Bomberos." }, c: "b" },
+                { p: "¿En qué cerro está instalado el repetidor del Cuerpo de Bomberos de Cartagena?", o: { a: "Cerro Nutibara.", b: "Cerro de la Popa.", c: "Cerro Monserrate.", d: "Cerro Pan de Azúcar." }, c: "b" },
+                { p: "¿Qué código usa el Cuerpo de Bomberos de Cartagena en sus comunicados?", o: { a: "Código \"Q\".", b: "Código Morse.", c: "Código Nueve (9).", d: "Código Fonético ICAO." }, c: "c" },
+                { p: "¿Qué entidad NO hace recomendación para excluir los códigos en sus comunicados?", o: { a: "La Cruz Roja Colombiana.", b: "La Defensa Civil Colombiana.", c: "El Socorro Nacional.", d: "Ninguna institución." }, c: "b" },
+                { p: "¿Cuáles son los grados de alerta de la red de radioaficionados?", o: { a: "Alerta Roja, Amarilla y Blanca.", b: "Alerta Verde, Azul y Negra.", c: "Alerta Alta, Media y Baja.", d: "Alerta 1, 2 y 3." }, c: "a" },
+                { p: "¿Qué significa el Centro Regulador de Urgencias y Emergencias (CRUE)?", o: { a: "Es la estación control de la Cruz Roja en VHF.", b: "Es la estación control del Cuerpo de Bomberos.", c: "Es la red exclusiva de la Defensa Civil.", d: "Es la estación control de las redes departamentales del Ministerio de Salud." }, c: "d" }
+            ],
+            B: [
+                { p: "¿Cómo está organizado el sistema de comunicaciones de emergencia en Colombia?", o: { a: "Existe un sistema unificado manejado por el Ministerio de Comunicaciones.", b: "Solo la Cruz Roja tiene red nacional.", c: "Cada institución posee su propio sistema independiente y funciona de manera única y exclusiva.", d: "Todas las entidades comparten la misma frecuencia." }, c: "c" },
+                { p: "¿Cuál es la estación control de la Cruz Roja Colombiana a nivel nacional?", o: { a: "HJC-280 Bogotá.", b: "HP CR 88.", c: "HJC-555 Cartagena.", d: "HJW-830 Armenia." }, c: "a" },
+                { p: "¿Cuál es el nombre de la red internacional de la Cruz Roja que funciona en 20 metros y su estación control está en Panamá?", o: { a: "Red Nacional.", b: "Red Panamericana.", c: "Red Internacional.", d: "Red del Socorro Nacional." }, c: "b" },
+                { p: "¿Qué código usa el Cuerpo de Bomberos de Cartagena en sus comunicados?", o: { a: "Código Nueve (9).", b: "Código \"Q\".", c: "Código Morse.", d: "Código Fonético ICAO." }, c: "a" },
+                { p: "¿Cuáles son los tres grados de alerta que puede tener la red de radioaficionados?", o: { a: "Alerta Verde, Azul y Negra.", b: "Alerta Roja, Amarilla y Blanca.", c: "Alerta Alta, Media y Baja.", d: "Alerta 1, 2 y 3." }, c: "b" },
+                { p: "Según el manual, ¿qué significa el CRUE?", o: { a: "Centro Regional de Unidades de Emergencia.", b: "Central de Radio y Urgencias Estatales.", c: "Centro Regulador de Urgencias y Emergencias.", d: "Coordinación Regional de Unidades Especiales." }, c: "c" },
+                { p: "¿Qué entidad colombiana tiene una red con estaciones en las capitales departamentales y depende del Ministerio de Defensa Nacional?", o: { a: "La Cruz Roja Colombiana.", b: "El Ministerio de Salud.", c: "Los clubes de radioaficionados.", d: "La Defensa Civil Colombiana." }, c: "d" },
+                { p: "Según el manual, ¿por qué el Socorro Nacional de la Cruz Roja recomienda excluir los códigos de los comunicados?", o: { a: "Porque son muy largos.", b: "Porque no se entienden.", c: "Porque se interpretan bajo apreciaciones personales que no corresponden.", d: "Porque son obsoletos." }, c: "c" }
+            ],
+            C: [
+                { p: "En caso de una emergencia, si usted escucha las palabras 'emergencia' o 'tráfico de socorro' por radio, ¿qué debe hacer?", o: { a: "Transmitir inmediatamente su propia emergencia.", b: "Dejar de transmitir y escuchar.", c: "Cambiar de frecuencia.", d: "Apagar el equipo." }, c: "b" },
+                { p: "Según el manual, ¿qué significa la 'ALERTA AMARILLA' en la red de radioaficionados?", o: { a: "Estado de emergencia nacional.", b: "Entrenamiento.", c: "Fin de la emergencia.", d: "Prevención de un estado de emergencia." }, c: "d" },
+                { p: "Según el manual, ¿por qué el Socorro Nacional de la Cruz Roja recomienda excluir los códigos de los comunicados?", o: { a: "Porque son muy largos.", b: "Porque no se entienden.", c: "Porque se interpretan bajo apreciaciones personales que no corresponden.", d: "Porque son obsoletos." }, c: "c" },
+                { p: "Según el manual, ¿cuál es el número telefónico del Cuerpo de Bomberos de Cartagena?", o: { a: "119.", b: "112.", c: "123.", d: "911." }, c: "a" },
+                { p: "En el caso del Cuerpo de Bomberos de Cartagena, ¿dónde está instalado su repetidor?", o: { a: "En el Cerro Nutibara.", b: "En el Cerro de la Popa.", c: "En el Cerro Monserrate.", d: "En la Torre del Reloj." }, c: "b" },
+                { p: "Según el manual, ¿cuál es el principal aporte que puede hacer un radioaficionado durante un tráfico de emergencia?", o: { a: "Dar consejos y planificar la ayuda.", b: "Transmitir toda la información que tenga.", c: "Cambiar de frecuencia constantemente.", d: "Escuchar, escuchar y escuchar, sin transmitir." }, c: "d" },
+                { p: "¿Cuál es la estación control de la Defensa Civil Colombiana a nivel nacional?", o: { a: "Estación control en Bogotá.", b: "HJC-280 en Bogotá.", c: "HP CR 88 en Panamá.", d: "HJC-555 en Cartagena." }, c: "a" },
+                { p: "¿Cuál de las siguientes entidades es la encargada de atender emergencias en el perímetro del Distrito de Cartagena?", o: { a: "La Cruz Roja Colombiana.", b: "La Defensa Civil.", c: "El Cuerpo de Bomberos de Cartagena.", d: "El Ministerio de Salud." }, c: "c" }
+            ]
+        };
+
+        // ============================================
+        // SELECCIÓN ALEATORIA DEL CUESTIONARIO
+        // ============================================
+        const claves = Object.keys(cuestionarios);
+        const claveElegida = claves[Math.floor(Math.random() * claves.length)];
+        const preguntasActuales = cuestionarios[claveElegida];
+
+        console.log('📋 Cuestionario seleccionado:', claveElegida);
+
+        // ============================================
+        // RENDERIZAR LAS PREGUNTAS
+        // ============================================
+        function renderizarPreguntas() {
+            const form = document.getElementById('quizForm');
+            form.innerHTML = '';
+            preguntasActuales.forEach((preg, index) => {
+                const div = document.createElement('div');
+                div.className = 'pregunta';
+                div.dataset.correcta = preg.c;
+                let html = '<h3>' + (index + 1) + '. ' + preg.p + '</h3><div class="opciones">';
+                ['a', 'b', 'c', 'd'].forEach(letra => {
+                    html += '<label><input type="radio" name="p' + (index + 1) + '" value="' + letra + '"> ' + preg.o[letra] + '</label>';
+                });
+                html += '</div><div class="retro"></div>';
+                div.innerHTML = html;
+                form.appendChild(div);
+            });
+        }
+
+        renderizarPreguntas();
+
+        // ============================================
+        // CALIFICAR
+        // ============================================
         function calificar() {
             let correctas = 0, respondidas = 0;
-            document.querySelectorAll('.pregunta').forEach((pregunta) => {
-                const nombre = pregunta.querySelector('input').name;
-                const seleccionada = pregunta.querySelector('input:checked');
-                const retro = pregunta.querySelector('.retro');
-                pregunta.classList.remove('correcta', 'incorrecta');
+            const preguntasDOM = document.querySelectorAll('.pregunta');
+
+            preguntasDOM.forEach((preguntaDOM, index) => {
+                const seleccionada = preguntaDOM.querySelector('input:checked');
+                const retro = preguntaDOM.querySelector('.retro');
+                const correcta = preguntasActuales[index].c;
+
+                preguntaDOM.classList.remove('correcta', 'incorrecta');
                 retro.classList.remove('ok', 'no');
                 retro.style.display = 'none';
+
                 if (!seleccionada) return;
                 respondidas++;
-                pregunta.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
+
+                preguntaDOM.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
                 seleccionada.parentElement.classList.add('seleccionada');
-                if (seleccionada.value === respuestasCorrectas[nombre]) {
+
+                if (seleccionada.value === correcta) {
                     correctas++;
-                    pregunta.classList.add('correcta');
+                    preguntaDOM.classList.add('correcta');
                     retro.classList.add('ok');
                     retro.textContent = '✅ ¡Correcto!';
                 } else {
-                    pregunta.classList.add('incorrecta');
+                    preguntaDOM.classList.add('incorrecta');
                     retro.classList.add('no');
                     retro.textContent = '❌ Incorrecto. La respuesta correcta está marcada en verde.';
-                    pregunta.querySelectorAll('input').forEach(inp => {
-                        if (inp.value === respuestasCorrectas[nombre]) {
+                    preguntaDOM.querySelectorAll('input').forEach(inp => {
+                        if (inp.value === correcta) {
                             inp.parentElement.style.borderColor = '#2e7d32';
                             inp.parentElement.style.background = '#e8f5e9';
                         }
@@ -214,44 +200,64 @@
                 }
                 retro.style.display = 'block';
             });
-            if (respondidas === 0) { alert('Por favor responde al menos una pregunta antes de calificar.'); return; }
+
+            if (respondidas === 0) {
+                alert('Por favor responde al menos una pregunta antes de calificar.');
+                return;
+            }
+
             const resultado = document.getElementById('resultado');
             const nota = document.getElementById('notaFinal');
             const mensaje = document.getElementById('mensajeFinal');
             const titulo = document.getElementById('tituloResultado');
             const btnAvanzar = document.getElementById('btnAvanzar');
-            nota.textContent = correctas + '/' + totalPreguntas;
+
+            nota.textContent = correctas + '/8';
             resultado.style.display = 'block';
+
             document.querySelector('.boton-calificar').style.display = 'none';
             document.getElementById('btnReiniciar').style.display = 'inline-block';
+
             if (correctas >= 6) {
                 resultado.classList.add('aprobado');
                 titulo.textContent = '🎉 ¡Aprobado!';
-                mensaje.textContent = '¡Felicidades! Has aprobado el Módulo 3 con un ' + Math.round((correctas/totalPreguntas)*100) + '%.';
+                mensaje.textContent = '¡Felicidades! Has aprobado el Módulo 3 con un ' + Math.round((correctas/8)*100) + '%.';
                 btnAvanzar.style.display = 'inline-block';
                 guardarProgresoModulo(3);
             } else {
                 resultado.classList.remove('aprobado');
                 titulo.textContent = '📚 Sigue intentando';
-                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/totalPreguntas)*100) + '%. Te recomendamos repasar la teoría.';
+                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/8)*100) + '%. Te recomendamos repasar la teoría.';
                 btnAvanzar.style.display = 'none';
             }
+
             resultado.scrollIntoView({ behavior: 'smooth' });
         }
+
+        // ============================================
+        // REINICIAR
+        // ============================================
         function reiniciar() {
             document.getElementById('quizForm').reset();
+
             document.querySelectorAll('.pregunta').forEach(p => {
                 p.classList.remove('correcta', 'incorrecta');
-                p.querySelectorAll('label').forEach(l => { l.classList.remove('seleccionada'); l.style.borderColor = ''; l.style.background = ''; });
+                p.querySelectorAll('label').forEach(l => {
+                    l.classList.remove('seleccionada');
+                    l.style.borderColor = '';
+                    l.style.background = '';
+                });
                 const retro = p.querySelector('.retro');
                 retro.style.display = 'none';
                 retro.classList.remove('ok', 'no');
             });
+
             document.getElementById('resultado').style.display = 'none';
             document.getElementById('resultado').classList.remove('aprobado');
             document.querySelector('.boton-calificar').style.display = 'inline-block';
             document.getElementById('btnReiniciar').style.display = 'none';
             document.getElementById('btnAvanzar').style.display = 'none';
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>

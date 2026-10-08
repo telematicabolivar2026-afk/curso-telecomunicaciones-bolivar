@@ -15,119 +15,29 @@
         .contenedor { max-width: 900px; margin: 40px auto; padding: 0 20px; }
         .boton-volver { display: inline-block; background: var(--rojo-cr); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-bottom: 20px; font-weight: bold; }
         .boton-volver:hover { background: var(--rojo-oscuro); }
-        
-        .contenido-modulo {
-            background: var(--blanco);
-            padding: 50px 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-top: 5px solid var(--rojo-cr);
-            text-align: center;
-        }
-        .trofeo {
-            font-size: 5rem;
-            margin-bottom: 20px;
-            animation: flotar 3s ease-in-out infinite;
-        }
-        @keyframes flotar {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        .contenido-modulo h2 {
-            color: var(--rojo-cr);
-            margin-bottom: 25px;
-            font-size: 2rem;
-        }
-        .contenido-modulo p {
-            font-size: 1.15rem;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .mensaje-felicitacion {
-            background: linear-gradient(135deg, #fff3f3 0%, #ffffff 100%);
-            border-left: 5px solid var(--rojo-cr);
-            border-right: 5px solid var(--rojo-cr);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 30px 0;
-        }
-        .mensaje-felicitacion p {
-            font-size: 1.15rem;
-            font-style: italic;
-            color: #555;
-        }
-        .resumen-modulos {
-            background: #f9f9f9;
-            border-radius: 12px;
-            padding: 30px;
-            margin: 30px 0;
-            text-align: left;
-        }
-        .resumen-modulos h3 {
-            color: var(--rojo-cr);
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 1.3rem;
-        }
-        .resumen-modulos ul {
-            list-style: none;
-            padding: 0;
-        }
-        .resumen-modulos li {
-            padding: 12px 15px;
-            margin-bottom: 10px;
-            background: white;
-            border-left: 4px solid var(--verde);
-            border-radius: 0 6px 6px 0;
-            font-size: 1.05rem;
-        }
-        .resumen-modulos li strong {
-            color: var(--verde);
-            margin-right: 10px;
-        }
-        .instrucciones-eval {
-            background: #fff8e1;
-            border: 2px dashed #f9a825;
-            padding: 25px;
-            border-radius: 12px;
-            margin: 30px 0;
-            text-align: left;
-        }
-        .instrucciones-eval h3 {
-            color: #b30000;
-            margin-bottom: 15px;
-            text-align: center;
-            font-size: 1.3rem;
-        }
-        .instrucciones-eval ul {
-            margin-left: 20px;
-        }
-        .instrucciones-eval li {
-            margin-bottom: 8px;
-            font-size: 1.05rem;
-        }
-        .boton-evaluacion {
-            display: inline-block;
-            background: var(--rojo-cr);
-            color: white;
-            padding: 20px 60px;
-            font-size: 1.3rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 8px;
-            margin-top: 20px;
-            transition: all 0.3s;
-            box-shadow: 0 4px 10px rgba(179, 0, 0, 0.3);
-            font-family: 'Times New Roman', Times, serif;
-        }
-        .boton-evaluacion:hover {
-            background: var(--rojo-oscuro);
-            transform: scale(1.05);
-            box-shadow: 0 6px 15px rgba(179, 0, 0, 0.5);
-        }
+        .contenido-modulo { background: var(--blanco); padding: 50px 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rojo-cr); text-align: center; }
+        .trofeo { font-size: 5rem; margin-bottom: 20px; animation: flotar 3s ease-in-out infinite; }
+        @keyframes flotar { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .contenido-modulo h2 { color: var(--rojo-cr); margin-bottom: 25px; font-size: 2rem; }
+        .contenido-modulo p { font-size: 1.15rem; margin-bottom: 20px; text-align: center; }
+        .mensaje-felicitacion { background: linear-gradient(135deg, #fff3f3 0%, #ffffff 100%); border-left: 5px solid var(--rojo-cr); border-right: 5px solid var(--rojo-cr); padding: 25px; border-radius: 12px; margin: 30px 0; }
+        .mensaje-felicitacion p { font-size: 1.15rem; font-style: italic; color: #555; }
+        .resumen-modulos { background: #f9f9f9; border-radius: 12px; padding: 30px; margin: 30px 0; text-align: left; }
+        .resumen-modulos h3 { color: var(--rojo-cr); margin-bottom: 20px; text-align: center; font-size: 1.3rem; }
+        .resumen-modulos ul { list-style: none; padding: 0; }
+        .resumen-modulos li { padding: 12px 15px; margin-bottom: 10px; background: white; border-left: 4px solid var(--verde); border-radius: 0 6px 6px 0; font-size: 1.05rem; }
+        .resumen-modulos li strong { color: var(--verde); margin-right: 10px; }
+        .instrucciones-eval { background: #fff8e1; border: 2px dashed #f9a825; padding: 25px; border-radius: 12px; margin: 30px 0; text-align: left; }
+        .instrucciones-eval h3 { color: #b30000; margin-bottom: 15px; text-align: center; font-size: 1.3rem; }
+        .instrucciones-eval ul { margin-left: 20px; }
+        .instrucciones-eval li { margin-bottom: 8px; font-size: 1.05rem; }
+        .boton-evaluacion { display: inline-block; background: var(--rojo-cr); color: white; padding: 20px 60px; font-size: 1.3rem; font-weight: bold; text-decoration: none; border-radius: 8px; margin-top: 20px; transition: all 0.3s; box-shadow: 0 4px 10px rgba(179, 0, 0, 0.3); }
+        .boton-evaluacion:hover { background: var(--rojo-oscuro); transform: scale(1.05); box-shadow: 0 6px 15px rgba(179, 0, 0, 0.5); }
         footer { background: #222; color: #ccc; text-align: center; padding: 25px; font-size: 0.9rem; margin-top: 50px; }
         footer strong { color: var(--blanco); }
     </style>
+    <script data-goatcounter="https://telematicabolivar.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
 </head>
 <body>
 
@@ -171,7 +81,7 @@
                     <li>La evaluación contiene <strong>15 preguntas</strong> (3 por cada módulo).</li>
                     <li>Para aprobar necesitas un mínimo de <strong>12 respuestas correctas (80%)</strong>.</li>
                     <li>Tienes <strong>intentos ilimitados</strong>. Si no apruebas, puedes volver a intentarlo.</li>
-                    <li>Al aprobar, recibirás un <strong>certificado virtual</strong> de finalización del curso.</li>
+                    <li>Al aprobar, podrás <strong>diligenciar tu certificación</strong>.</li>
                     <li>Recuerda leer cada pregunta con calma antes de responder.</li>
                 </ul>
             </div>
@@ -190,6 +100,5 @@
     <footer>
         <p>&copy; 2026 <strong>Cruz Roja Colombiana - Seccional Bolívar</strong> | Curso Nivel 1 de Telecomunicaciones</p>
     </footer>
-
 </body>
 </html>

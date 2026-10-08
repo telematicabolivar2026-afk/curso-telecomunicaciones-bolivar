@@ -17,7 +17,8 @@
         .boton-volver:hover { background: var(--rojo-oscuro); }
         .contenido-quiz { background: var(--blanco); padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rojo-cr); }
         .contenido-quiz h2 { color: var(--rojo-cr); margin-bottom: 10px; font-size: 1.8rem; text-align: center; }
-        .instrucciones { text-align: center; color: #666; margin-bottom: 30px; font-style: italic; }
+        .instrucciones { text-align: center; color: #666; margin-bottom: 10px; font-style: italic; }
+        .aviso-cuestionario { text-align: center; color: #888; margin-bottom: 30px; font-size: 0.85rem; font-style: italic; }
         .pregunta { background: #f9f9f9; border-left: 5px solid var(--rojo-cr); border-radius: 0 8px 8px 0; padding: 20px; margin-bottom: 25px; }
         .pregunta h3 { color: #222; font-size: 1.15rem; margin-bottom: 15px; }
         .opciones label { display: block; padding: 12px 15px; margin-bottom: 8px; background: white; border: 2px solid #ddd; border-radius: 6px; cursor: pointer; transition: all 0.2s; font-size: 1rem; }
@@ -69,103 +70,14 @@
         <div class="contenido-quiz">
             <h2>Quiz de Evaluación</h2>
             <p class="instrucciones">Responde las 8 preguntas. Para aprobar necesitas un mínimo de 6 respuestas correctas (75%).</p>
+            <p class="aviso-cuestionario">📝 Cada intento presenta un cuestionario diferente (A, B o C) seleccionado al azar.</p>
 
-            <form id="quizForm">
+            <form id="quizForm"></form>
 
-                <div class="pregunta" data-correcta="b">
-                    <h3>1. ¿Qué es la comunicación?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p1" value="a"> El acto de hablar por radio únicamente.</label>
-                        <label><input type="radio" name="p1" value="b"> El acto mediante el cual establecemos relaciones con los demás e influimos sobre ellos.</label>
-                        <label><input type="radio" name="p1" value="c"> El proceso de transmitir información exclusivamente técnica.</label>
-                        <label><input type="radio" name="p1" value="d"> La capacidad de escribir mensajes largos.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="c">
-                    <h3>2. ¿Cuál de los siguientes NO es un elemento de la comunicación?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p2" value="a"> Fuente</label>
-                        <label><input type="radio" name="p2" value="b"> Emisor</label>
-                        <label><input type="radio" name="p2" value="c"> Antena</label>
-                        <label><input type="radio" name="p2" value="d"> Receptor</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="b">
-                    <h3>3. ¿Qué elemento de la comunicación convierte las ideas en una señal transmisible?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p3" value="a"> Fuente</label>
-                        <label><input type="radio" name="p3" value="b"> Emisor</label>
-                        <label><input type="radio" name="p3" value="c"> Canal</label>
-                        <label><input type="radio" name="p3" value="d"> Receptor</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="c">
-                    <h3>4. ¿Cuál es la función principal de la retroalimentación?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p4" value="a"> Aumentar la potencia de la señal.</label>
-                        <label><input type="radio" name="p4" value="b"> Seleccionar la frecuencia.</label>
-                        <label><input type="radio" name="p4" value="c"> Garantizar la comprensión del mensaje emitido.</label>
-                        <label><input type="radio" name="p4" value="d"> Amplificar el audio del equipo.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="b">
-                    <h3>5. ¿Cuáles son los requisitos que debe cumplir todo mensaje?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p5" value="a"> Ser largo, técnico y complejo.</label>
-                        <label><input type="radio" name="p5" value="b"> Credibilidad, utilidad y claridad.</label>
-                        <label><input type="radio" name="p5" value="c"> Usar palabras rebuscadas y códigos secretos.</label>
-                        <label><input type="radio" name="p5" value="d"> Ser transmitido únicamente en código Morse.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="d">
-                    <h3>6. ¿Cuál de las siguientes es una barrera en el EMISOR?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p6" value="a"> Ruido en el canal.</label>
-                        <label><input type="radio" name="p6" value="b"> Descargas eléctricas.</label>
-                        <label><input type="radio" name="p6" value="c"> Mal funcionamiento del equipo.</label>
-                        <label><input type="radio" name="p6" value="d"> Temor o inseguridad para hablar.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="c">
-                    <h3>7. ¿Cuál de las siguientes es una cualidad de una buena comunicación oral?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p7" value="a"> Hablar muy rápido para ahorrar tiempo.</label>
-                        <label><input type="radio" name="p7" value="b"> Usar palabras rebuscadas para impresionar.</label>
-                        <label><input type="radio" name="p7" value="c"> Tener seguridad en el mensaje que se transmite.</label>
-                        <label><input type="radio" name="p7" value="d"> Levantar la voz al máximo nivel.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="pregunta" data-correcta="b">
-                    <h3>8. ¿Qué significa la expresión "conectar el cerebro con la lengua"?</h3>
-                    <div class="opciones">
-                        <label><input type="radio" name="p8" value="a"> Hablar sin pensar para ser más rápido.</label>
-                        <label><input type="radio" name="p8" value="b"> Hablar con calma para articular con claridad las palabras.</label>
-                        <label><input type="radio" name="p8" value="c"> Transmitir en HF en lugar de VHF.</label>
-                        <label><input type="radio" name="p8" value="d"> Usar el código fonético ICAO.</label>
-                    </div>
-                    <div class="retro"></div>
-                </div>
-
-                <div class="botones">
-                    <button type="button" class="boton boton-calificar" onclick="calificar()">Calificar Quiz</button>
-                    <button type="button" class="boton boton-reiniciar" id="btnReiniciar" onclick="reiniciar()">Intentar de nuevo</button>
-                </div>
-
-            </form>
+            <div class="botones">
+                <button type="button" class="boton boton-calificar" onclick="calificar()">Calificar Quiz</button>
+                <button type="button" class="boton boton-reiniciar" id="btnReiniciar" onclick="reiniciar()">Intentar de nuevo</button>
+            </div>
 
             <div class="resultado" id="resultado">
                 <h3 id="tituloResultado">Resultado Final</h3>
@@ -181,32 +93,106 @@
     </footer>
 
     <script>
-        const respuestasCorrectas = { p1: 'b', p2: 'c', p3: 'b', p4: 'c', p5: 'b', p6: 'd', p7: 'c', p8: 'b' };
-        const totalPreguntas = Object.keys(respuestasCorrectas).length;
+        // ============================================
+        // BANCO DE PREGUNTAS - 3 CUESTIONARIOS
+        // ============================================
+        const cuestionarios = {
+            A: [
+                { p: "¿Qué es la comunicación?", o: { a: "El acto de hablar por radio únicamente.", b: "El acto mediante el cual establecemos relaciones con los demás e influimos sobre ellos.", c: "El proceso de transmitir información exclusivamente técnica.", d: "La capacidad de escribir mensajes largos." }, c: "b" },
+                { p: "¿Cuál de los siguientes NO es un elemento de la comunicación?", o: { a: "Fuente", b: "Emisor", c: "Antena", d: "Receptor" }, c: "c" },
+                { p: "¿Qué elemento de la comunicación convierte las ideas en una señal transmisible?", o: { a: "Fuente", b: "Emisor", c: "Canal", d: "Receptor" }, c: "b" },
+                { p: "¿Cuál es la función principal de la retroalimentación?", o: { a: "Aumentar la potencia de la señal.", b: "Seleccionar la frecuencia.", c: "Garantizar la comprensión del mensaje emitido.", d: "Amplificar el audio del equipo." }, c: "c" },
+                { p: "¿Cuáles son los requisitos que debe cumplir todo mensaje?", o: { a: "Ser largo, técnico y complejo.", b: "Credibilidad, utilidad y claridad.", c: "Usar palabras rebuscadas y códigos secretos.", d: "Ser transmitido únicamente en código Morse." }, c: "b" },
+                { p: "¿Cuál de las siguientes es una barrera en el EMISOR?", o: { a: "Ruido en el canal.", b: "Descargas eléctricas.", c: "Mal funcionamiento del equipo.", d: "Temor o inseguridad para hablar." }, c: "d" },
+                { p: "¿Cuál de las siguientes es una cualidad de una buena comunicación oral?", o: { a: "Hablar muy rápido para ahorrar tiempo.", b: "Usar palabras rebuscadas para impresionar.", c: "Tener seguridad en el mensaje que se transmite.", d: "Levantar la voz al máximo nivel." }, c: "c" },
+                { p: "¿Qué significa la expresión 'conectar el cerebro con la lengua'?", o: { a: "Hablar sin pensar para ser más rápido.", b: "Hablar con calma para articular con claridad las palabras.", c: "Transmitir en HF en lugar de VHF.", d: "Usar el código fonético ICAO." }, c: "b" }
+            ],
+            B: [
+                { p: "¿Qué es lo que caracteriza al ser humano respecto a la comunicación?", o: { a: "Que solo se comunica por radio.", b: "Que solo se comunica con palabras.", c: "Que puede convertir en comunicación todo lo que le rodea.", d: "Que no necesita comunicarse con otros." }, c: "c" },
+                { p: "¿Cuál es la función de la 'Fuente' en el proceso de comunicación?", o: { a: "Recibir el mensaje.", b: "Originar las ideas o necesidades que dan lugar al mensaje.", c: "Convertir las ideas en señal.", d: "Servir de canal entre emisor y receptor." }, c: "b" },
+                { p: "¿Cuál de los siguientes NO es un requisito del mensaje?", o: { a: "Credibilidad.", b: "Utilidad.", c: "Ambigüedad.", d: "Claridad." }, c: "c" },
+                { p: "¿En qué parte del proceso se pueden presentar barreras por 'ruido' o 'descargas eléctricas'?", o: { a: "En el canal o medio.", b: "En el emisor.", c: "En el receptor.", d: "En el mensaje." }, c: "a" },
+                { p: "¿Qué significa que un mensaje debe tener 'credibilidad'?", o: { a: "Que sea corto.", b: "Que sea muy técnico.", c: "Que sea extenso.", d: "Que sea veraz y real." }, c: "d" },
+                { p: "¿Cuál de las siguientes es una cualidad de una buena comunicación oral?", o: { a: "Hablar muy rápido para ahorrar tiempo.", b: "Tener seguridad en el mensaje que se transmite.", c: "Usar un lenguaje complicado y técnico.", d: "Gritar para que llegue más lejos." }, c: "b" },
+                { p: "Según el manual, ¿qué garantiza la retroalimentación?", o: { a: "La potencia de la señal.", b: "La duración del mensaje.", c: "La comprensión del mensaje emitido.", d: "La velocidad de transmisión." }, c: "c" },
+                { p: "¿Cuál de las siguientes es una barrera en el RECEPTOR?", o: { a: "No saber escuchar.", b: "Ruido en el canal.", c: "Estado emocional del emisor.", d: "Mal funcionamiento del equipo." }, c: "a" }
+            ],
+            C: [
+                { p: "¿Qué es el 'canal o medio' en el proceso de comunicación?", o: { a: "El contenido del mensaje.", b: "El vehículo que se utiliza para hacer llegar el mensaje al receptor.", c: "La respuesta del receptor.", d: "El origen del mensaje." }, c: "b" },
+                { p: "¿Cuál es la diferencia entre 'Fuente' y 'Emisor' según el manual?", o: { a: "Son lo mismo.", b: "La fuente es quien recibe el mensaje.", c: "El emisor recibe y la fuente transmite.", d: "La fuente origina las ideas y el emisor las convierte en señal transmisible." }, c: "d" },
+                { p: "¿Cuál de las siguientes NO es una barrera en el EMISOR?", o: { a: "Ruido en el canal.", b: "Temor o inseguridad para hablar.", c: "Bajo nivel de conocimientos del tema.", d: "Empleo inapropiado del código." }, c: "a" },
+                { p: "¿Qué significa 'conectar el cerebro con la lengua' según el manual?", o: { a: "Hablar sin pensar.", b: "Hablar con calma para articular con claridad las palabras.", c: "Hablar muy rápido.", d: "No hablar y solo escuchar." }, c: "b" },
+                { p: "La 'dificultad de comprensión' del receptor, ¿qué tipo de barrera es?", o: { a: "Barrera del emisor.", b: "Barrera del canal.", c: "Barrera del receptor.", d: "Barrera del mensaje." }, c: "c" },
+                { p: "Según el manual, ¿por qué la expresión 'Compañero' se debe evitar en las comunicaciones de la Cruz Roja?", o: { a: "Porque es muy larga.", b: "Porque es ofensiva.", c: "Porque existen niveles jerárquicos diferentes entre los usuarios.", d: "Porque no se entiende." }, c: "c" },
+                { p: "¿Cuál es una de las cualidades que debe tener un buen comunicador?", o: { a: "Ser agresivo.", b: "Usar palabras rebuscadas.", c: "Ignorar al receptor.", d: "Ser conciso y claro en sus mensajes." }, c: "d" },
+                { p: "¿Qué busca la 'retroalimentación' en el proceso comunicativo?", o: { a: "Asegurar que el mensaje llegó y fue comprendido por el receptor.", b: "Aumentar la potencia del equipo.", c: "Cambiar de frecuencia.", d: "Silenciar al emisor." }, c: "a" }
+            ]
+        };
+
+        // ============================================
+        // SELECCIÓN ALEATORIA DEL CUESTIONARIO
+        // ============================================
+        const claves = Object.keys(cuestionarios); // ['A', 'B', 'C']
+        const claveElegida = claves[Math.floor(Math.random() * claves.length)];
+        const preguntasActuales = cuestionarios[claveElegida];
+
+        console.log('📋 Cuestionario seleccionado:', claveElegida);
+
+        // ============================================
+        // RENDERIZAR LAS PREGUNTAS
+        // ============================================
+        function renderizarPreguntas() {
+            const form = document.getElementById('quizForm');
+            form.innerHTML = '';
+            preguntasActuales.forEach((preg, index) => {
+                const div = document.createElement('div');
+                div.className = 'pregunta';
+                div.dataset.correcta = preg.c;
+                let html = '<h3>' + (index + 1) + '. ' + preg.p + '</h3><div class="opciones">';
+                ['a', 'b', 'c', 'd'].forEach(letra => {
+                    html += '<label><input type="radio" name="p' + (index + 1) + '" value="' + letra + '"> ' + preg.o[letra] + '</label>';
+                });
+                html += '</div><div class="retro"></div>';
+                div.innerHTML = html;
+                form.appendChild(div);
+            });
+        }
+
+        renderizarPreguntas();
+
+        // ============================================
+        // CALIFICAR
+        // ============================================
         function calificar() {
             let correctas = 0, respondidas = 0;
-            document.querySelectorAll('.pregunta').forEach((pregunta) => {
-                const nombre = pregunta.querySelector('input').name;
-                const seleccionada = pregunta.querySelector('input:checked');
-                const retro = pregunta.querySelector('.retro');
-                pregunta.classList.remove('correcta', 'incorrecta');
+            const preguntasDOM = document.querySelectorAll('.pregunta');
+
+            preguntasDOM.forEach((preguntaDOM, index) => {
+                const seleccionada = preguntaDOM.querySelector('input:checked');
+                const retro = preguntaDOM.querySelector('.retro');
+                const correcta = preguntasActuales[index].c;
+
+                preguntaDOM.classList.remove('correcta', 'incorrecta');
                 retro.classList.remove('ok', 'no');
                 retro.style.display = 'none';
+
                 if (!seleccionada) return;
                 respondidas++;
-                pregunta.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
+
+                preguntaDOM.querySelectorAll('label').forEach(l => l.classList.remove('seleccionada'));
                 seleccionada.parentElement.classList.add('seleccionada');
-                if (seleccionada.value === respuestasCorrectas[nombre]) {
+
+                if (seleccionada.value === correcta) {
                     correctas++;
-                    pregunta.classList.add('correcta');
+                    preguntaDOM.classList.add('correcta');
                     retro.classList.add('ok');
                     retro.textContent = '✅ ¡Correcto!';
                 } else {
-                    pregunta.classList.add('incorrecta');
+                    preguntaDOM.classList.add('incorrecta');
                     retro.classList.add('no');
                     retro.textContent = '❌ Incorrecto. La respuesta correcta está marcada en verde.';
-                    pregunta.querySelectorAll('input').forEach(inp => {
-                        if (inp.value === respuestasCorrectas[nombre]) {
+                    preguntaDOM.querySelectorAll('input').forEach(inp => {
+                        if (inp.value === correcta) {
                             inp.parentElement.style.borderColor = '#2e7d32';
                             inp.parentElement.style.background = '#e8f5e9';
                         }
@@ -214,44 +200,64 @@
                 }
                 retro.style.display = 'block';
             });
-            if (respondidas === 0) { alert('Por favor responde al menos una pregunta antes de calificar.'); return; }
+
+            if (respondidas === 0) {
+                alert('Por favor responde al menos una pregunta antes de calificar.');
+                return;
+            }
+
             const resultado = document.getElementById('resultado');
             const nota = document.getElementById('notaFinal');
             const mensaje = document.getElementById('mensajeFinal');
             const titulo = document.getElementById('tituloResultado');
             const btnAvanzar = document.getElementById('btnAvanzar');
-            nota.textContent = correctas + '/' + totalPreguntas;
+
+            nota.textContent = correctas + '/8';
             resultado.style.display = 'block';
+
             document.querySelector('.boton-calificar').style.display = 'none';
             document.getElementById('btnReiniciar').style.display = 'inline-block';
+
             if (correctas >= 6) {
                 resultado.classList.add('aprobado');
                 titulo.textContent = '🎉 ¡Aprobado!';
-                mensaje.textContent = '¡Felicidades! Has aprobado el Módulo 1 con un ' + Math.round((correctas/totalPreguntas)*100) + '%.';
+                mensaje.textContent = '¡Felicidades! Has aprobado el Módulo 1 con un ' + Math.round((correctas/8)*100) + '%.';
                 btnAvanzar.style.display = 'inline-block';
                 guardarProgresoModulo(1);
             } else {
                 resultado.classList.remove('aprobado');
                 titulo.textContent = '📚 Sigue intentando';
-                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/totalPreguntas)*100) + '%. Te recomendamos repasar la teoría.';
+                mensaje.textContent = 'No has aprobado. Obtuviste un ' + Math.round((correctas/8)*100) + '%. Te recomendamos repasar la teoría.';
                 btnAvanzar.style.display = 'none';
             }
+
             resultado.scrollIntoView({ behavior: 'smooth' });
         }
+
+        // ============================================
+        // REINICIAR
+        // ============================================
         function reiniciar() {
             document.getElementById('quizForm').reset();
+
             document.querySelectorAll('.pregunta').forEach(p => {
                 p.classList.remove('correcta', 'incorrecta');
-                p.querySelectorAll('label').forEach(l => { l.classList.remove('seleccionada'); l.style.borderColor = ''; l.style.background = ''; });
+                p.querySelectorAll('label').forEach(l => {
+                    l.classList.remove('seleccionada');
+                    l.style.borderColor = '';
+                    l.style.background = '';
+                });
                 const retro = p.querySelector('.retro');
                 retro.style.display = 'none';
                 retro.classList.remove('ok', 'no');
             });
+
             document.getElementById('resultado').style.display = 'none';
             document.getElementById('resultado').classList.remove('aprobado');
             document.querySelector('.boton-calificar').style.display = 'inline-block';
             document.getElementById('btnReiniciar').style.display = 'none';
             document.getElementById('btnAvanzar').style.display = 'none';
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>

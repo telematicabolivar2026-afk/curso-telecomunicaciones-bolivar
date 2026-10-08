@@ -5,93 +5,243 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Certificado de Finalización | Curso Telecomunicaciones</title>
     <style>
-        :root { --rojo-cr: #b30000; --rojo-oscuro: #8a0000; --verde: #2e7d32; --dorado: #c9a227; --gris-claro: #f4f6f8; --texto: #333; --blanco: #ffffff; }
+        :root {
+            --rojo-cr: #b30000;
+            --rojo-oscuro: #8a0000;
+            --verde: #2e7d32;
+            --verde-oscuro: #1b5e20;
+            --dorado: #c9a227;
+            --dorado-claro: #e8c547;
+            --dorado-oscuro: #8f7318;
+            --gris-claro: #f4f6f8;
+            --texto: #333;
+            --blanco: #ffffff;
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Times New Roman', Times, serif; background: var(--gris-claro); color: var(--texto); line-height: 1.6; }
-        header { background: var(--blanco); padding: 15px 40px; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 2px 10px rgba(0,0,0,0.1); flex-wrap: wrap; gap: 15px; }
+
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background: var(--gris-claro);
+            color: var(--texto);
+            line-height: 1.6;
+        }
+
+        header {
+            background: var(--blanco);
+            padding: 15px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
         .logo-izq, .logo-der { height: 50px; width: auto; }
+
         .header-titulo { text-align: center; flex-grow: 1; }
         .header-titulo h1 { color: var(--rojo-cr); font-size: 1.2rem; }
+
         .contenedor { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
-        .boton-volver { display: inline-block; background: var(--rojo-cr); color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-bottom: 20px; font-weight: bold; }
-        .boton-volver:hover { background: var(--rojo-oscuro); }
-        .panel-nombre { background: var(--blanco); padding: 35px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-top: 5px solid var(--rojo-cr); text-align: center; margin-bottom: 30px; }
-        .panel-nombre h2 { color: var(--rojo-cr); margin-bottom: 10px; font-size: 1.6rem; }
-        .panel-nombre > p { margin-bottom: 25px; color: #666; font-size: 1.05rem; }
-        .campo-grupo { max-width: 500px; margin: 0 auto 20px auto; text-align: left; }
-        .campo-grupo label { display: block; font-weight: bold; color: var(--rojo-cr); margin-bottom: 8px; font-size: 1rem; }
-        .campo-grupo input { width: 100%; padding: 14px 20px; font-size: 1.1rem; border: 2px solid #ccc; border-radius: 8px; font-family: 'Times New Roman', Times, serif; text-align: center; transition: border-color 0.3s; }
-        .campo-grupo input:focus { outline: none; border-color: var(--rojo-cr); background: #fff9f9; }
-        .boton-generar { background: var(--rojo-cr); color: white; padding: 15px 50px; font-size: 1.1rem; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; font-family: 'Times New Roman', Times, serif; transition: background 0.3s, transform 0.2s; margin-top: 15px; }
-        .boton-generar:hover { background: var(--rojo-oscuro); transform: scale(1.03); }
-        .certificado-wrapper { display: none; }
-        .certificado { width: 27.94cm; height: 21.59cm; margin: 0 auto; background: var(--blanco); padding: 18px 40px; border: 10px double var(--rojo-cr); outline: 3px solid var(--dorado); outline-offset: 6px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); position: relative; text-align: center; display: flex; flex-direction: column; justify-content: space-between; }
-        .cert-header { display: flex; justify-content: space-between; align-items: center; margin-top: 30px; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 2px solid var(--dorado); position: relative; gap: 20px; }
-        .cert-header::after { content: "◆"; position: absolute; bottom: -12px; left: 50%; transform: translateX(-50%); background: var(--blanco); color: var(--dorado); padding: 0 12px; font-size: 0.9rem; }
-        .cert-header .logo-lado { height: 100px; width: auto; flex-shrink: 0; }
-        .cert-header .titulo-header { flex-grow: 1; text-align: center; padding: 0 10px; }
-        .cert-header .titulo-header h1 { font-size: 2rem; color: var(--rojo-cr); letter-spacing: 7px; margin: 0 0 3px 0; font-weight: bold; }
-        .cert-header .titulo-header .subtitulo-cert { font-size: 0.8rem; color: #666; letter-spacing: 8px; font-weight: bold; }
-        .cert-body { flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
-        .linea-deco { display: flex; align-items: center; justify-content: center; gap: 10px; margin: 6px 0 12px 0; }
-        .linea-deco::before, .linea-deco::after { content: ""; height: 1px; width: 70px; background: var(--dorado); }
-        .linea-deco .rombo { color: var(--dorado); font-size: 0.9rem; }
-        .certificado .otorgado { font-size: 1rem; color: #333; margin-bottom: 6px; font-style: italic; }
-        .certificado .nombre-estudiante { font-size: 2.4rem; color: var(--rojo-cr); font-style: italic; font-weight: bold; display: inline-block; padding: 0 40px 4px 40px; margin: 6px 0 8px 0; border-bottom: 2px solid var(--dorado); min-width: 400px; line-height: 1.2; }
-        .certificado .carnet-estudiante { font-size: 0.95rem; color: #333; margin-bottom: 14px; letter-spacing: 1px; }
-        .certificado .carnet-estudiante span { color: var(--rojo-cr); font-family: 'Courier New', monospace; font-size: 1.05rem; font-weight: bold; letter-spacing: 2px; }
-        .certificado .texto-cert { font-size: 1rem; max-width: 650px; margin: 0 auto 10px auto; color: #444; line-height: 1.5; }
-        .certificado .curso-nombre { font-size: 1.25rem; color: var(--rojo-cr); font-weight: bold; margin: 10px 0 6px 0; letter-spacing: 1px; line-height: 1.35; }
-        .certificado .institucion { font-size: 1.05rem; color: #333; margin: 6px 0; font-weight: bold; letter-spacing: 0.5px; }
-        .certificado .fecha { font-size: 0.82rem; color: #777; font-style: italic; margin: 12px 0 12px 0; }
-        .firmas { display: flex; justify-content: center; gap: 100px; margin-top: 8px; flex-wrap: nowrap; }
-        .firma { text-align: center; min-width: 220px; }
-        .firma .linea-firma { border-top: 1.5px solid #333; margin-bottom: 6px; margin-top: 35px; }
-        .firma .nombre-firma { font-weight: bold; color: #333; font-size: 0.9rem; }
-        .firma .cargo-firma { font-size: 0.78rem; color: #666; font-style: italic; }
-        .numero-cert { position: absolute; bottom: 10px; right: 20px; font-size: 0.7rem; color: #999; font-family: 'Courier New', monospace; }
-        .acciones { text-align: center; margin-top: 30px; padding: 25px; background: var(--blanco); border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); max-width: 900px; margin-left: auto; margin-right: auto; }
-        .acciones h3 { color: var(--rojo-cr); margin-bottom: 20px; }
-        .boton-accion { display: inline-block; padding: 15px 35px; font-size: 1.05rem; font-weight: bold; border: none; border-radius: 6px; cursor: pointer; font-family: 'Times New Roman', Times, serif; transition: all 0.3s; margin: 8px; text-decoration: none; }
-        .boton-imprimir { background: var(--rojo-cr); color: white; }
-        .boton-imprimir:hover { background: var(--rojo-oscuro); transform: scale(1.05); }
-        .boton-correo { background: var(--verde); color: white; }
-        .boton-correo:hover { background: #1b5e20; transform: scale(1.05); }
-        .boton-editar { background: #666; color: white; }
-        .boton-editar:hover { background: #444; transform: scale(1.05); }
-        .nota-correo { margin-top: 20px; padding: 15px; background: #fff8e1; border-left: 4px solid #f9a825; border-radius: 0 8px 8px 0; font-size: 0.95rem; color: #7a5c00; text-align: left; }
-        footer { background: #222; color: #ccc; text-align: center; padding: 25px; font-size: 0.9rem; margin-top: 50px; }
-        footer strong { color: var(--blanco); }
-        @media print {
-            @page { size: 27.94cm 21.59cm; margin: 0; }
-            html, body { width: 27.94cm !important; height: 21.59cm !important; margin: 0 !important; padding: 0 !important; background: #ffffff !important; overflow: hidden !important; }
-            header, footer, .boton-volver, .panel-nombre, .acciones, .nota-correo { display: none !important; }
-            .contenedor { max-width: 27.94cm !important; width: 27.94cm !important; height: 21.59cm !important; margin: 0 !important; padding: 0 !important; overflow: hidden !important; }
-            .certificado-wrapper { display: block !important; width: 27.94cm !important; height: 21.59cm !important; margin: 0 !important; padding: 0 !important; }
-            .certificado { width: 27.94cm !important; height: 21.59cm !important; box-sizing: border-box !important; padding: 15px 35px !important; border: 8px double #b30000 !important; outline: 2px solid #c9a227 !important; outline-offset: 5px; box-shadow: none !important; background: #ffffff !important; margin: 0 !important; page-break-inside: avoid !important; page-break-after: avoid !important; page-break-before: avoid !important; overflow: hidden !important; display: flex !important; flex-direction: column !important; justify-content: space-between !important; }
-            .cert-header { margin-top: 25px !important; margin-bottom: 8px !important; padding-bottom: 8px !important; border-bottom: 1.5px solid #c9a227 !important; gap: 15px !important; }
-            .cert-header::after { bottom: -10px !important; font-size: 0.75rem !important; padding: 0 10px !important; }
-            .cert-header .logo-lado { height: 80px !important; }
-            .cert-header .titulo-header h1 { font-size: 17pt !important; letter-spacing: 5px !important; color: #b30000 !important; margin-bottom: 2px !important; }
-            .cert-header .titulo-header .subtitulo-cert { font-size: 7pt !important; letter-spacing: 6px !important; color: #666666 !important; }
-            .linea-deco { margin: 4px 0 8px 0 !important; gap: 8px !important; }
-            .linea-deco::before, .linea-deco::after { width: 60px !important; background: #c9a227 !important; }
-            .linea-deco .rombo { font-size: 0.8rem !important; color: #c9a227 !important; }
-            .certificado .otorgado { font-size: 9pt !important; margin-bottom: 4px !important; color: #333333 !important; }
-            .certificado .nombre-estudiante { font-size: 20pt !important; padding: 0 30px 4px 30px !important; margin: 4px 0 6px 0 !important; min-width: 320px !important; border-bottom: 1.5px solid #c9a227 !important; color: #b30000 !important; }
-            .certificado .carnet-estudiante { font-size: 8.5pt !important; margin-bottom: 10px !important; color: #333333 !important; }
-            .certificado .carnet-estudiante span { font-size: 9.5pt !important; color: #b30000 !important; }
-            .certificado .texto-cert { font-size: 9pt !important; margin-bottom: 6px !important; line-height: 1.4 !important; color: #444444 !important; }
-            .certificado .curso-nombre { font-size: 11pt !important; margin: 8px 0 4px 0 !important; color: #b30000 !important; line-height: 1.3 !important; }
-            .certificado .institucion { font-size: 9.5pt !important; margin: 4px 0 !important; color: #333333 !important; }
-            .certificado .fecha { font-size: 7.5pt !important; margin: 8px 0 8px 0 !important; color: #777777 !important; }
-            .firmas { gap: 90px !important; margin-top: 4px !important; }
-            .firma { min-width: 190px !important; }
-            .firma .linea-firma { margin-top: 25px !important; border-top: 1px solid #333333 !important; }
-            .firma .nombre-firma { font-size: 8pt !important; color: #333333 !important; }
-            .firma .cargo-firma { font-size: 7pt !important; color: #666666 !important; }
-            .numero-cert { font-size: 6pt !important; bottom: 6px !important; right: 12px !important; color: #999999 !important; }
+
+        .boton-volver {
+            display: inline-block;
+            background: var(--rojo-cr);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            font-weight: bold;
         }
+        .boton-volver:hover { background: var(--rojo-oscuro); }
+
+        /* Panel principal de solicitud */
+        .panel-solicitud {
+            background: var(--blanco);
+            padding: 45px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--verde);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .panel-solicitud .icono {
+            font-size: 4.5rem;
+            margin-bottom: 15px;
+        }
+
+        .panel-solicitud h2 {
+            color: var(--verde);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+
+        .panel-solicitud p {
+            max-width: 700px;
+            margin: 0 auto 20px auto;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .boton-google-forms {
+            display: inline-block;
+            background: var(--verde);
+            color: white;
+            padding: 20px 60px;
+            font-size: 1.25rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 20px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 10px rgba(46, 125, 50, 0.3);
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .boton-google-forms:hover {
+            background: var(--verde-oscuro);
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(46, 125, 50, 0.5);
+        }
+
+        .info-proceso {
+            background: #f0f8f0;
+            border-left: 5px solid var(--verde);
+            padding: 20px 25px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .info-proceso h3 {
+            color: var(--verde);
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+        }
+
+        .info-proceso ol {
+            margin-left: 20px;
+        }
+
+        .info-proceso li {
+            margin-bottom: 8px;
+            color: #444;
+        }
+
+        .divisor {
+            text-align: center;
+            margin: 40px 0 30px 0;
+            position: relative;
+        }
+
+        .divisor::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .divisor span {
+            background: var(--gris-claro);
+            padding: 0 20px;
+            position: relative;
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Panel de vista previa */
+        .panel-vista-previa {
+            background: var(--blanco);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--rojo-cr);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .panel-vista-previa h3 {
+            color: var(--rojo-cr);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .panel-vista-previa p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .panel-vista-previa button {
+            background: var(--rojo-cr);
+            color: white;
+            padding: 15px 40px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Times New Roman', Times, serif;
+            transition: background 0.3s;
+        }
+
+        .panel-vista-previa button:hover { background: var(--rojo-oscuro); }
+
+        /* Vista previa del certificado */
+        .vista-previa-wrapper { display: none; margin-top: 30px; }
+
+        .vista-previa {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            background: #fdfcf7;
+            border: 3px solid var(--dorado);
+            padding: 8px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .vista-previa-interior {
+            border: 4px double var(--rojo-cr);
+            padding: 25px;
+            text-align: center;
+            background: #fdfcf7;
+        }
+
+        .vista-previa-interior h1 {
+            color: var(--rojo-cr);
+            letter-spacing: 6px;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+
+        .vista-previa-interior .sub { color: var(--dorado-oscuro); letter-spacing: 6px; font-size: 0.7rem; }
+
+        .vista-previa-nombre {
+            font-size: 1.5rem;
+            color: var(--rojo-cr);
+            font-style: italic;
+            font-weight: bold;
+            margin: 15px 0 5px 0;
+            font-family: Georgia, serif;
+        }
+
+        .vista-previa-carnet { color: var(--rojo-cr); font-family: 'Courier New', monospace; font-weight: bold; }
+
+        footer {
+            background: #222;
+            color: #ccc;
+            text-align: center;
+            padding: 25px;
+            font-size: 0.9rem;
+            margin-top: 50px;
+        }
+
+        footer strong { color: var(--blanco); }
     </style>
     <script data-goatcounter="https://telematicabolivar.goatcounter.com/count"
             async src="//gc.zgo.at/count.js"></script>
@@ -101,7 +251,7 @@
     <header>
         <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana" class="logo-izq">
         <div class="header-titulo">
-            <h1>Certificado de Finalización</h1>
+            <h1>Solicitud de Certificado</h1>
         </div>
         <img src="../img/logo-telematica.png" alt="Telemática Seccional Bolívar" class="logo-der">
     </header>
@@ -109,67 +259,67 @@
     <main class="contenedor">
         <a href="modulo6-evaluacion.html" class="boton-volver">← Volver a la Evaluación</a>
 
-        <div class="panel-nombre" id="panelNombre">
-            <h2>🎓 Diligencia tu Certificación</h2>
-            <p>Completa los siguientes datos tal como deseas que aparezcan en tu certificado.</p>
-            <div class="campo-grupo">
-                <label for="nombreInput">Nombres y Apellidos Completos:</label>
-                <input type="text" id="nombreInput" placeholder="Ej: Juan Pérez González" maxlength="60">
+        <!-- PANEL PRINCIPAL DE SOLICITUD -->
+        <div class="panel-solicitud">
+            <div class="icono">🎓</div>
+            <h2>¡Felicitaciones por completar el curso!</h2>
+            <p>Has aprobado satisfactoriamente la <strong>Evaluación Final del Curso Nivel 1 de Telecomunicaciones</strong>. Ahora puedes solicitar tu certificado oficial.</p>
+            <p>Para emitir tu certificado, completa el siguiente formulario con tus datos. Una vez verifiquemos tu información, te enviaremos el PDF a tu correo electrónico.</p>
+
+            <!-- ✅ BOTÓN CON TU ENLACE DE GOOGLE FORMS -->
+            <a href="https://forms.gle/VkcNJhtH62HwTzUn9" target="_blank" rel="noopener" class="boton-google-forms">
+                📋 Solicitar mi Certificado Oficial →
+            </a>
+
+            <div class="info-proceso">
+                <h3>📌 ¿Cómo funciona el proceso?</h3>
+                <ol>
+                    <li>Haz clic en el botón verde de arriba.</li>
+                    <li>Completa el formulario con tus datos (Nombres, Carnet, Correo).</li>
+                    <li>Recibirás un correo de confirmación de tu solicitud.</li>
+                    <li>El área de Telemática verificará tus datos.</li>
+                    <li>En un plazo de 2 a 5 días hábiles recibirás tu certificado oficial en PDF al correo registrado.</li>
+                </ol>
             </div>
-            <div class="campo-grupo">
-                <label for="carnetInput">Número de Carnet:</label>
-                <input type="text" id="carnetInput" placeholder="Ej: 05-108" maxlength="20">
-            </div>
-            <button class="boton-generar" onclick="generarCertificado()">Generar Certificado</button>
         </div>
 
-        <div class="certificado-wrapper" id="certificadoWrapper">
-            <div class="certificado">
-                <div class="cert-header">
-                    <img src="../img/logo-cruz-roja.png" alt="Cruz Roja Colombiana" class="logo-lado">
-                    <div class="titulo-header">
-                        <h1>CERTIFICADO</h1>
-                        <div class="subtitulo-cert">DE FINALIZACIÓN</div>
-                    </div>
-                    <img src="../img/logo-telematica.png" alt="Telemática Seccional Bolívar" class="logo-lado">
-                </div>
-                <div class="cert-body">
-                    <div class="linea-deco"><span class="rombo">◆</span></div>
-                    <p class="otorgado">Se otorga el presente certificado a:</p>
-                    <div class="nombre-estudiante" id="nombreCertificado">Nombre del Estudiante</div>
-                    <div class="carnet-estudiante">Número de Carnet: <span id="carnetCertificado">000-000</span></div>
-                    <p class="texto-cert">Por haber completado satisfactoriamente todas las etapas del</p>
-                    <div class="curso-nombre">Curso Nivel 1 de Telecomunicaciones<br>Radio Operador de Despacho</div>
-                    <p class="institucion">Cruz Roja Colombiana – Seccional Bolívar</p>
-                    <p class="fecha" id="fechaCertificado"></p>
-                </div>
-                <div class="firmas">
-                    <div class="firma">
-                        <div class="linea-firma"></div>
-                        <div class="nombre-firma">Director de Socorro</div>
-                        <div class="cargo-firma">Cruz Roja Colombiana – Seccional Bolívar</div>
-                    </div>
-                    <div class="firma">
-                        <div class="linea-firma"></div>
-                        <div class="nombre-firma">Pedro Ramos Herrán</div>
-                        <div class="cargo-firma">Referente de Telemática – Seccional Bolívar</div>
-                    </div>
-                </div>
-                <div class="numero-cert" id="numeroCertificado"></div>
+        <!-- DIVISOR -->
+        <div class="divisor">
+            <span>Vista previa (solo para ver cómo se verá tu certificado)</span>
+        </div>
+
+        <!-- VISTA PREVIA DEL CERTIFICADO -->
+        <div class="panel-vista-previa">
+            <h3>👁️ Vista Previa del Certificado</h3>
+            <p>Escribe tu nombre para ver cómo se verá el certificado que recibirás por correo. <strong>Esto no genera ningún certificado oficial</strong>, solo es una demostración visual.</p>
+
+            <div style="max-width: 500px; margin: 0 auto 15px auto; text-align: left;">
+                <label style="display: block; font-weight: bold; color: #b30000; margin-bottom: 8px;">Nombres y Apellidos:</label>
+                <input type="text" id="nombrePreview" placeholder="Ej: Juan Pérez González" maxlength="60" style="width: 100%; padding: 12px 20px; font-size: 1rem; border: 2px solid #ccc; border-radius: 8px; font-family: 'Times New Roman', Times, serif; text-align: center;">
+            </div>
+            <div style="max-width: 500px; margin: 0 auto 15px auto; text-align: left;">
+                <label style="display: block; font-weight: bold; color: #b30000; margin-bottom: 8px;">Número de Carnet:</label>
+                <input type="text" id="carnetPreview" placeholder="Ej: 05-108" maxlength="20" style="width: 100%; padding: 12px 20px; font-size: 1rem; border: 2px solid #ccc; border-radius: 8px; font-family: 'Times New Roman', Times, serif; text-align: center;">
             </div>
 
-            <div class="acciones">
-                <h3>¿Qué deseas hacer con tu certificado?</h3>
-                <button class="boton-accion boton-imprimir" onclick="imprimirCertificado()">🖨️ Imprimir o Guardar en PDF</button>
-                <button class="boton-accion boton-correo" onclick="enviarPorCorreo()">📧 Enviar por Correo</button>
-                <button class="boton-accion boton-editar" onclick="editarDatos()">✏️ Editar mis datos</button>
-                <div class="nota-correo">
-                    <strong>💡 Nota sobre el correo:</strong> Al hacer clic en "Enviar por Correo", se abrirá tu programa de correo con un mensaje preparado. Como los navegadores no pueden adjuntar archivos automáticamente por seguridad, deberás:
-                    <ol style="margin-left: 20px; margin-top: 8px;">
-                        <li>Primero, guarda el certificado como PDF con el botón "Imprimir o Guardar en PDF".</li>
-                        <li>Luego, en el correo que se abre, adjunta el PDF manualmente y envíalo al destinatario que desees.</li>
-                    </ol>
+            <button onclick="mostrarPreview()">Ver Vista Previa</button>
+
+            <div class="vista-previa-wrapper" id="vistaPreviewWrapper">
+                <div class="vista-previa">
+                    <div class="vista-previa-interior">
+                        <h1>CERTIFICADO</h1>
+                        <div class="sub">DE FINALIZACIÓN</div>
+                        <p style="margin-top: 15px; font-style: italic; color: #555; font-size: 0.9rem;">Se otorga el presente certificado a:</p>
+                        <div class="vista-previa-nombre" id="nombrePreviewMostrar">Nombre del Estudiante</div>
+                        <p style="color: #333; font-size: 0.85rem;">Número de Carnet: <span class="vista-previa-carnet" id="carnetPreviewMostrar">000-000</span></p>
+                        <p style="margin-top: 20px; font-style: italic; color: #555; font-size: 0.9rem;">Por haber completado satisfactoriamente todas las etapas del</p>
+                        <p style="color: #b30000; font-weight: bold; margin: 10px 0; font-size: 1.05rem;">Curso Nivel 1 de Telecomunicaciones<br>Radio Operador de Despacho</p>
+                        <p style="font-weight: bold; color: #333; font-size: 0.9rem;">Cruz Roja Colombiana – Seccional Bolívar</p>
+                    </div>
                 </div>
+                <p style="margin-top: 20px; color: #666; font-style: italic; font-size: 0.9rem;">
+                    ⚠️ Este es solo un ejemplo. El certificado oficial que recibirás por correo tendrá el diseño completo con sellos, firmas y número de certificado.
+                </p>
             </div>
         </div>
     </main>
@@ -179,52 +329,16 @@
     </footer>
 
     <script>
-        function generarCertificado() {
-            const nombre = document.getElementById('nombreInput').value.trim();
-            const carnet = document.getElementById('carnetInput').value.trim();
-            if (nombre === '') { alert('Por favor escribe tus Nombres y Apellidos completos.'); document.getElementById('nombreInput').focus(); return; }
-            if (carnet === '') { alert('Por favor escribe tu Número de Carnet.'); document.getElementById('carnetInput').focus(); return; }
-            document.getElementById('nombreCertificado').textContent = nombre;
-            document.getElementById('carnetCertificado').textContent = carnet;
-            const hoy = new Date();
-            const opciones = { year: 'numeric', month: 'long', day: 'numeric' };
-            const fechaTexto = hoy.toLocaleDateString('es-CO', opciones);
-            document.getElementById('fechaCertificado').textContent = 'Expedido en Cartagena de Indias, Colombia, el ' + fechaTexto;
-            const año = hoy.getFullYear();
-            const mes = String(hoy.getMonth() + 1).padStart(2, '0');
-            const dia = String(hoy.getDate()).padStart(2, '0');
-            const random = Math.floor(Math.random() * 9000) + 1000;
-            const numCert = 'CRB-' + año + mes + dia + '-' + random;
-            document.getElementById('numeroCertificado').textContent = 'N° de Certificado: ' + numCert;
-            document.getElementById('panelNombre').style.display = 'none';
-            document.getElementById('certificadoWrapper').style.display = 'block';
-            localStorage.setItem('nombreEstudiante', nombre);
-            localStorage.setItem('carnetEstudiante', carnet);
-            localStorage.setItem('numCertificado', numCert);
-            localStorage.setItem('fechaCertificado', fechaTexto);
-            document.getElementById('certificadoWrapper').scrollIntoView({ behavior: 'smooth' });
+        function mostrarPreview() {
+            const nombre = document.getElementById('nombrePreview').value.trim();
+            const carnet = document.getElementById('carnetPreview').value.trim();
+            if (nombre === '') { alert('Escribe un nombre para la vista previa.'); return; }
+            if (carnet === '') { alert('Escribe un número de carnet para la vista previa.'); return; }
+            document.getElementById('nombrePreviewMostrar').textContent = nombre;
+            document.getElementById('carnetPreviewMostrar').textContent = carnet;
+            document.getElementById('vistaPreviewWrapper').style.display = 'block';
+            document.getElementById('vistaPreviewWrapper').scrollIntoView({ behavior: 'smooth' });
         }
-        function imprimirCertificado() { window.print(); }
-        function enviarPorCorreo() {
-            const nombre = document.getElementById('nombreCertificado').textContent;
-            const carnet = document.getElementById('carnetCertificado').textContent;
-            const numCert = document.getElementById('numeroCertificado').textContent;
-            const fecha = document.getElementById('fechaCertificado').textContent;
-            const asunto = encodeURIComponent('Certificado Curso Nivel 1 de Telecomunicaciones - Cruz Roja Bolívar');
-            const cuerpo = encodeURIComponent('Hola,\n\nAdjunto el certificado del Curso Nivel 1 de Telecomunicaciones - Radio Operador de Despacho.\n\nDatos del certificado:\n- Nombre: ' + nombre + '\n- Carnet: ' + carnet + '\n- ' + numCert + '\n- ' + fecha + '\n\nRecuerda: debes adjuntar manualmente el PDF que guardaste con el botón "Imprimir o Guardar en PDF".\n\nAtentamente,\nCruz Roja Colombiana - Seccional Bolívar\nÁrea de Telemática');
-            window.location.href = 'mailto:?subject=' + asunto + '&body=' + cuerpo;
-        }
-        function editarDatos() {
-            document.getElementById('certificadoWrapper').style.display = 'none';
-            document.getElementById('panelNombre').style.display = 'block';
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-        window.addEventListener('DOMContentLoaded', () => {
-            const nombreGuardado = localStorage.getItem('nombreEstudiante');
-            const carnetGuardado = localStorage.getItem('carnetEstudiante');
-            if (nombreGuardado) document.getElementById('nombreInput').value = nombreGuardado;
-            if (carnetGuardado) document.getElementById('carnetInput').value = carnetGuardado;
-        });
     </script>
 </body>
 </html>

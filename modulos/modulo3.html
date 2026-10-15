@@ -27,6 +27,9 @@
         .multimedia { text-align: center; margin: 30px 0; padding: 20px; background: #f9f9f9; border: 2px dashed #ccc; border-radius: 8px; }
         .multimedia img { max-width: 100%; height: auto; border-radius: 8px; }
         .multimedia p { color: #666; font-size: 0.9rem; font-style: italic; margin-top: 10px; text-align: center; }
+        /* Estilos para el iframe responsivo de YouTube */
+        .video-container { position: relative; width: 100%; padding-bottom: 56.25%; /* Relación 16:9 */ height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         .siguiente { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
         .boton-siguiente { display: inline-block; background: var(--rojo-cr); color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; }
         .boton-siguiente:hover { background: var(--rojo-oscuro); transform: scale(1.05); }
@@ -189,6 +192,7 @@
                 <p>Figura 2. Organización de los subsistemas de comunicación en Colombia (Espacio reservado para tu dibujo).</p>
             </div>
 
+            <!-- 🎧 AUDIO DEL MÓDULO 3 -->
             <div style="margin: 30px 0; padding: 20px; background: #fff3f3; border-left: 5px solid #b30000; border-radius: 0 8px 8px 0;">
                 <p style="margin-bottom: 10px; font-weight: bold; color: #b30000; font-size: 1.1rem;">🎧 Escucha la teoría completa del módulo:</p>
                 <audio controls style="width: 100%;">
@@ -198,12 +202,16 @@
                 <p style="font-size: 0.85rem; color: #777; margin-top: 8px; font-style: italic;">(Audio en proceso de grabación)</p>
             </div>
 
+            <!-- 🎥 VIDEO DEL MÓDULO 3 - YOUTUBE -->
             <div class="multimedia">
-                <video controls>
-                    <source src="../video/intro-subsistemas.mp4" type="video/mp4">
-                    Tu navegador no soporta la etiqueta de video.
-                </video>
-                <p>Video 1. Introducción a los subsistemas de comunicación (Espacio reservado).</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/ikofrgatEpE" 
+                            title="Introducción a los Subsistemas de Comunicación" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <p>Video 1. Introducción a los subsistemas de comunicación.</p>
             </div>
 
             <div class="siguiente">

@@ -29,6 +29,9 @@
         .multimedia { text-align: center; margin: 30px 0; padding: 20px; background: #f9f9f9; border: 2px dashed #ccc; border-radius: 8px; }
         .multimedia img { max-width: 100%; height: auto; border-radius: 8px; }
         .multimedia p { color: #666; font-size: 0.9rem; font-style: italic; margin-top: 10px; text-align: center; }
+        /* Estilos para el iframe responsivo de YouTube */
+        .video-container { position: relative; width: 100%; padding-bottom: 56.25%; /* Relación 16:9 */ height: 0; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         .siguiente { text-align: center; margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; }
         .boton-siguiente { display: inline-block; background: var(--rojo-cr); color: white; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-size: 1.1rem; font-weight: bold; }
         .boton-siguiente:hover { background: var(--rojo-oscuro); transform: scale(1.05); }
@@ -61,7 +64,7 @@
 
             <h3>4.1 Usos de los Subsistemas y Normas Generales</h3>
 
-            <p>La operación de las redes debe ser en <strong>lenguaje claro y preciso</strong>, utilizando el idioma español. Hay temas que están PROHIBIDOS o tienen RESTRICCIONES, las cuales encontraremos en los decretos dictados por el Ministerio de Comunicaciones.</p>
+            <p>La operación de las redes debe ser en <strong>lenguaje claro y preciso</strong>, utilizando el idioma español. Hay temas que están PROHIBIDOS o tienen RESTRICCIONES, las cuales encontraremos en los decretos dictados por el Ministerio de las Tecnologías de la Información y las Comunicaciones de Colombia, MinTIC.</p>
 
             <p>Antes de hacer uso del canal, <strong>escuche primero</strong> para no hacerlo cuando otra estación está haciendo uso del mismo. Es recomendable revisar el control de volumen antes de llamar, para estar seguro de que se está escuchando bien.</p>
 
@@ -97,7 +100,7 @@
                     <li>Deje que el repetidor cumpla su trabajo, activando y desactivando el sistema.</li>
                     <li>Los cambios deben ser lo más cortos posible.</li>
                     <li>No utilice la frecuencia del repetidor innecesariamente.</li>
-                    <li>Tenga mucha precaución en la manera de hablar y en el contenido de los mensajes, puesto que no solamente están las estaciones de la red, sino también la estación monitora del Ministerio de Comunicaciones.</li>
+                    <li>Tenga mucha precaución en la manera de hablar y en el contenido de los mensajes, puesto que no solamente están las estaciones de la red, sino también la estación monitora del Ministerio de las Tecnologías de la Información y las Comunicaciones de Colombia, MinTIC.</li>
                     <li>En canales de enlace nacionales, espere a que "golpeen" los repetidores que hacen parte del circuito de enlace.</li>
                     <li>Para probar y ajustar equipos, se debe utilizar frecuencias en simple y no olvidar identificarse, en caso de no disponer de carga fantasma.</li>
                 </ul>
@@ -176,6 +179,7 @@
                 <p>Figura 2. Estructura de una llamada de socorro MAYDAY (Espacio reservado para tu dibujo).</p>
             </div>
 
+            <!-- 🎧 AUDIO DEL MÓDULO 4 -->
             <div style="margin: 30px 0; padding: 20px; background: #fff3f3; border-left: 5px solid #b30000; border-radius: 0 8px 8px 0;">
                 <p style="margin-bottom: 10px; font-weight: bold; color: #b30000; font-size: 1.1rem;">🎧 Escucha la teoría completa del módulo:</p>
                 <audio controls style="width: 100%;">
@@ -185,12 +189,16 @@
                 <p style="font-size: 0.85rem; color: #777; margin-top: 8px; font-style: italic;">(Audio en proceso de grabación)</p>
             </div>
 
+            <!-- 🎥 VIDEO DEL MÓDULO 4 - YOUTUBE -->
             <div class="multimedia">
-                <video controls>
-                    <source src="../video/intro-operacion.mp4" type="video/mp4">
-                    Tu navegador no soporta la etiqueta de video.
-                </video>
-                <p>Video 1. Demostración de operación básica de un equipo de radio (Espacio reservado).</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/4MqCEmRBbSM" 
+                            title="Introducción a la Operación Básica de un Equipo de Radio" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <p>Video 1. Introducción a la operación básica de un equipo de radio.</p>
             </div>
 
             <div class="siguiente">
